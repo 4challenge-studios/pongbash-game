@@ -1,0 +1,390 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D16BB1FA1E43917700A2BE0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16BB1F91E43917700A2BE0B /* AppDelegate.swift */; };
+		D16BB1FC1E43917700A2BE0B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D16BB1FB1E43917700A2BE0B /* GameScene.sks */; };
+		D16BB1FE1E43917700A2BE0B /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = D16BB1FD1E43917700A2BE0B /* Actions.sks */; };
+		D16BB2001E43917700A2BE0B /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D16BB1FF1E43917700A2BE0B /* Game.xcassets */; };
+		D16BB2021E43917700A2BE0B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16BB2011E43917700A2BE0B /* GameScene.swift */; };
+		D16BB2041E43917700A2BE0B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16BB2031E43917700A2BE0B /* GameViewController.swift */; };
+		D16BB2071E43917700A2BE0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D16BB2051E43917700A2BE0B /* Main.storyboard */; };
+		D16BB2091E43917700A2BE0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D16BB2081E43917700A2BE0B /* Assets.xcassets */; };
+		FBA3B3463588886C6473A21E /* Pods_pongball.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8E24F1664AD5174D4BABB5 /* Pods_pongball.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2725AB485C07487854E5A6AC /* Pods-pongball.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pongball.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pongball/Pods-pongball.debug.xcconfig"; sourceTree = "<group>"; };
+		42C18ADB95DE28E519BC97DE /* Pods-pongball.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pongball.release.xcconfig"; path = "Pods/Target Support Files/Pods-pongball/Pods-pongball.release.xcconfig"; sourceTree = "<group>"; };
+		6F8E24F1664AD5174D4BABB5 /* Pods_pongball.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pongball.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D16BB1F61E43917700A2BE0B /* pongball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pongball.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D16BB1F91E43917700A2BE0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D16BB1FB1E43917700A2BE0B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		D16BB1FD1E43917700A2BE0B /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		D16BB1FF1E43917700A2BE0B /* Game.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Game.xcassets; sourceTree = "<group>"; };
+		D16BB2011E43917700A2BE0B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		D16BB2031E43917700A2BE0B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		D16BB2061E43917700A2BE0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D16BB2081E43917700A2BE0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D16BB20A1E43917700A2BE0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D16BB1F31E43917600A2BE0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBA3B3463588886C6473A21E /* Pods_pongball.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		793A9F457DD72762FB7D8E74 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F8E24F1664AD5174D4BABB5 /* Pods_pongball.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D16BB1ED1E43917600A2BE0B = {
+			isa = PBXGroup;
+			children = (
+				D16BB1F81E43917700A2BE0B /* pongball */,
+				D16BB1F71E43917700A2BE0B /* Products */,
+				E96726BC0D42576A6B1E5725 /* Pods */,
+				793A9F457DD72762FB7D8E74 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D16BB1F71E43917700A2BE0B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D16BB1F61E43917700A2BE0B /* pongball.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D16BB1F81E43917700A2BE0B /* pongball */ = {
+			isa = PBXGroup;
+			children = (
+				D16BB1F91E43917700A2BE0B /* AppDelegate.swift */,
+				D16BB1FB1E43917700A2BE0B /* GameScene.sks */,
+				D16BB1FD1E43917700A2BE0B /* Actions.sks */,
+				D16BB1FF1E43917700A2BE0B /* Game.xcassets */,
+				D16BB2011E43917700A2BE0B /* GameScene.swift */,
+				D16BB2031E43917700A2BE0B /* GameViewController.swift */,
+				D16BB2051E43917700A2BE0B /* Main.storyboard */,
+				D16BB2081E43917700A2BE0B /* Assets.xcassets */,
+				D16BB20A1E43917700A2BE0B /* Info.plist */,
+			);
+			path = pongball;
+			sourceTree = "<group>";
+		};
+		E96726BC0D42576A6B1E5725 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2725AB485C07487854E5A6AC /* Pods-pongball.debug.xcconfig */,
+				42C18ADB95DE28E519BC97DE /* Pods-pongball.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D16BB1F51E43917600A2BE0B /* pongball */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D16BB20D1E43917700A2BE0B /* Build configuration list for PBXNativeTarget "pongball" */;
+			buildPhases = (
+				32F80980E460C97FC1493502 /* [CP] Check Pods Manifest.lock */,
+				D16BB1F21E43917600A2BE0B /* Sources */,
+				D16BB1F31E43917600A2BE0B /* Frameworks */,
+				D16BB1F41E43917600A2BE0B /* Resources */,
+				0F5FE3B5334AFB30D48FE719 /* [CP] Embed Pods Frameworks */,
+				C45AEC82DA69E02AA14B8251 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pongball;
+			productName = pongball;
+			productReference = D16BB1F61E43917700A2BE0B /* pongball.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D16BB1EE1E43917600A2BE0B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = matheusmcardoso;
+				TargetAttributes = {
+					D16BB1F51E43917600A2BE0B = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = FWD9V5VYJ2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D16BB1F11E43917600A2BE0B /* Build configuration list for PBXProject "pongball" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D16BB1ED1E43917600A2BE0B;
+			productRefGroup = D16BB1F71E43917700A2BE0B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D16BB1F51E43917600A2BE0B /* pongball */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D16BB1F41E43917600A2BE0B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D16BB1FC1E43917700A2BE0B /* GameScene.sks in Resources */,
+				D16BB1FE1E43917700A2BE0B /* Actions.sks in Resources */,
+				D16BB2001E43917700A2BE0B /* Game.xcassets in Resources */,
+				D16BB2071E43917700A2BE0B /* Main.storyboard in Resources */,
+				D16BB2091E43917700A2BE0B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F5FE3B5334AFB30D48FE719 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pongball/Pods-pongball-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		32F80980E460C97FC1493502 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C45AEC82DA69E02AA14B8251 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pongball/Pods-pongball-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D16BB1F21E43917600A2BE0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D16BB2021E43917700A2BE0B /* GameScene.swift in Sources */,
+				D16BB2041E43917700A2BE0B /* GameViewController.swift in Sources */,
+				D16BB1FA1E43917700A2BE0B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D16BB2051E43917700A2BE0B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D16BB2061E43917700A2BE0B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D16BB20B1E43917700A2BE0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+			};
+			name = Debug;
+		};
+		D16BB20C1E43917700A2BE0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D16BB20E1E43917700A2BE0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2725AB485C07487854E5A6AC /* Pods-pongball.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = FWD9V5VYJ2;
+				INFOPLIST_FILE = pongball/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmcardoso.pongball;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D16BB20F1E43917700A2BE0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42C18ADB95DE28E519BC97DE /* Pods-pongball.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = FWD9V5VYJ2;
+				INFOPLIST_FILE = pongball/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmcardoso.pongball;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D16BB1F11E43917600A2BE0B /* Build configuration list for PBXProject "pongball" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D16BB20B1E43917700A2BE0B /* Debug */,
+				D16BB20C1E43917700A2BE0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D16BB20D1E43917700A2BE0B /* Build configuration list for PBXNativeTarget "pongball" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D16BB20E1E43917700A2BE0B /* Debug */,
+				D16BB20F1E43917700A2BE0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D16BB1EE1E43917600A2BE0B /* Project object */;
+}
