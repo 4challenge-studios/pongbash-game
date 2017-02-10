@@ -12,21 +12,27 @@ import SpriteKit
 class BallNode : SKNode {
     
     var sprite: SKSpriteNode!
-    let ballSize = CGFloat(25.0)
-    var color = "Orange"
+    let ballSize = CGFloat(15.0)
+    var color: UIColor = .orange {
+        didSet {
+            setupSprite()
+        }
+    }
+    
     override init() {
-        
         super.init()
         setupSprite()
         setupPhysicsBody()
     }
     
     
-    func setupSprite() {
+    private func setupSprite() {
+        
+        if((sprite) != nil) { sprite.removeFromParent() }
         
         // create shape
         let shape = SKShapeNode(circleOfRadius: self.ballSize)
-        shape.fillColor = SKColor.orange
+        shape.fillColor = color
         
         // assign sprite from shape
         self.sprite = SKSpriteNode(texture: shape.texture())
@@ -35,18 +41,21 @@ class BallNode : SKNode {
         self.addChild(self.sprite)
     }
     
-    func setupPhysicsBody() {
+    private func setupPhysicsBody() {
         
         //self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 100.0, height: 20.0))
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.ballSize)
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.restitution = 1
         self.physicsBody?.isDynamic = true
+        self.physicsBody?.linearDamping = 0//reduce linear velocity
+        self.physicsBody?.angularDamping = 0//reduce angular velocity
         self.physicsBody?.friction = 0
         self.physicsBody?.categoryBitMask = 0b10
         self.physicsBody?.collisionBitMask = 0b01
         self.physicsBody?.fieldBitMask = 0b0
         self.physicsBody?.contactTestBitMask = 0b01
+        //self.physicsBody?.
     }
     
     

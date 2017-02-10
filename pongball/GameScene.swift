@@ -24,9 +24,11 @@ class GameScene: SKScene {
         //spaw balls
         self.balls = [BallNode(),BallNode(),BallNode(),BallNode()]
         //impulse balls and add in scene
+        let ballColors:[UIColor] = [.red,.blue,.orange,.purple]
         for i in 0..<self.balls.count {
             self.addChild(balls[i])
-            balls[i].physicsBody?.applyImpulse(CGVector(dx: 40*i, dy: 40*i))
+            balls[i].color = ballColors[i]
+            balls[i].physicsBody?.applyImpulse(CGVector(dx: 40, dy: 40))
         }
         //end impulse
         //test border
