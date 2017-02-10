@@ -16,19 +16,19 @@ enum ControllerButton {
 }
 
 protocol ControllerDelegate {
-    func didPress(button: ControllerButton)
-    func didRelease(button: ControllerButton)
+    func Controller(_ controller: Controller, didPressButton button: ControllerButton)
+    func Controller(_ controller: Controller, didReleaseButton button: ControllerButton)
 }
 
 extension ControllerDelegate {
-    func didPress(button: ControllerButton) {}
-    func didRelease(button: ControllerButton) {}
+    func Controller(_ controller: Controller, didPressButton button: ControllerButton) {}
+    func Controller(_ controller: Controller, didReleaseButton button: ControllerButton) {}
 }
 
 class Controller {
     var id: String = ""
     
-    var delegate: ControllerDelegate?
+    lazy var delegate: ControllerDelegate? = nil
 }
 
 class ControllerManager: MultipeerDelegate {

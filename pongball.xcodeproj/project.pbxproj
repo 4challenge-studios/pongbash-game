@@ -10,6 +10,8 @@
 		6A45A56E1E4D724700212AA1 /* MultipeerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A45A56D1E4D724700212AA1 /* MultipeerManager.swift */; };
 		D16045311E4DE6CE0007B4B7 /* SKNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10909471E49EC76007AE92C /* SKNode+Extensions.swift */; };
 		D16045331E4DE8DC0007B4B7 /* ControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16045321E4DE8DC0007B4B7 /* ControllerManager.swift */; };
+		D16045381E4DF0610007B4B7 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16045371E4DF0610007B4B7 /* Updatable.swift */; };
+		D160453A1E4DF5B70007B4B7 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16045391E4DF5B70007B4B7 /* CGPoint+Extensions.swift */; };
 		D16BB1FA1E43917700A2BE0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16BB1F91E43917700A2BE0B /* AppDelegate.swift */; };
 		D16BB2001E43917700A2BE0B /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D16BB1FF1E43917700A2BE0B /* Game.xcassets */; };
 		D16BB2021E43917700A2BE0B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16BB2011E43917700A2BE0B /* GameScene.swift */; };
@@ -27,6 +29,8 @@
 		6F8E24F1664AD5174D4BABB5 /* Pods_pongball.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pongball.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10909471E49EC76007AE92C /* SKNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Extensions.swift"; sourceTree = "<group>"; };
 		D16045321E4DE8DC0007B4B7 /* ControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerManager.swift; sourceTree = "<group>"; };
+		D16045371E4DF0610007B4B7 /* Updatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
+		D16045391E4DF5B70007B4B7 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		D16BB1F61E43917700A2BE0B /* pongball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pongball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16BB1F91E43917700A2BE0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D16BB1FF1E43917700A2BE0B /* Game.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Game.xcassets; sourceTree = "<group>"; };
@@ -62,8 +66,17 @@
 			isa = PBXGroup;
 			children = (
 				D10909471E49EC76007AE92C /* SKNode+Extensions.swift */,
+				D16045391E4DF5B70007B4B7 /* CGPoint+Extensions.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		D16045361E4DF0430007B4B7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D16045371E4DF0610007B4B7 /* Updatable.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		D16BB1ED1E43917600A2BE0B = {
@@ -87,6 +100,7 @@
 		D16BB1F81E43917700A2BE0B /* pongball */ = {
 			isa = PBXGroup;
 			children = (
+				D16045361E4DF0430007B4B7 /* Protocols */,
 				D10909491E49F037007AE92C /* Extensions */,
 				D19EB3B91E44B20200C44DEA /* Nodes */,
 				D16BB1F91E43917700A2BE0B /* AppDelegate.swift */,
@@ -247,6 +261,8 @@
 				D16BB2021E43917700A2BE0B /* GameScene.swift in Sources */,
 				D19EB3BB1E44B23F00C44DEA /* Paddle.swift in Sources */,
 				D16BB2041E43917700A2BE0B /* GameViewController.swift in Sources */,
+				D160453A1E4DF5B70007B4B7 /* CGPoint+Extensions.swift in Sources */,
+				D16045381E4DF0610007B4B7 /* Updatable.swift in Sources */,
 				D16BB1FA1E43917700A2BE0B /* AppDelegate.swift in Sources */,
 				6A45A56E1E4D724700212AA1 /* MultipeerManager.swift in Sources */,
 				D16045311E4DE6CE0007B4B7 /* SKNode+Extensions.swift in Sources */,
