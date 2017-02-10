@@ -168,7 +168,7 @@
 				TargetAttributes = {
 					D16BB1F51E43917600A2BE0B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = FWD9V5VYJ2;
+						DevelopmentTeam = FWWR7T5N68;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -382,7 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = FWD9V5VYJ2;
+				DEVELOPMENT_TEAM = FWWR7T5N68;
 				INFOPLIST_FILE = pongball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmcardoso.pongball;
@@ -397,7 +397,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = FWD9V5VYJ2;
+				DEVELOPMENT_TEAM = FWWR7T5N68;
 				INFOPLIST_FILE = pongball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmcardoso.pongball;
