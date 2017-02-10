@@ -97,8 +97,19 @@ class GameScene: SKScene {
     }
     
     
+    private var previousTime: TimeInterval = 0.0
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
+        var deltaTime = currentTime - previousTime
+        if(previousTime == 0) { deltaTime = 0 }
+        
+        self.children.forEach {
+            if let updatable = $0 as? Updatable {
+                updatable.update(currentTime, deltaTime)
+            }
+        }
+        
+        previousTime = currentTime
     }
 }
