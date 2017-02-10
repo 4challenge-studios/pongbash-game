@@ -19,21 +19,25 @@ class MultipeerManager: NSObject {
     var delegate: MultipeerDelegate?
     
     var peer = MCPeerID.init(displayName: UIDevice.current.name)
-    var advertiser: MCNearbyServiceAdvertiser
+    
     let serviceTypePadrao = "pong"
     
+    var browser: MCNearbyServiceBrowser
     
     var onlines: [MCPeerID:String] = [:]
     
     override init() {
         
-        advertiser = MCNearbyServiceAdvertiser.init(peer: peer, discoveryInfo: nil, serviceType: serviceTypePadrao)
+        
+        
+        browser = MCNearbyServiceBrowser.init(peer: peer, serviceType: serviceTypePadrao)
         
         
         super.init()
         
-        advertiser.delegate = self
-        advertiser.startAdvertisingPeer()
+        browser.delegate = self
+        browser.startBrowsingForPeers()
+        
 
     }
     
@@ -45,16 +49,24 @@ class MultipeerManager: NSObject {
     
 }
 
-extension MultipeerManager: MCNearbyServiceAdvertiserDelegate {
+extension MultipeerManager: MCNearbyServiceBrowserDelegate {
     
-    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
-        print("recebi convite")
+    func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         
-        invitationHandler(true, session)
+        if let nome = info?["key"] {
+            print("CHAVE: \(nome)")
+        }
+        
+        self.browser.invitePeer(peerID, to: session, withContext: nil, timeout: 30)
     }
     
-    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) { }
+    func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
+        
+    }
+    
+    func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) { }
 }
+
 
 extension MultipeerManager: MCSessionDelegate {
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
