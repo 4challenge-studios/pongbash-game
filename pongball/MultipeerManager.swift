@@ -9,9 +9,14 @@
 import UIKit
 import MultipeerConnectivity
 
-class MultiPeerManager: NSObject {
+protocol MultipeerDelegate {
+    func peerConnected(peer: MCPeerID)
+    func peerDisconnected(peer: MCPeerID)
+}
+
+class MultipeerManager: NSObject {
         
-    //var delegate: MultiPeerDelegate?
+    var delegate: MultipeerDelegate?
     
     var peer = MCPeerID.init(displayName: UIDevice.current.name)
     var advertiser: MCNearbyServiceAdvertiser
@@ -40,7 +45,7 @@ class MultiPeerManager: NSObject {
     
 }
 
-extension MultiPeerManager: MCNearbyServiceAdvertiserDelegate {
+extension MultipeerManager: MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         print("recebi convite")
@@ -51,7 +56,7 @@ extension MultiPeerManager: MCNearbyServiceAdvertiserDelegate {
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) { }
 }
 
-extension MultiPeerManager: MCSessionDelegate {
+extension MultipeerManager: MCSessionDelegate {
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         
         //let mensagem: String = NSKeyedUnarchiver.unarchiveObject(with: data) as! String
@@ -67,10 +72,12 @@ extension MultiPeerManager: MCSessionDelegate {
         switch state {
         case .connected:
             print("Conectou \(peerID.displayName)")
+            delegate?.peerConnected(peer: peerID)
         case .connecting:
             print("Conectando \(peerID.displayName)")
         case .notConnected:
             print("Desconectou \(peerID.displayName)")
+            delegate?.peerDisconnected(peer: peerID)
         }
         
     }
