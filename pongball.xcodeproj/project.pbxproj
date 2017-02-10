@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A45A56E1E4D724700212AA1 /* MultiPeerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A45A56D1E4D724700212AA1 /* MultiPeerManager.swift */; };
+		D16045311E4DE6CE0007B4B7 /* SKNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10909471E49EC76007AE92C /* SKNode+Extensions.swift */; };
 		D16BB1FA1E43917700A2BE0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16BB1F91E43917700A2BE0B /* AppDelegate.swift */; };
 		D16BB1FC1E43917700A2BE0B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D16BB1FB1E43917700A2BE0B /* GameScene.sks */; };
 		D16BB1FE1E43917700A2BE0B /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = D16BB1FD1E43917700A2BE0B /* Actions.sks */; };
@@ -249,10 +250,10 @@
 			files = (
 				D16BB2021E43917700A2BE0B /* GameScene.swift in Sources */,
 				D19EB3BB1E44B23F00C44DEA /* Paddle.swift in Sources */,
-				D10909481E49EC76007AE92C /* SKNode+Extensions.swift in Sources */,
 				D16BB2041E43917700A2BE0B /* GameViewController.swift in Sources */,
 				D16BB1FA1E43917700A2BE0B /* AppDelegate.swift in Sources */,
 				6A45A56E1E4D724700212AA1 /* MultiPeerManager.swift in Sources */,
+				D16045311E4DE6CE0007B4B7 /* SKNode+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
