@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1055BA9A1E4DDFB7000FDB1A /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055BA991E4DDFB7000FDB1A /* Ball.swift */; };
-		D10909481E49EC76007AE92C /* SKNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10909471E49EC76007AE92C /* SKNode+Extensions.swift */; };
+		10E6183A1E4E0C9100462512 /* Corner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E618391E4E0C9100462512 /* Corner.swift */; };
+		10E6183C1E4E407600462512 /* corner.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E6183B1E4E407600462512 /* corner.png */; };
 		6A45A56E1E4D724700212AA1 /* MultipeerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A45A56D1E4D724700212AA1 /* MultipeerManager.swift */; };
 		D16045311E4DE6CE0007B4B7 /* SKNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10909471E49EC76007AE92C /* SKNode+Extensions.swift */; };
 		D16045331E4DE8DC0007B4B7 /* ControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16045321E4DE8DC0007B4B7 /* ControllerManager.swift */; };
@@ -26,6 +27,8 @@
 
 /* Begin PBXFileReference section */
 		1055BA991E4DDFB7000FDB1A /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		10E618391E4E0C9100462512 /* Corner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Corner.swift; sourceTree = "<group>"; };
+		10E6183B1E4E407600462512 /* corner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corner.png; sourceTree = "<group>"; };
 		2725AB485C07487854E5A6AC /* Pods-pongball.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pongball.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pongball/Pods-pongball.debug.xcconfig"; sourceTree = "<group>"; };
 		42C18ADB95DE28E519BC97DE /* Pods-pongball.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pongball.release.xcconfig"; path = "Pods/Target Support Files/Pods-pongball/Pods-pongball.release.xcconfig"; sourceTree = "<group>"; };
 		6A45A56D1E4D724700212AA1 /* MultipeerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipeerManager.swift; sourceTree = "<group>"; };
@@ -57,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10E6183D1E4E407F00462512 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				10E6183B1E4E407600462512 /* corner.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		793A9F457DD72762FB7D8E74 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +114,7 @@
 		D16BB1F81E43917700A2BE0B /* pongball */ = {
 			isa = PBXGroup;
 			children = (
+				10E6183D1E4E407F00462512 /* Resources */,
 				D16045361E4DF0430007B4B7 /* Protocols */,
 				D10909491E49F037007AE92C /* Extensions */,
 				D19EB3B91E44B20200C44DEA /* Nodes */,
@@ -124,6 +136,7 @@
 			children = (
 				D19EB3BA1E44B23F00C44DEA /* Paddle.swift */,
 				1055BA991E4DDFB7000FDB1A /* Ball.swift */,
+				10E618391E4E0C9100462512 /* Corner.swift */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -202,6 +215,7 @@
 			files = (
 				D16BB2001E43917700A2BE0B /* Game.xcassets in Resources */,
 				D16BB2071E43917700A2BE0B /* Main.storyboard in Resources */,
+				10E6183C1E4E407600462512 /* corner.png in Resources */,
 				D16BB2091E43917700A2BE0B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +278,7 @@
 				1055BA9A1E4DDFB7000FDB1A /* Ball.swift in Sources */,
 				D16045331E4DE8DC0007B4B7 /* ControllerManager.swift in Sources */,
 				D16BB2021E43917700A2BE0B /* GameScene.swift in Sources */,
+				10E6183A1E4E0C9100462512 /* Corner.swift in Sources */,
 				D19EB3BB1E44B23F00C44DEA /* Paddle.swift in Sources */,
 				D16BB2041E43917700A2BE0B /* GameViewController.swift in Sources */,
 				D160453A1E4DF5B70007B4B7 /* CGPoint+Extensions.swift in Sources */,

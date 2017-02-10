@@ -43,19 +43,18 @@ class BallNode : SKNode {
     
     private func setupPhysicsBody() {
         
-        //self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 100.0, height: 20.0))
+        
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.ballSize)
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.restitution = 1
         self.physicsBody?.isDynamic = true
-        self.physicsBody?.linearDamping = 0//reduce linear velocity
-        self.physicsBody?.angularDamping = 0//reduce angular velocity
+        self.physicsBody?.linearDamping = 0 //reduce linear velocity
+        self.physicsBody?.angularDamping = 0 //reduce angular velocity
         self.physicsBody?.friction = 0
         self.physicsBody?.categoryBitMask = 0b10
-        self.physicsBody?.collisionBitMask = 0b01
+        self.physicsBody?.collisionBitMask = 0b10
         self.physicsBody?.fieldBitMask = 0b0
         self.physicsBody?.contactTestBitMask = 0b01
-        //self.physicsBody?.
     }
     
     

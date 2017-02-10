@@ -27,7 +27,6 @@ class GameViewController: UIViewController {
             
             let scene = GameScene(size: CGSize(width: 1024, height: 576))
             scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-            
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
                 
@@ -36,6 +35,7 @@ class GameViewController: UIViewController {
             
             view.ignoresSiblingOrder = true
             
+            view.showsPhysics = true
             view.showsFPS = true
             view.showsNodeCount = true
         }
