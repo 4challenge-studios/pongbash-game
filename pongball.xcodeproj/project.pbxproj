@@ -16,6 +16,7 @@
 		D16BB2041E43917700A2BE0B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16BB2031E43917700A2BE0B /* GameViewController.swift */; };
 		D16BB2071E43917700A2BE0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D16BB2051E43917700A2BE0B /* Main.storyboard */; };
 		D16BB2091E43917700A2BE0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D16BB2081E43917700A2BE0B /* Assets.xcassets */; };
+		D19EB3BB1E44B23F00C44DEA /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19EB3BA1E44B23F00C44DEA /* Paddle.swift */; };
 		FBA3B3463588886C6473A21E /* Pods_pongball.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8E24F1664AD5174D4BABB5 /* Pods_pongball.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,7 @@
 		42C18ADB95DE28E519BC97DE /* Pods-pongball.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pongball.release.xcconfig"; path = "Pods/Target Support Files/Pods-pongball/Pods-pongball.release.xcconfig"; sourceTree = "<group>"; };
 		6A45A56D1E4D724700212AA1 /* MultiPeerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiPeerManager.swift; sourceTree = "<group>"; };
 		6F8E24F1664AD5174D4BABB5 /* Pods_pongball.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pongball.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D10909471E49EC76007AE92C /* SKNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Extensions.swift"; sourceTree = "<group>"; };
 		D16BB1F61E43917700A2BE0B /* pongball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pongball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16BB1F91E43917700A2BE0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D16BB1FB1E43917700A2BE0B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -34,6 +36,7 @@
 		D16BB2061E43917700A2BE0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D16BB2081E43917700A2BE0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D16BB20A1E43917700A2BE0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D19EB3BA1E44B23F00C44DEA /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +57,14 @@
 				6F8E24F1664AD5174D4BABB5 /* Pods_pongball.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D10909491E49F037007AE92C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D10909471E49EC76007AE92C /* SKNode+Extensions.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		D16BB1ED1E43917600A2BE0B = {
@@ -77,6 +88,8 @@
 		D16BB1F81E43917700A2BE0B /* pongball */ = {
 			isa = PBXGroup;
 			children = (
+				D10909491E49F037007AE92C /* Extensions */,
+				D19EB3B91E44B20200C44DEA /* Nodes */,
 				D16BB1F91E43917700A2BE0B /* AppDelegate.swift */,
 				6A45A56D1E4D724700212AA1 /* MultiPeerManager.swift */,
 				D16BB1FB1E43917700A2BE0B /* GameScene.sks */,
@@ -89,6 +102,14 @@
 				D16BB20A1E43917700A2BE0B /* Info.plist */,
 			);
 			path = pongball;
+			sourceTree = "<group>";
+		};
+		D19EB3B91E44B20200C44DEA /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				D19EB3BA1E44B23F00C44DEA /* Paddle.swift */,
+			);
+			name = Nodes;
 			sourceTree = "<group>";
 		};
 		E96726BC0D42576A6B1E5725 /* Pods */ = {
@@ -227,6 +248,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D16BB2021E43917700A2BE0B /* GameScene.swift in Sources */,
+				D19EB3BB1E44B23F00C44DEA /* Paddle.swift in Sources */,
+				D10909481E49EC76007AE92C /* SKNode+Extensions.swift in Sources */,
 				D16BB2041E43917700A2BE0B /* GameViewController.swift in Sources */,
 				D16BB1FA1E43917700A2BE0B /* AppDelegate.swift in Sources */,
 				6A45A56E1E4D724700212AA1 /* MultiPeerManager.swift in Sources */,
@@ -291,6 +314,7 @@
 				SDKROOT = appletvos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
@@ -332,6 +356,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				VALIDATE_PRODUCT = YES;
