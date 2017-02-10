@@ -9,19 +9,37 @@
 import Foundation
 import MultipeerConnectivity
 
+enum ControllerButton {
+    case Left
+    case Right
+    case Kick
+}
+
+protocol ControllerDelegate {
+    func didPress(button: ControllerButton)
+    func didRelease(button: ControllerButton)
+}
+
+extension ControllerDelegate {
+    func didPress(button: ControllerButton) {}
+    func didRelease(button: ControllerButton) {}
+}
+
 class Controller {
     var id: String = ""
+    
+    var delegate: ControllerDelegate?
 }
 
 class ControllerManager: MultipeerDelegate {
     
-    var controllers: [Controller] = []
+    var controllers: [String:Controller] = [:]
     
     
     func peerConnected(peer: MCPeerID) {
         let controller = Controller()
         
-        controllers.append(controller)
+        controllers.updateValue(controller, forKey: peer.displayName)
     }
     
     func peerDisconnected(peer: MCPeerID) {

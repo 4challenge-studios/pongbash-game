@@ -63,8 +63,6 @@ extension MultipeerManager: MCSessionDelegate {
         
         let mensagem = NSString(data: data, encoding: String.Encoding.utf8.rawValue) as! String
             print("\(peerID.displayName): \(mensagem)")
-        
-        
     }
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
