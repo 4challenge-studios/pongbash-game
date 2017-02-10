@@ -20,12 +20,21 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         
         self.paddle = PaddleNode()
-        self.balls = [BallNode(),BallNode(),BallNode(),BallNode()]
         self.addChild(paddle)
+        //spaw balls
+        self.balls = [BallNode(),BallNode(),BallNode(),BallNode()]
+        //impulse balls and add in scene
         for i in 0..<self.balls.count {
             self.addChild(balls[i])
-            balls[i].physicsBody?.applyImpulse(CGVector(dx: 5*i, dy: 5*i))
+            balls[i].physicsBody?.applyImpulse(CGVector(dx: 40*i, dy: 40*i))
         }
+        //end impulse
+        //test border
+        let border = SKPhysicsBody(edgeLoopFrom: self.frame)
+        border.friction = 0
+        border.restitution = 1
+        self.physicsBody = border
+        //end test border
         GCController.startWirelessControllerDiscovery {
             print("wow \(GCController.controllers())")
         }
