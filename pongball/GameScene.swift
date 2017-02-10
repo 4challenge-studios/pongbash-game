@@ -16,13 +16,16 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     
     private var paddle: PaddleNode!
-    
+    private var balls:[BallNode]!
     override func didMove(to view: SKView) {
         
         self.paddle = PaddleNode()
-        
+        self.balls = [BallNode(),BallNode(),BallNode(),BallNode()]
         self.addChild(paddle)
-        
+        for i in 0..<self.balls.count {
+            self.addChild(balls[i])
+            balls[i].physicsBody?.applyImpulse(CGVector(dx: 5*i, dy: 5*i))
+        }
         GCController.startWirelessControllerDiscovery {
             print("wow \(GCController.controllers())")
         }
