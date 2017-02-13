@@ -25,7 +25,7 @@ class GameViewController: UIViewController {
                 view.presentScene(scene)
             }*/
             
-            let scene = GameScene(size: CGSize(width: 1024, height: 576))
+            let scene = GameScene(size: CGSize(width: 1920, height: 1080))
             scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill

@@ -10,6 +10,8 @@ import SpriteKit
 import GameplayKit
 import GameController
 
+
+
 class GameScene: SKScene {
     
     private var label : SKLabelNode?
@@ -23,24 +25,11 @@ class GameScene: SKScene {
         self.addChild(paddle)
         //spaw balls
         self.balls = [BallNode(),BallNode(),BallNode(),BallNode()]
-        //impulse balls and add in scene
-        let ballColors:[UIColor] = [.red,.blue,.orange,.purple]
         
-        //end impulse
-        //test border
-        print(position)
+        let gameAreaSize = CGSize(width: view.frame.height, height: view.frame.height)
+        let gameArea = GameAreaNode(withSize: gameAreaSize)
+        addChild(gameArea)
         
-        // ESSE MÉTODO FEZ O MUNDO BIÇAR COM AS BOLAS DO VITU
-        let border = SKPhysicsBody(edgeLoopFrom: CGRect(x: -size.width/4, y: -size.height/2, width: size.width/2, height: size.height))
-        border.friction = 0
-        border.affectedByGravity = false
-        
-        // ESSA CATEGORY BIT MASK FAZ O CODIGO TESTAR SE QUICA COM OUTRA COISA. ESSA OUTRA COISA PRECISA TER UM COLLISIONBITMASK = 0B10 SE VC QUISER QUICAR
-        border.categoryBitMask = 0b10
-        border.isDynamic = false
-        border.restitution = 1
-        self.physicsBody = border
-        //end test border
         GCController.startWirelessControllerDiscovery {
             print("wow \(GCController.controllers())")
         }
@@ -48,9 +37,8 @@ class GameScene: SKScene {
         
         // ESSE FOR TÁ MELHOR IN MY OPINION, MAS, FIKDIK
         for ball in balls {
-            addChild(ball)
-            ball.color = ballColors[Int(arc4random()%4)]
-            ball.physicsBody?.applyImpulse(CGVector(dx: Int(arc4random()%50), dy: -10))
+            gameArea.addChild(ball)
+            ball.physicsBody?.applyImpulse(CGVector(dx: Int(arc4random()%50), dy: 100))
         }
     }
     
