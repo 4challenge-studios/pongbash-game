@@ -38,6 +38,8 @@ class GameAreaNode : SKNode {
         goal1 = GoalNode(rect: rect1, owner: "orange")
         goal2 = GoalNode(rect: rect2, owner: "blue")
         goal3 = GoalNode(rect: rect3, owner: "red")
+        let corner0 = CornerNode()
+        addChild(corner0)
         
         addChild(goal0!)
         addChild(goal1!)

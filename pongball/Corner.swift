@@ -11,7 +11,7 @@ import SpriteKit
 
 class CornerNode : SKNode {
     
-    var sprite: SKSpriteNode!
+    var sprites: [SKSpriteNode]!
     
     override init() {
         super.init()
