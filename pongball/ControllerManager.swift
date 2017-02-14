@@ -27,22 +27,49 @@ extension ControllerDelegate {
 
 class Controller {
     var id: String = ""
+    var displayName: String = ""
     
     lazy var delegate: ControllerDelegate? = nil
+    
+    func parseCommand(_ command: String) {
+        if command == "chute" {
+            self.delegate?.Controller(self, didPressButton: .Kick)
+        }
+    }
+}
+
+protocol ControllerManagerDelegate {
+    
+    func controllerManager(_ controllerManager: ControllerManager, controllerConnected controller: Controller)
+    func controllerManager(_ controllerManager: ControllerManager, controllerDisconnected controller: Controller)
 }
 
 class ControllerManager: MultipeerDelegate {
     
     var controllers: [String:Controller] = [:]
     
+    var delegate: ControllerManagerDelegate?
     
-    func peerConnected(peer: MCPeerID) {
+    
+    func peerConnected(peer: String, withDisplayName displayName: String) {
         let controller = Controller()
+        controller.id = peer
+        controller.displayName = displayName
         
-        controllers.updateValue(controller, forKey: peer.displayName)
+        controllers.updateValue(controller, forKey: controller.id)
+        
+        delegate?.controllerManager(self, controllerConnected: controller)
     }
     
-    func peerDisconnected(peer: MCPeerID) {
+    func peerDisconnected(peer: String) {
         
+        delegate?.controllerManager(self, controllerDisconnected: controllers[peer]!)
+        controllers.removeValue(forKey: peer)
+    }
+    
+    func peerSentMessage(peer: String, message: String) {
+        controllers[peer]?.parseCommand(message)
+        print("------------------")
+        print("\(peer):\(message)")
     }
 }

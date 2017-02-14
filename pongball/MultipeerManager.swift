@@ -10,8 +10,15 @@ import UIKit
 import MultipeerConnectivity
 
 protocol MultipeerDelegate {
-    func peerConnected(peer: MCPeerID)
-    func peerDisconnected(peer: MCPeerID)
+    func peerConnected(peer: String, withDisplayName displayName: String)
+    func peerDisconnected(peer: String)
+    func peerSentMessage(peer: String, message: String)
+}
+
+extension MultipeerDelegate {
+    func peerConnected(peer: String, withDisplayName displayName: String) { }
+    func peerDisconnected(peer: String) { }
+    func peerSentMessage(peer: String, message: String) { }
 }
 
 class MultipeerManager: NSObject {
@@ -24,7 +31,7 @@ class MultipeerManager: NSObject {
     
     var browser: MCNearbyServiceBrowser
     
-    var onlines: [MCPeerID:String] = [:]
+    var peers: [MCPeerID:String] = [:]
     
     override init() {
         
@@ -54,13 +61,14 @@ extension MultipeerManager: MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         
         if let nome = info?["key"] {
-            print("CHAVE: \(nome)")
+            onlines.updateValue(nome, forKey: peerID)
         }
         
         self.browser.invitePeer(peerID, to: session, withContext: nil, timeout: 30)
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
+        
         
     }
     
@@ -70,26 +78,30 @@ extension MultipeerManager: MCNearbyServiceBrowserDelegate {
 
 extension MultipeerManager: MCSessionDelegate {
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        
-        //let mensagem: String = NSKeyedUnarchiver.unarchiveObject(with: data) as! String
-        
-        let mensagem = NSString(data: data, encoding: String.Encoding.utf8.rawValue) as! String
-            print("\(peerID.displayName): \(mensagem)")
+
+        let message = NSString(data: data, encoding: String.Encoding.utf8.rawValue) as! String
+
+        // RECEIVED MESSAGE FROM PEER
+        delegate?.peerSentMessage(peer: peers[peerID]!, message: message)
     }
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         
         switch state {
         case .connected:
-            print("Conectou \(peerID.displayName)")
-            delegate?.peerConnected(peer: peerID)
+            
+            // PEER CONNECTED
+            delegate?.peerConnected(peer: peers[peerID]!, withDisplayName: peerID.displayName)
         case .connecting:
-            print("Conectando \(peerID.displayName)")
+            // PEER IS CONNECTING
+            break
         case .notConnected:
-            print("Desconectou \(peerID.displayName)")
-            delegate?.peerDisconnected(peer: peerID)
+            
+            // PEER DISCONNECTED
+
+            delegate?.peerDisconnected(peer: peers[peerID]!)
+            peers.removeValue(forKey: peerID)
         }
-        
     }
     
     func session(_ session: MCSession, didReceiveCertificate certificate: [Any]?, fromPeer peerID: MCPeerID, certificateHandler: @escaping (Bool) -> Void) {
@@ -98,9 +110,7 @@ extension MultipeerManager: MCSessionDelegate {
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) { }
     
-    func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
-        
-    }
+    func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) { }
     
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) { }
     

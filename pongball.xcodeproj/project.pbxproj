@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A45A56E1E4D724700212AA1 /* MultipeerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A45A56D1E4D724700212AA1 /* MultipeerManager.swift */; };
+		D11BE13E1E51E193009D6414 /* ControllerTestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BE13D1E51E193009D6414 /* ControllerTestScene.swift */; };
 		D16045311E4DE6CE0007B4B7 /* SKNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10909471E49EC76007AE92C /* SKNode+Extensions.swift */; };
 		D16045331E4DE8DC0007B4B7 /* ControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16045321E4DE8DC0007B4B7 /* ControllerManager.swift */; };
 		D16045381E4DF0610007B4B7 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16045371E4DF0610007B4B7 /* Updatable.swift */; };
@@ -28,6 +29,7 @@
 		6A45A56D1E4D724700212AA1 /* MultipeerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipeerManager.swift; sourceTree = "<group>"; };
 		6F8E24F1664AD5174D4BABB5 /* Pods_pongball.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pongball.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10909471E49EC76007AE92C /* SKNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Extensions.swift"; sourceTree = "<group>"; };
+		D11BE13D1E51E193009D6414 /* ControllerTestScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerTestScene.swift; sourceTree = "<group>"; };
 		D16045321E4DE8DC0007B4B7 /* ControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerManager.swift; sourceTree = "<group>"; };
 		D16045371E4DF0610007B4B7 /* Updatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
 		D16045391E4DF5B70007B4B7 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
@@ -71,6 +73,15 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		D11BE13C1E51E169009D6414 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				D11BE13D1E51E193009D6414 /* ControllerTestScene.swift */,
+			);
+			name = Scenes;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		D16045361E4DF0430007B4B7 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +111,7 @@
 		D16BB1F81E43917700A2BE0B /* pongball */ = {
 			isa = PBXGroup;
 			children = (
+				D11BE13C1E51E169009D6414 /* Scenes */,
 				D16045361E4DF0430007B4B7 /* Protocols */,
 				D10909491E49F037007AE92C /* Extensions */,
 				D19EB3B91E44B20200C44DEA /* Nodes */,
@@ -259,6 +271,7 @@
 			files = (
 				D16045331E4DE8DC0007B4B7 /* ControllerManager.swift in Sources */,
 				D16BB2021E43917700A2BE0B /* GameScene.swift in Sources */,
+				D11BE13E1E51E193009D6414 /* ControllerTestScene.swift in Sources */,
 				D19EB3BB1E44B23F00C44DEA /* Paddle.swift in Sources */,
 				D16BB2041E43917700A2BE0B /* GameViewController.swift in Sources */,
 				D160453A1E4DF5B70007B4B7 /* CGPoint+Extensions.swift in Sources */,
