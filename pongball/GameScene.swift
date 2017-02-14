@@ -21,9 +21,6 @@ class GameScene: SKScene, ControllerManagerDelegate, ControllerDelegate {
     private var balls:[BallNode]!
     override func didMove(to view: SKView) {
         
-        self.paddle = PaddleNode()
-        self.addChild(paddle)
-        //spaw balls
         self.balls = [BallNode(),BallNode(),BallNode(),BallNode()]
         
         let gameAreaSize = CGSize(width: view.frame.height, height: view.frame.height)
