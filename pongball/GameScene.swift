@@ -10,21 +10,35 @@ import SpriteKit
 import GameplayKit
 import GameController
 
-class GameScene: SKScene {
+
+
+class GameScene: SKScene, ControllerManagerDelegate, ControllerDelegate {
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
     private var paddle: PaddleNode!
-    
+    private var balls:[BallNode]!
     override func didMove(to view: SKView) {
         
         self.paddle = PaddleNode()
-        
         self.addChild(paddle)
+        //spaw balls
+        self.balls = [BallNode(),BallNode(),BallNode(),BallNode()]
+        
+        let gameAreaSize = CGSize(width: view.frame.height, height: view.frame.height)
+        let gameArea = GameAreaNode(withSize: gameAreaSize)
+        addChild(gameArea)
         
         GCController.startWirelessControllerDiscovery {
             print("wow \(GCController.controllers())")
+        }
+                
+        
+        // ESSE FOR TÁ MELHOR IN MY OPINION, MAS, FIKDIK
+        for ball in balls {
+            gameArea.addChild(ball)
+            ball.physicsBody?.applyImpulse(CGVector(dx: Int(arc4random()%50), dy: 100))
         }
     }
     

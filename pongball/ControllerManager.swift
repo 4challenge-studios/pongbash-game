@@ -44,6 +44,11 @@ protocol ControllerManagerDelegate {
     func controllerManager(_ controllerManager: ControllerManager, controllerDisconnected controller: Controller)
 }
 
+extension ControllerManagerDelegate {
+    func controllerManager(_ controllerManager: ControllerManager, controllerConnected controller: Controller) { }
+    func controllerManager(_ controllerManager: ControllerManager, controllerDisconnected controller: Controller) { }
+}
+
 class ControllerManager: MultipeerDelegate {
     
     var controllers: [String:Controller] = [:]

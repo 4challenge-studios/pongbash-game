@@ -27,7 +27,7 @@ class MultipeerManager: NSObject {
     
     var peer = MCPeerID.init(displayName: UIDevice.current.name)
     
-    let serviceTypePadrao = "pong"
+    let serviceTypePadrao = "pong2"
     
     var browser: MCNearbyServiceBrowser
     
@@ -61,7 +61,7 @@ extension MultipeerManager: MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         
         if let nome = info?["key"] {
-            onlines.updateValue(nome, forKey: peerID)
+            peers.updateValue(nome, forKey: peerID)
         }
         
         self.browser.invitePeer(peerID, to: session, withContext: nil, timeout: 30)

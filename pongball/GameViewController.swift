@@ -11,37 +11,39 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-    
+
     let multipeerManager: MultipeerManager = MultipeerManager()
     let controllerManager: ControllerManager = ControllerManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         multipeerManager.delegate = controllerManager
-        
+
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
             /*if let scene = SKScene(fileNamed: "GameScene") {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
-                
+
                 // Present the scene
                 view.presentScene(scene)
             }*/
-            
-            let scene = ControllerTestScene(size: CGSize(width: 1024, height: 576))
+
+            //let scene = ControllerTestScene(size: CGSize(width: 1024, height: 576))
+
+            let scene = GameScene(size: CGSize(width: 1920, height: 1080))
             controllerManager.delegate = scene
             scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-            
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
-                
+
             // Present the scene
             view.presentScene(scene)
-            
+
             view.ignoresSiblingOrder = true
-            
+
+            view.showsPhysics = true
             view.showsFPS = true
             view.showsNodeCount = true
         }

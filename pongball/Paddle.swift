@@ -40,9 +40,9 @@ class PaddleNode : SKNode {
     
     
     func setupPhysicsBody() {
-        
         self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 100.0, height: 20.0))
         self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.isDynamic = false
     }
     
     
