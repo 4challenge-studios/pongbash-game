@@ -39,7 +39,25 @@ class GameAreaNode : SKNode {
         goal2 = GoalNode(rect: rect2, owner: "blue")
         goal3 = GoalNode(rect: rect3, owner: "red")
         let corner0 = CornerNode()
+        let corner1 = CornerNode()
+        let corner2 = CornerNode()
+        let corner3 = CornerNode()
         addChild(corner0)
+        addChild(corner1)
+        addChild(corner2)
+        addChild(corner3)
+        
+        corner0.position = CGPoint(x: -self.size.width/2, y: -self.size.height/2)//CGPoint(x: , y: 100)
+        corner1.position = CGPoint(x: self.size.width/2, y: -self.size.height/2)
+        corner1.zRotation = CGFloat(M_PI_2)
+        corner2.position = CGPoint(x: -self.size.width/2, y: self.size.height/2)
+        corner2.zRotation = -CGFloat(M_PI_2)
+        corner3.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+        corner3.zRotation = CGFloat(M_PI)
+        
+        
+        
+        
         
         addChild(goal0!)
         addChild(goal1!)

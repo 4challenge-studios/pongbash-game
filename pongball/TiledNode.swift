@@ -21,8 +21,8 @@ class TiledNode: SKNode {
     func addChild(_ node: SKNode, atPosition position: CGPoint) {
         
         self.addChild(node)
-        node.position = CGPoint(x: position.x*tileSize.width,
-                                y: position.y*tileSize.height)
+        node.position = CGPoint(x: position.x*tileSize.width + tileSize.width/2,
+                                y: position.y*tileSize.height + tileSize.height/2)
     }
     
     required init?(coder aDecoder: NSCoder) {

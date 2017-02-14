@@ -9,25 +9,26 @@
 import Foundation
 import SpriteKit
 
-class CornerNode : SKNode {
+class CornerNode: TiledNode {
     
-    var sprites: [SKSpriteNode]!
+    let tileTexture = SKTexture(image: #imageLiteral(resourceName: "tile-01.png"))
     
-    override init() {
-        super.init()
-        setupSprite()
-        setupPhysicsBody()
+    init() {
+        super.init(withTileSize: tileTexture.size())
+        //setupPhysicsBody()
+        setupTiles()
     }
     
     
-    private func setupSprite() {
+    private func setupTiles() {
         
+        let node1 = SKSpriteNode(texture: tileTexture)
+        let node2 = SKSpriteNode(texture: tileTexture)
+        let node3 = SKSpriteNode(texture: tileTexture)
+        addChild(node1, atPosition: CGPoint(x: 0, y: 0))
+        addChild(node2, atPosition: CGPoint(x: 0, y: 1))
+        addChild(node3, atPosition: CGPoint(x: 1, y: 0))
     }
-    
-    private func setupPhysicsBody() {
-        
-    }
-    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
