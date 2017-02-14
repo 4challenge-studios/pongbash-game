@@ -126,10 +126,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		10E6183D1E4E407F00462512 /* Resources */ = {
+		10B6F6F51E537865003896DF /* Tile */ = {
 			isa = PBXGroup;
 			children = (
 				10AE78D11E532996003465F0 /* tile-01.png */,
+			);
+			name = Tile;
+			sourceTree = "<group>";
+		};
+		10E6183D1E4E407F00462512 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				10B6F6F51E537865003896DF /* Tile */,
 				10E618401E4FAB3300462512 /* Balls */,
 			);
 			name = Resources;

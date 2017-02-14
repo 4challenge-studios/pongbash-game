@@ -35,7 +35,7 @@ class GameScene: SKScene, ControllerManagerDelegate, ControllerDelegate {
         // ESSE FOR TÁ MELHOR IN MY OPINION, MAS, FIKDIK
         for ball in balls {
             gameArea.addChild(ball)
-            ball.physicsBody?.applyImpulse(CGVector(dx: Int(arc4random()%50), dy: 100))
+            ball.physicsBody?.applyImpulse(CGVector(dx: Int(arc4random()%50), dy: 10))
         }
     }
     

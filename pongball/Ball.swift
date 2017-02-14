@@ -11,9 +11,10 @@ import SpriteKit
 
 
 class BallNode : SKNode {
-    
     var sprite: SKSpriteNode!
-    var radius: CGFloat = 15.0 {
+    let sprites = [SKTexture(image: #imageLiteral(resourceName: "white-01.png")), SKTexture(image: #imageLiteral(resourceName: "white-02.png")), SKTexture(image: #imageLiteral(resourceName: "white-03.png")), SKTexture(image: #imageLiteral(resourceName: "white-04.png"))]
+    
+    var radius: CGFloat = 30.0 {
         didSet {
             setupSprite()
             setupPhysicsBody()
@@ -21,22 +22,19 @@ class BallNode : SKNode {
     }
     
     var owner:String?
-    //let ballSize = CGFloat(30.0)
+    
     
     override init() {
         super.init()
         setupSprite()
         setupPhysicsBody()
+        self.startAnimation()
     }
-    
-    
+
     private func setupSprite() {
-        
         let texture = SKTexture(image: #imageLiteral(resourceName: "white-01.png"))
         self.sprite = SKSpriteNode(texture: texture)
         self.sprite.size = CGSize(width: self.radius*2, height: self.radius*2)
-        //self.sprite.xScale = 0.5
-        //self.sprite.yScale = 0.5
         // add sprite as child
         self.addChild(self.sprite)
     }
@@ -55,6 +53,15 @@ class BallNode : SKNode {
         self.physicsBody?.contactTestBitMask = CategoryBitmasks.goal.rawValue
     }
     
+    func startAnimation(){
+        //teste
+        let animation = SKAction.repeatForever(SKAction.animate(with: sprites, timePerFrame: 0.5, resize: true, restore: true))
+        sprite.run(animation)
+    }
+    
+    func stopAnimation(){
+        sprite.removeAllActions()
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
