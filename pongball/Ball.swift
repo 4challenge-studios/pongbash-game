@@ -13,8 +13,15 @@ import SpriteKit
 class BallNode : SKNode {
     
     var sprite: SKSpriteNode!
+    var radius: CGFloat = 15.0 {
+        didSet {
+            setupSprite()
+            setupPhysicsBody()
+        }
+    }
+    
     var owner:String?
-    let ballSize = CGFloat(30.0)
+    //let ballSize = CGFloat(30.0)
     
     override init() {
         super.init()
@@ -27,13 +34,15 @@ class BallNode : SKNode {
         
         let texture = SKTexture(image: #imageLiteral(resourceName: "white-01.png"))
         self.sprite = SKSpriteNode(texture: texture)
-        
+        self.sprite.size = CGSize(width: self.radius*2, height: self.radius*2)
+        //self.sprite.xScale = 0.5
+        //self.sprite.yScale = 0.5
         // add sprite as child
         self.addChild(self.sprite)
     }
     
     private func setupPhysicsBody() {
-        self.physicsBody = SKPhysicsBody(circleOfRadius: self.ballSize)
+        self.physicsBody = SKPhysicsBody(circleOfRadius: self.radius)
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.restitution = 1
         self.physicsBody?.isDynamic = true

@@ -43,10 +43,6 @@ class GameAreaNode : SKNode {
         addChild(goal1!)
         addChild(goal2!)
         addChild(goal3!)
-        //addChild(goal1!)
-        //addChild(goal2!)
-        //addChild(goal3!)
-        
     }
     
     
