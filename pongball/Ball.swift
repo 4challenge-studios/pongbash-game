@@ -50,7 +50,7 @@ class BallNode : SKNode {
         self.physicsBody?.allowsRotation = true
         self.physicsBody?.categoryBitMask = CategoryBitmasks.ball.rawValue
         self.physicsBody?.collisionBitMask = CategoryBitmasks.corner.rawValue | CategoryBitmasks.paddle.rawValue | CategoryBitmasks.goal.rawValue
-        self.physicsBody?.contactTestBitMask = CategoryBitmasks.goal.rawValue
+        self.physicsBody?.contactTestBitMask = CategoryBitmasks.corner.rawValue | CategoryBitmasks.paddle.rawValue | CategoryBitmasks.goal.rawValue
     }
     
     func startAnimation(){

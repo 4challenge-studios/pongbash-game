@@ -19,13 +19,16 @@ class GameScene: SKScene, ControllerManagerDelegate, ControllerDelegate {
     
     private var paddle: PaddleNode!
     private var balls:[BallNode]!
+    
     override func didMove(to view: SKView) {
         
-        self.balls = [BallNode(),BallNode(),BallNode(),BallNode()]
-        
+        //self.balls = [BallNode(),BallNode(),BallNode(),BallNode()]
+        self.balls = [BallNode()]
         let gameAreaSize = CGSize(width: view.frame.height, height: view.frame.height)
         let gameArea = GameAreaNode(withSize: gameAreaSize)
         addChild(gameArea)
+        
+        self.physicsWorld.contactDelegate = gameArea
         
         GCController.startWirelessControllerDiscovery {
             print("wow \(GCController.controllers())")
@@ -35,7 +38,14 @@ class GameScene: SKScene, ControllerManagerDelegate, ControllerDelegate {
         // ESSE FOR TÁ MELHOR IN MY OPINION, MAS, FIKDIK
         for ball in balls {
             gameArea.addChild(ball)
+            
             ball.physicsBody?.applyImpulse(CGVector(dx: Int(arc4random()%50), dy: 10))
+            let dx = ball.physicsBody?.velocity.dx
+            let dy = ball.physicsBody?.velocity.dy
+            let angle = atan2(dy!, dx!)
+            
+            let action = SKAction.rotate(toAngle: angle - CGFloat(M_PI_2), duration: 0)
+            ball.run(action)
         }
     }
     
@@ -109,4 +119,5 @@ class GameScene: SKScene, ControllerManagerDelegate, ControllerDelegate {
         
         previousTime = currentTime
     }
+    
 }

@@ -32,6 +32,7 @@ class PaddleNode : TiledNode {
         node1.physicsBody = physicBody1
         node1.physicsBody?.categoryBitMask = CategoryBitmasks.corner.rawValue
         node1.physicsBody?.collisionBitMask = CategoryBitmasks.ball.rawValue
+        node1.physicsBody?.contactTestBitMask = CategoryBitmasks.ball.rawValue
         node1.physicsBody?.affectedByGravity = false
         node1.physicsBody?.isDynamic = false
         
@@ -40,14 +41,17 @@ class PaddleNode : TiledNode {
         node2.physicsBody = physicBody2
         node2.physicsBody?.categoryBitMask = CategoryBitmasks.corner.rawValue
         node2.physicsBody?.collisionBitMask = CategoryBitmasks.ball.rawValue
+        node1.physicsBody?.contactTestBitMask = CategoryBitmasks.ball.rawValue
         node2.physicsBody?.affectedByGravity = false
         node2.physicsBody?.isDynamic = false
+        
         
         let node3 = SKSpriteNode(texture: tileTexture)
         let physicBody3 = SKPhysicsBody(rectangleOf: tileTexture.size())
         node3.physicsBody = physicBody3
         node3.physicsBody?.categoryBitMask = CategoryBitmasks.corner.rawValue
         node3.physicsBody?.collisionBitMask = CategoryBitmasks.ball.rawValue
+        node1.physicsBody?.contactTestBitMask = CategoryBitmasks.ball.rawValue
         node3.physicsBody?.affectedByGravity = false
         node3.physicsBody?.isDynamic = false
         
