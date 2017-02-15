@@ -17,10 +17,7 @@ class GameAreaNode : SKNode {
     var goal2:GoalNode?
     var goal3:GoalNode?
     
-    var paddle0:PaddleNode?
-    var paddle1:PaddleNode?
-    var paddle2:PaddleNode?
-    var paddle3:PaddleNode?
+    var paddles = [PaddleNode]()
     
     
     var size: CGSize {
@@ -63,27 +60,24 @@ class GameAreaNode : SKNode {
         
         
         
-        self.paddle0 = PaddleNode()
-        let centerPaddle0Position = -self.size.width/8+(paddle0?.tileSize.width)!/2
-        let centerPaddle1Position = self.size.width/8 + (paddle0?.tileSize.width)!/2
-        let centerPaddle2Position = -self.size.width/8+(paddle0?.tileSize.width)!/2
-        let centerPaddle3Position = -self.size.width/8+(paddle0?.tileSize.width)!/2
-        paddle0?.position = CGPoint(x:centerPaddle0Position, y: -self.size.height/2)
+        let paddle0 = PaddleNode()
+        let centerPaddle0Position = -self.size.width/8+(paddle0.tileSize.width)/2
+        let centerPaddle1Position = self.size.width/8 + (paddle0.tileSize.width)/2
+        let centerPaddle2Position = -self.size.width/8+(paddle0.tileSize.width)/2
+        let centerPaddle3Position = -self.size.width/8+(paddle0.tileSize.width)/2
+        paddle0.position = CGPoint(x:centerPaddle0Position, y: -self.size.height/2)
+        let paddle1 = PaddleNode()
+        paddle1.position = CGPoint(x:self.size.width/2, y: -centerPaddle1Position)
+        paddle1.zRotation = CGFloat(M_PI_2)
+        let paddle2 = PaddleNode()
+        paddle2.zRotation = CGFloat(-M_PI_2)
+        paddle2.position = CGPoint(x:-self.size.width/2, y: centerPaddle2Position)
+        let paddle3 = PaddleNode()
+        paddle3.zRotation = CGFloat(-M_PI)
+        paddle3.position = CGPoint(x:centerPaddle3Position, y: self.size.height/2)
         
-        self.paddle1 = PaddleNode()
-        paddle1?.position = CGPoint(x:self.size.width/2, y: -centerPaddle1Position)
-        paddle1?.zRotation = CGFloat(M_PI_2)
-        self.paddle2 = PaddleNode()
-        paddle2?.zRotation = CGFloat(-M_PI_2)
-        paddle2?.position = CGPoint(x:-self.size.width/2, y: centerPaddle2Position)
-        self.paddle3 = PaddleNode()
-        paddle3?.zRotation = CGFloat(-M_PI)
-        paddle3?.position = CGPoint(x:centerPaddle3Position, y: self.size.height/2)
-        
-        addChild(paddle0!)
-        addChild(paddle1!)
-        addChild(paddle2!)
-        addChild(paddle3!)
+        self.paddles = [paddle0, paddle1, paddle2, paddle3]
+        self.paddles.forEach { self.addChild($0) }
         
         
         addChild(goal0!)
@@ -98,7 +92,7 @@ class GameAreaNode : SKNode {
     }
 }
 
-extension GameAreaNode: SKPhysicsContactDelegate{
+extension GameAreaNode: SKPhysicsContactDelegate {
     
     
     func didBegin(_ contact:SKPhysicsContact){
@@ -126,6 +120,16 @@ extension GameAreaNode: SKPhysicsContactDelegate{
             print(angle)
             ball?.run(action)
 
+        }
+    }
+}
+
+extension GameAreaNode: Updatable {
+    func update(_ currentTime: TimeInterval, _ deltaTime: TimeInterval) {
+        self.children.forEach {
+            if let updatable = $0 as? Updatable {
+                updatable.update(currentTime, deltaTime)
+            }
         }
     }
 }

@@ -27,7 +27,7 @@ class MultipeerManager: NSObject {
     
     var peer = MCPeerID.init(displayName: UIDevice.current.name)
     
-    let serviceTypePadrao = "pong2"
+    let serviceTypePadrao = "pong"
     
     var browser: MCNearbyServiceBrowser
     
@@ -82,7 +82,12 @@ extension MultipeerManager: MCSessionDelegate {
         let message = NSString(data: data, encoding: String.Encoding.utf8.rawValue) as! String
 
         // RECEIVED MESSAGE FROM PEER
-        delegate?.peerSentMessage(peer: peers[peerID]!, message: message)
+        print("------------------")
+        print("\(peers[peerID]!):\(message)")
+        
+        DispatchQueue.main.async {
+            self.delegate?.peerSentMessage(peer: self.peers[peerID]!, message: message)
+        }
     }
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
