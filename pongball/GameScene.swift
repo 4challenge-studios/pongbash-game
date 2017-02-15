@@ -12,28 +12,30 @@ import GameController
 
 
 
-class GameScene: SKScene, ControllerManagerDelegate, ControllerDelegate {
+class GameScene: SKScene {
     
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
-    
-    private var paddle: PaddleNode!
+    var players = [Controller]()
+    var gameArea: GameAreaNode!
     private var balls:[BallNode]!
     
     override func didMove(to view: SKView) {
         
         //self.balls = [BallNode(),BallNode(),BallNode(),BallNode()]
         self.balls = [BallNode()]
-        let gameAreaSize = CGSize(width: view.frame.height, height: view.frame.height)
-        let gameArea = GameAreaNode(withSize: gameAreaSize)
-        addChild(gameArea)
         
         self.physicsWorld.contactDelegate = gameArea
         
         GCController.startWirelessControllerDiscovery {
             print("wow \(GCController.controllers())")
         }
-                
+        
+        self.setupGameArea()
+    }
+    
+    func setupGameArea() {
+        let gameAreaSize = CGSize(width: view!.frame.height, height: view!.frame.height)
+        self.gameArea = GameAreaNode(withSize: gameAreaSize)
+        addChild(self.gameArea)
         
         // ESSE FOR TÁ MELHOR IN MY OPINION, MAS, FIKDIK
         for ball in balls {
@@ -52,28 +54,14 @@ class GameScene: SKScene, ControllerManagerDelegate, ControllerDelegate {
     
     func touchDown(atPoint pos : CGPoint) {
         
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
     }
     
     func touchMoved(toPoint pos : CGPoint) {
-        self.paddle.position = CGPoint(x: pos.x, y: -250.0)
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
+
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
+
     }
     
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
@@ -83,11 +71,6 @@ class GameScene: SKScene, ControllerManagerDelegate, ControllerDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }
-        
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
@@ -120,4 +103,22 @@ class GameScene: SKScene, ControllerManagerDelegate, ControllerDelegate {
         previousTime = currentTime
     }
     
+}
+
+extension GameScene: ControllerManagerDelegate, ControllerDelegate {
+    
+    func controllerManager(_ controllerManager: ControllerManager, controllerConnected controller: Controller) {
+        
+        players.append(controller)
+        controller.delegate = gameArea.paddles[players.count-1]
+    }
+    
+    func controllerManager(_ controllerManager: ControllerManager, controllerDisconnected controller: Controller) {
+        
+        print("\(controller.displayName) desconectou!")
+    }
+    
+    func controller(_ controller: Controller, didPressButton button: ControllerButton) {
+
+    }
 }

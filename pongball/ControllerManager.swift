@@ -10,30 +10,37 @@ import Foundation
 import MultipeerConnectivity
 
 enum ControllerButton {
-    case Left
-    case Right
-    case Kick
+    case leftDown
+    case leftUp
+    case rightDown
+    case rightUp
+    case kick
 }
 
 protocol ControllerDelegate {
-    func Controller(_ controller: Controller, didPressButton button: ControllerButton)
-    func Controller(_ controller: Controller, didReleaseButton button: ControllerButton)
+    func controller(_ controller: Controller, didPressButton button: ControllerButton)
+    func controller(_ controller: Controller, didReleaseButton button: ControllerButton)
 }
 
 extension ControllerDelegate {
-    func Controller(_ controller: Controller, didPressButton button: ControllerButton) {}
-    func Controller(_ controller: Controller, didReleaseButton button: ControllerButton) {}
+    func controller(_ controller: Controller, didPressButton button: ControllerButton) {}
+    func controller(_ controller: Controller, didReleaseButton button: ControllerButton) {}
 }
 
 class Controller {
     var id: String = ""
     var displayName: String = ""
     
+    var commands: [String:ControllerButton] = [
+        "kick": .kick, "leftDown": .leftDown, "leftUp": .leftUp,
+        "rightDown": .rightDown, "rightUp": .rightUp
+    ]
+    
     lazy var delegate: ControllerDelegate? = nil
     
     func parseCommand(_ command: String) {
-        if command == "chute" {
-            self.delegate?.Controller(self, didPressButton: .Kick)
+        if let cmd = commands[command] {
+            self.delegate?.controller(self, didPressButton: cmd)
         }
     }
 }
@@ -68,13 +75,13 @@ class ControllerManager: MultipeerDelegate {
     
     func peerDisconnected(peer: String) {
         
-        delegate?.controllerManager(self, controllerDisconnected: controllers[peer]!)
-        controllers.removeValue(forKey: peer)
+        if let controller = controllers[peer] {
+            delegate?.controllerManager(self, controllerDisconnected: controller)
+            controllers.removeValue(forKey: peer)
+        }
     }
     
     func peerSentMessage(peer: String, message: String) {
         controllers[peer]?.parseCommand(message)
-        print("------------------")
-        print("\(peer):\(message)")
     }
 }

@@ -70,38 +70,46 @@ extension PaddleNode: Updatable {
     func update(_ currentTime: TimeInterval, _ deltaTime: TimeInterval) {
         
         if (self.moveLeft) {
-            let dx =  -(CGFloat)(deltaTime)*speed
-            self.position = self.position.offset(dx: dx, dy: 0.0)
+            let dx =  -(CGFloat)(deltaTime)*speed*200
+            self.position = self.position.offset(dx: dx*cos(self.zRotation), dy: dx*sin(self.zRotation))
         }
         else if(self.moveRight) {
-            let dx = (CGFloat)(deltaTime)
-            self.position = self.position.offset(dx: dx, dy: 0.0)
+            let dx =  (CGFloat)(deltaTime)*speed*200
+            self.position = self.position.offset(dx: dx*cos(self.zRotation), dy: dx*sin(self.zRotation))
         }
     }
 }
 
 extension PaddleNode: ControllerDelegate {
     
-    func Controller(_ controller: Controller, didPressButton button: ControllerButton) {
+    func controller(_ controller: Controller, didPressButton button: ControllerButton) {
         
         switch(button) {
-        case .Left:
+        case .leftDown:
             self.moveLeft = true
-        case .Right:
+        case .rightDown:
             self.moveRight = true
-        case .Kick:
+        case .leftUp:
+            self.moveLeft = false
+        case .rightUp:
+            self.moveRight = false
+        case .kick:
+            break
+        default:
             break
         }
     }
     
-    func Controller(_ controller: Controller, didReleaseButton button: ControllerButton) {
+    func controller(_ controller: Controller, didReleaseButton button: ControllerButton) {
         
         switch(button) {
-        case .Left:
+        case .leftUp:
             self.moveLeft = false
-        case .Right:
+        case .rightUp:
             self.moveRight = false
-        case .Kick:
+        case .kick:
+            break
+        default:
             break
         }
     }

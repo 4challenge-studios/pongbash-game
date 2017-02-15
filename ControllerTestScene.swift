@@ -34,10 +34,7 @@ class ControllerTestScene: SKScene, ControllerManagerDelegate, ControllerDelegat
         print("\(controller.displayName) desconectou!")
     }
     
-    func Controller(_ controller: Controller, didPressButton button: ControllerButton) {
-        if button == .Kick {
-            players[controller.id]! += 1
-            print("\(controller.displayName): \(players[controller.id]!)")
-        }
+    func controller(_ controller: Controller, didPressButton button: ControllerButton) {
+
     }
 }
