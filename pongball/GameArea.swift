@@ -29,7 +29,6 @@ class GameAreaNode : SKNode {
         setupCorners()
         setupPaddles()
         setupBalls()
-        self.addChild(KickNode(withRadius: 100))
     }
     
     private func setupBalls() {
@@ -97,7 +96,13 @@ class GameAreaNode : SKNode {
         paddles[3].zRotation = CGFloat(-M_PI)
         paddles[3].position = CGPoint(x:centerPaddle3Position, y: self.size.height/2)
         
-        self.paddles.forEach { self.addChild($0) }
+        self.paddles.forEach {
+            self.addChild($0)
+            let kick = KickNode(withRadius:1.5 * $0.tileTexture.size().width)
+            kick.zRotation = CGFloat(M_PI_2)
+            kick.position = CGPoint(x:1.5 * $0.tileTexture.size().width ,y:$0.tileTexture.size().height)
+            $0.addChild(kick)
+        }
     }
     
     

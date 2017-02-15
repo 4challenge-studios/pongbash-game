@@ -16,7 +16,7 @@ class PaddleNode : TiledNode {
     var moveRight: Bool = false
     var moveLeft: Bool = false
     let tileTexture = SKTexture(image: #imageLiteral(resourceName: "tile-01.png"))
-
+    var kickNode:KickNode?
     
     
     init() {
