@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1017C2A11E51CB3800DFEF26 /* GameArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1017C2A01E51CB3800DFEF26 /* GameArea.swift */; };
-		1017C2A31E51DD7A00DFEF26 /* GoalNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1017C2A21E51DD7A00DFEF26 /* GoalNode.swift */; };
+		1017C2A31E51DD7A00DFEF26 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1017C2A21E51DD7A00DFEF26 /* Goal.swift */; };
 		1017C2A51E51E13C00DFEF26 /* Bitmasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1017C2A41E51E13C00DFEF26 /* Bitmasks.swift */; };
 		1055BA9A1E4DDFB7000FDB1A /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055BA991E4DDFB7000FDB1A /* Ball.swift */; };
 		10AE78D21E532996003465F0 /* tile-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 10AE78D11E532996003465F0 /* tile-01.png */; };
@@ -60,7 +60,7 @@
 
 /* Begin PBXFileReference section */
 		1017C2A01E51CB3800DFEF26 /* GameArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameArea.swift; sourceTree = "<group>"; };
-		1017C2A21E51DD7A00DFEF26 /* GoalNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalNode.swift; sourceTree = "<group>"; };
+		1017C2A21E51DD7A00DFEF26 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		1017C2A41E51E13C00DFEF26 /* Bitmasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bitmasks.swift; sourceTree = "<group>"; };
 		1055BA991E4DDFB7000FDB1A /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		10AE78D11E532996003465F0 /* tile-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile-01.png"; sourceTree = "<group>"; };
@@ -314,7 +314,7 @@
 				D19EB3BA1E44B23F00C44DEA /* Paddle.swift */,
 				1055BA991E4DDFB7000FDB1A /* Ball.swift */,
 				10E618391E4E0C9100462512 /* Corner.swift */,
-				1017C2A21E51DD7A00DFEF26 /* GoalNode.swift */,
+				1017C2A21E51DD7A00DFEF26 /* Goal.swift */,
 				1017C2A01E51CB3800DFEF26 /* GameArea.swift */,
 				D112F4001E532C0800959664 /* TiledNode.swift */,
 			);
@@ -484,7 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1055BA9A1E4DDFB7000FDB1A /* Ball.swift in Sources */,
-				1017C2A31E51DD7A00DFEF26 /* GoalNode.swift in Sources */,
+				1017C2A31E51DD7A00DFEF26 /* Goal.swift in Sources */,
 				D112F4011E532C0800959664 /* TiledNode.swift in Sources */,
 				D16045331E4DE8DC0007B4B7 /* ControllerManager.swift in Sources */,
 				D16BB2021E43917700A2BE0B /* GameScene.swift in Sources */,

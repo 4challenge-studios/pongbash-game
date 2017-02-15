@@ -16,14 +16,11 @@ class GameScene: SKScene {
     
     var players = [Controller]()
     var gameArea: GameAreaNode!
-    private var balls:[BallNode]!
     
     override func didMove(to view: SKView) {
-        
-        //self.balls = [BallNode(),BallNode(),BallNode(),BallNode()]
-        self.balls = [BallNode()]
         self.setupGameArea()
         self.physicsWorld.contactDelegate = gameArea
+        
 
     }
     
@@ -31,19 +28,7 @@ class GameScene: SKScene {
         let gameAreaSize = CGSize(width: view!.frame.height, height: view!.frame.height)
         self.gameArea = GameAreaNode(withSize: gameAreaSize)
         addChild(self.gameArea)
-        
-        // ESSE FOR TÁ MELHOR IN MY OPINION, MAS, FIKDIK
-        for ball in balls {
-            gameArea.addChild(ball)
-            
-            ball.physicsBody?.applyImpulse(CGVector(dx: Int(arc4random()%50), dy: 10))
-            let dx = ball.physicsBody?.velocity.dx
-            let dy = ball.physicsBody?.velocity.dy
-            let angle = atan2(dy!, dx!)
-            
-            let action = SKAction.rotate(toAngle: angle - CGFloat(M_PI_2), duration: 0)
-            ball.run(action)
-        }
+        self.gameArea.setup()
     }
     
     

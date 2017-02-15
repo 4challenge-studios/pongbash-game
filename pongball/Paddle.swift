@@ -95,8 +95,6 @@ extension PaddleNode: ControllerDelegate {
             self.moveRight = false
         case .kick:
             break
-        default:
-            break
         }
     }
     
