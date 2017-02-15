@@ -29,6 +29,7 @@ class GameAreaNode : SKNode {
         setupCorners()
         setupPaddles()
         setupBalls()
+        self.addChild(KickNode(withRadius: 100))
     }
     
     private func setupBalls() {
@@ -45,7 +46,7 @@ class GameAreaNode : SKNode {
             
             let action = SKAction.rotate(toAngle: angle - CGFloat(M_PI_2), duration: 0)
             ball.run(action)
-            ball.isKicking = true
+            ball.isKicked = true
         }
     }
     

@@ -14,7 +14,8 @@ class BallNode : SKNode {
     var sprite: SKSpriteNode!
     private let animationDidKick = SKAction.animate(with: [SKTexture(image: #imageLiteral(resourceName: "white-01.png")), SKTexture(image: #imageLiteral(resourceName: "white-02.png")), SKTexture(image: #imageLiteral(resourceName: "white-03.png")), SKTexture(image: #imageLiteral(resourceName: "white-04.png"))], timePerFrame: 1, resize: true, restore: true)
     private let animationAfterKick = SKAction.animate(with: [SKTexture(image: #imageLiteral(resourceName: "white-03.png")), SKTexture(image: #imageLiteral(resourceName: "white-04.png"))], timePerFrame: 0.5, resize: true, restore: true)
-    var animation:SKAction!
+    private var animation:SKAction!
+    private var kick:KickNode?
     var radius: CGFloat = 30.0 {
         didSet {
             setupSprite()
@@ -22,9 +23,10 @@ class BallNode : SKNode {
         }
     }
     
-    var isKicking:Bool = false {
+    var isKicked:Bool = false {
         didSet {
-            if isKicking == true {
+            if isKicked == true {
+                
                sprite.run(self.animation)
             }else {
                 self.removeAllActions()
@@ -59,8 +61,8 @@ class BallNode : SKNode {
         self.physicsBody?.friction = 0
         self.physicsBody?.allowsRotation = true
         self.physicsBody?.categoryBitMask = CategoryBitmasks.ball.rawValue
-        self.physicsBody?.collisionBitMask = CategoryBitmasks.corner.rawValue | CategoryBitmasks.paddle.rawValue | CategoryBitmasks.goal.rawValue
-        self.physicsBody?.contactTestBitMask = CategoryBitmasks.corner.rawValue | CategoryBitmasks.paddle.rawValue | CategoryBitmasks.goal.rawValue
+        self.physicsBody?.collisionBitMask = CategoryBitmasks.corner.rawValue | CategoryBitmasks.paddle.rawValue | CategoryBitmasks.goal.rawValue | CategoryBitmasks.kick.rawValue
+        self.physicsBody?.contactTestBitMask = CategoryBitmasks.corner.rawValue | CategoryBitmasks.paddle.rawValue | CategoryBitmasks.goal.rawValue | CategoryBitmasks.kick.rawValue
     }
     
     private func setupAnimation(){
