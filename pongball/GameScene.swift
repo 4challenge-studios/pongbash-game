@@ -22,14 +22,9 @@ class GameScene: SKScene {
         
         //self.balls = [BallNode(),BallNode(),BallNode(),BallNode()]
         self.balls = [BallNode()]
-        
-        self.physicsWorld.contactDelegate = gameArea
-        
-        GCController.startWirelessControllerDiscovery {
-            print("wow \(GCController.controllers())")
-        }
-        
         self.setupGameArea()
+        self.physicsWorld.contactDelegate = gameArea
+
     }
     
     func setupGameArea() {
