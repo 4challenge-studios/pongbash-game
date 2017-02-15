@@ -12,8 +12,9 @@ import SpriteKit
 
 class BallNode : SKNode {
     var sprite: SKSpriteNode!
-    let sprites = [SKTexture(image: #imageLiteral(resourceName: "white-01.png")), SKTexture(image: #imageLiteral(resourceName: "white-02.png")), SKTexture(image: #imageLiteral(resourceName: "white-03.png")), SKTexture(image: #imageLiteral(resourceName: "white-04.png"))]
-    
+    private let animationDidKick = SKAction.animate(with: [SKTexture(image: #imageLiteral(resourceName: "white-01.png")), SKTexture(image: #imageLiteral(resourceName: "white-02.png")), SKTexture(image: #imageLiteral(resourceName: "white-03.png")), SKTexture(image: #imageLiteral(resourceName: "white-04.png"))], timePerFrame: 1, resize: true, restore: true)
+    private let animationAfterKick = SKAction.animate(with: [SKTexture(image: #imageLiteral(resourceName: "white-03.png")), SKTexture(image: #imageLiteral(resourceName: "white-04.png"))], timePerFrame: 0.5, resize: true, restore: true)
+    var animation:SKAction!
     var radius: CGFloat = 30.0 {
         didSet {
             setupSprite()
@@ -21,14 +22,23 @@ class BallNode : SKNode {
         }
     }
     
-    var owner:String?
+    var isKicking:Bool = false {
+        didSet {
+            if isKicking == true {
+               sprite.run(self.animation)
+            }else {
+                self.removeAllActions()
+            }
+        }
+    }
     
+    var owner:String?
     
     override init() {
         super.init()
         setupSprite()
         setupPhysicsBody()
-        self.startAnimation()
+        setupAnimation()
     }
 
     private func setupSprite() {
@@ -53,16 +63,12 @@ class BallNode : SKNode {
         self.physicsBody?.contactTestBitMask = CategoryBitmasks.corner.rawValue | CategoryBitmasks.paddle.rawValue | CategoryBitmasks.goal.rawValue
     }
     
-    func startAnimation(){
-        //teste
-        let animation = SKAction.repeatForever(SKAction.animate(with: sprites, timePerFrame: 0.5, resize: true, restore: true))
-        sprite.run(animation)
+    private func setupAnimation(){
+        let forever = SKAction.repeatForever(animationAfterKick)
+        self.animation = SKAction.sequence([animationDidKick,forever])
     }
-    //comecar a criar cauda
-    //bola com cauda
-    func stopAnimation(){
-        sprite.removeAllActions()
-    }
+    
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
