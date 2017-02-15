@@ -38,7 +38,7 @@ class GameAreaNode : SKNode {
         for ball in self.balls {
             self.addChild(ball)
             
-            ball.physicsBody?.applyImpulse(CGVector(dx: Int(arc4random()%50), dy: 10))
+            ball.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 10))
             let dx = ball.physicsBody?.velocity.dx
             let dy = ball.physicsBody?.velocity.dy
             let angle = atan2(dy!, dx!)
@@ -50,7 +50,7 @@ class GameAreaNode : SKNode {
     
     private func setupGoals() {
         let rect0 = CGRect(x:-size.width/2 - size.width/16 , y: -size.height/2, width: size.width/16, height: size.height)
-        let rect1 = CGRect(x: -size.width/2, y: size.height/2  + size.height/16, width: size.width, height: size.width)
+        let rect1 = CGRect(x: -size.width/2, y: size.height/2, width: size.width, height: size.height/16)
         let rect2 = CGRect(x: size.width/2, y: -size.height/2, width: size.width/16, height: size.height)
         let rect3 = CGRect(x: -size.width/2, y: -size.height/2  - size.height/16, width: size.width, height: size.width/16)
         
