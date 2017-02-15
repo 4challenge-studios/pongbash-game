@@ -58,7 +58,8 @@ class BallNode : SKNode {
         let animation = SKAction.repeatForever(SKAction.animate(with: sprites, timePerFrame: 0.5, resize: true, restore: true))
         sprite.run(animation)
     }
-    
+    //comecar a criar cauda
+    //bola com cauda
     func stopAnimation(){
         sprite.removeAllActions()
     }
