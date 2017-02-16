@@ -98,10 +98,6 @@ class GameAreaNode : SKNode {
         
         self.paddles.forEach {
             self.addChild($0)
-            let kick = KickNode(withRadius:1.5 * $0.tileTexture.size().width)
-            kick.zRotation = CGFloat(M_PI_2)
-            kick.position = CGPoint(x:1.5 * $0.tileTexture.size().width ,y:$0.tileTexture.size().height)
-            $0.addChild(kick)
         }
     }
     
