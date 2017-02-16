@@ -33,8 +33,4 @@ class ControllerTestScene: SKScene, ControllerManagerDelegate, ControllerDelegat
         
         print("\(controller.displayName) desconectou!")
     }
-    
-    func controller(_ controller: Controller, didPressButton button: ControllerButton) {
-
-    }
 }

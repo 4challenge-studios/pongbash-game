@@ -114,31 +114,6 @@ extension GameAreaNode: SKPhysicsContactDelegate {
         (contact.bodyA.node as? ContactDelegate)?.didBeginContact(contact)
         (contact.bodyB.node as? ContactDelegate)?.didBeginContact(contact)
     }
-    func didEnd(_ contact:SKPhysicsContact){
-        if contact.bodyB.categoryBitMask == CategoryBitmasks.ball.rawValue {
-            //rotaciona a bola para a direcao certa
-            let ball = contact.bodyB.node
-            let dx = ball?.physicsBody?.velocity.dx
-            let dy = ball?.physicsBody?.velocity.dy
-            let angle = atan2(dy!, dx!)
-            let action = SKAction.rotate(toAngle: angle - CGFloat(M_PI_2), duration: 0)
-            
-            print(angle)
-            ball?.run(action)
-            
-        } else if contact.bodyA.categoryBitMask == CategoryBitmasks.ball.rawValue {
-            //rotaciona a bola para a direcao certa
-            let ball = contact.bodyA.node
-            let dx = ball?.physicsBody?.velocity.dx
-            let dy = ball?.physicsBody?.velocity.dy
-            let angle = atan2(dy!, dx!)
-            
-            let action = SKAction.rotate(toAngle: angle - CGFloat(M_PI_2), duration: 0)
-            print(angle)
-            ball?.run(action)
-
-        }
-    }
 }
 
 extension GameAreaNode: Updatable {
