@@ -39,8 +39,8 @@ class KickNode : SKNode {
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.isDynamic = false
         self.physicsBody?.categoryBitMask = CategoryBitmasks.kick.rawValue
-        self.physicsBody?.collisionBitMask = CategoryBitmasks.ball.rawValue
-        self.physicsBody?.contactTestBitMask = CategoryBitmasks.ball.rawValue
+        self.physicsBody?.collisionBitMask = CollisionBitmasks.none.rawValue
+        self.physicsBody?.contactTestBitMask = CategoryBitmasks.ball.rawValue | CategoryBitmasks.kick.rawValue
     }
     
     required init?(coder aDecoder: NSCoder) {
