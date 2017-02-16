@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1005D2D51E561E5300953EE8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1005D2D41E561E5300953EE8 /* Player.swift */; };
+		1005D2D71E56224A00953EE8 /* GoalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1005D2D61E56224A00953EE8 /* GoalDelegate.swift */; };
 		1017C2A11E51CB3800DFEF26 /* GameArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1017C2A01E51CB3800DFEF26 /* GameArea.swift */; };
 		1017C2A31E51DD7A00DFEF26 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1017C2A21E51DD7A00DFEF26 /* Goal.swift */; };
 		1017C2A51E51E13C00DFEF26 /* Bitmasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1017C2A41E51E13C00DFEF26 /* Bitmasks.swift */; };
@@ -64,6 +66,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1005D2D41E561E5300953EE8 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		1005D2D61E56224A00953EE8 /* GoalDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalDelegate.swift; sourceTree = "<group>"; };
 		1017C2A01E51CB3800DFEF26 /* GameArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameArea.swift; sourceTree = "<group>"; };
 		1017C2A21E51DD7A00DFEF26 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		1017C2A41E51E13C00DFEF26 /* Bitmasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bitmasks.swift; sourceTree = "<group>"; };
@@ -287,6 +291,7 @@
 			children = (
 				D16045371E4DF0610007B4B7 /* Updatable.swift */,
 				D191136B1E55F01F00AB6F17 /* ContactDelegate.swift */,
+				1005D2D61E56224A00953EE8 /* GoalDelegate.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 		D16BB1ED1E43917600A2BE0B = {
 			isa = PBXGroup;
 			children = (
+				1005D2D41E561E5300953EE8 /* Player.swift */,
 				D16BB1F81E43917700A2BE0B /* pongball */,
 				D16BB1F71E43917700A2BE0B /* Products */,
 				E96726BC0D42576A6B1E5725 /* Pods */,
@@ -516,10 +522,12 @@
 				D16045331E4DE8DC0007B4B7 /* ControllerManager.swift in Sources */,
 				D16BB2021E43917700A2BE0B /* GameScene.swift in Sources */,
 				D11BE13E1E51E193009D6414 /* ControllerTestScene.swift in Sources */,
+				1005D2D51E561E5300953EE8 /* Player.swift in Sources */,
 				10E6183A1E4E0C9100462512 /* Corner.swift in Sources */,
 				D19EB3BB1E44B23F00C44DEA /* Paddle.swift in Sources */,
 				D16BB2041E43917700A2BE0B /* GameViewController.swift in Sources */,
 				D160453A1E4DF5B70007B4B7 /* CGPoint+Extensions.swift in Sources */,
+				1005D2D71E56224A00953EE8 /* GoalDelegate.swift in Sources */,
 				D16045381E4DF0610007B4B7 /* Updatable.swift in Sources */,
 				1017C2A11E51CB3800DFEF26 /* GameArea.swift in Sources */,
 				D16BB1FA1E43917700A2BE0B /* AppDelegate.swift in Sources */,

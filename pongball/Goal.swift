@@ -12,15 +12,17 @@ import SpriteKit
 // travessão
 class GoalNode : SKNode {
     
-    init(rect:CGRect,owner:String) {
+    init(rect:CGRect,owner:Player) {
         self.rect = rect
         self.owner = owner
         super.init()
         self.setupPhysicsBody()
     }
     
-    var owner:String
-
+    var owner:Player
+    var delegate:GoalDelegate?
+    
+    
     var rect: CGRect {
         didSet {
             setupPhysicsBody()
@@ -42,5 +44,20 @@ class GoalNode : SKNode {
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension GoalNode:ContactDelegate {
+    func didBeginContact(_ contact: SKPhysicsContact){
+        let nodeA = contact.bodyA.node
+        let nodeB = contact.bodyB.node
+        
+        let other = (nodeA as? GoalNode) != nil ? nodeB : nodeA
+        if let ball = other as? BallNode {
+            self.delegate?.goal(self, didReceiveBall: ball)
+        }
+       
+    }
+    func didEndContact(_ contact: SKPhysicsContact){
     }
 }

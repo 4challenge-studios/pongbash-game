@@ -33,7 +33,7 @@ class BallNode : SKNode {
         }
     }
     
-    var owner:String?
+    var owner:Player?
     
     override init() {
         super.init()

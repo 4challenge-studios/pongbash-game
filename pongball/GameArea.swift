@@ -54,11 +54,10 @@ class GameAreaNode : SKNode {
         let rect2 = CGRect(x: size.width/2, y: -size.height/2, width: size.width/16, height: size.height)
         let rect3 = CGRect(x: -size.width/2, y: -size.height/2  - size.height/16, width: size.width, height: size.width/16)
         
-        self.goals =
-            [GoalNode(rect: rect0, owner: "purple"),
-             GoalNode(rect: rect1, owner: "orange"),
-             GoalNode(rect: rect2, owner: "blue"),
-             GoalNode(rect: rect3, owner: "red")]
+        self.goals = [GoalNode(rect: rect0, owner: Player()),
+             GoalNode(rect: rect1, owner: Player()),
+             GoalNode(rect: rect2, owner: Player()),
+             GoalNode(rect: rect3, owner: Player())]
         
         self.goals.forEach { self.addChild($0) }
     }
@@ -108,6 +107,12 @@ class GameAreaNode : SKNode {
 
 extension GameAreaNode: SKPhysicsContactDelegate {
     
+    
+    func didEnd(_ contact:SKPhysicsContact){
+        
+        (contact.bodyA.node as? ContactDelegate)?.didBeginContact(contact)
+        (contact.bodyB.node as? ContactDelegate)?.didBeginContact(contact)
+    }
     
     func didBegin(_ contact:SKPhysicsContact){
         

@@ -14,7 +14,7 @@ import GameController
 
 class GameScene: SKScene {
     
-    var players = [Controller]()
+    var players = [Player(), Player(), Player(), Player()]
     var gameArea: GameAreaNode!
     
     override func didMove(to view: SKView) {
@@ -27,6 +27,7 @@ class GameScene: SKScene {
         self.gameArea = GameAreaNode(withSize: gameAreaSize)
         addChild(self.gameArea)
         self.gameArea.setup()
+        self.gameArea.goals.forEach {$0.delegate = self}
     }
     
     
@@ -81,18 +82,39 @@ class GameScene: SKScene {
         previousTime = currentTime
     }
     
+    //gambis
+    var playerCount = 0
 }
 
 extension GameScene: ControllerManagerDelegate, ControllerDelegate {
     
     func controllerManager(_ controllerManager: ControllerManager, controllerConnected controller: Controller) {
-        
-        players.append(controller)
-        controller.delegate = gameArea.paddles[players.count-1]
+        let player = Player(withController: controller)
+        //players.append(player)
+        //controller.delegate = gameArea.paddles[players.count-1]
+        controller.delegate = gameArea.paddles[playerCount]
+        //gambis
+        players[self.playerCount] = player
+        self.playerCount += 1
     }
     
     func controllerManager(_ controllerManager: ControllerManager, controllerDisconnected controller: Controller) {
         
         print("\(controller.displayName) desconectou!")
+    }
+}
+
+extension GameScene: GoalDelegate{
+    func goal(_ goal: GoalNode, didReceiveBall ball: BallNode) {
+        if let ballOwner = ball.owner{
+            if goal.owner === ballOwner {
+                goal.owner.score -= 25
+            }else {
+                ballOwner.score += 100
+            }
+        }else {
+           goal.owner.score -= 25
+        }
+        print("\(ball.owner?.name) fez gol em \(goal.owner.name)")
     }
 }
