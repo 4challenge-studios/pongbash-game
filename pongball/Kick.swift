@@ -13,7 +13,9 @@ import SpriteKit
 class KickNode : SKNode {
     
     var sprite: SKSpriteNode!
-    var animation:SKAction?
+    var animation: SKAction?
+    var enabled: Bool = false
+    
     var radius: CGFloat = 30.0 {
         didSet {
             setupSprite()
@@ -45,7 +47,7 @@ class KickNode : SKNode {
         self.physicsBody = SKPhysicsBody(polygonFrom:halfCirclePath)
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.isDynamic = false
-        self.physicsBody?.categoryBitMask = 0
+        self.physicsBody?.categoryBitMask = CategoryBitmasks.kick.rawValue
         self.physicsBody?.collisionBitMask = CollisionBitmasks.none.rawValue
         self.physicsBody?.contactTestBitMask = CategoryBitmasks.ball.rawValue | CategoryBitmasks.kick.rawValue
     }

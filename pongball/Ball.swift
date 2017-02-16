@@ -76,3 +76,23 @@ class BallNode : SKNode {
     }
 }
 
+extension BallNode: ContactDelegate {
+    func didBeginContact(_ contact: SKPhysicsContact) {
+        
+        let nodeA = contact.bodyA.node
+        let nodeB = contact.bodyB.node
+        
+        let other = (nodeA as? BallNode) != nil ? nodeB : nodeA
+        
+        if let kick = other as? KickNode, kick.enabled {
+            
+            let kickPos = scene!.convert(kick.position, from: kick.parent!)
+            let ballPos = scene!.convert(self.position, from: self.parent!)
+            
+            let dir = (ballPos - kickPos)
+            let vel = CGVector(dx: dir.x, dy: dir.y)
+            
+            self.physicsBody?.velocity = vel/vel.length()  * 400
+        }
+    }
+}
