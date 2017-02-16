@@ -95,8 +95,4 @@ extension GameScene: ControllerManagerDelegate, ControllerDelegate {
         
         print("\(controller.displayName) desconectou!")
     }
-    
-    func controller(_ controller: Controller, didPressButton button: ControllerButton) {
-
-    }
 }

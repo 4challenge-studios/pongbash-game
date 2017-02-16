@@ -69,7 +69,16 @@ class BallNode : SKNode {
         self.animation = SKAction.sequence([animationDidKick,forever])
     }
     
-    
+    func updateRotation() {
+
+        let dx = self.physicsBody!.velocity.dx
+        let dy = self.physicsBody!.velocity.dy
+        let angle = atan2(dy, dx)
+        
+        let action = SKAction.rotate(toAngle: angle - CGFloat(M_PI_2), duration: 0)
+        print(angle)
+        self.run(action)
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -94,5 +103,7 @@ extension BallNode: ContactDelegate {
             
             self.physicsBody?.velocity = vel/vel.length()  * 400
         }
+        
+        self.updateRotation()
     }
 }

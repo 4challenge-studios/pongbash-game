@@ -14,15 +14,14 @@ class CornerNode: TiledNode {
     let tileTexture = SKTexture(image: #imageLiteral(resourceName: "tile-01.png"))
     
     init() {
+        
         super.init(withTileSize: tileTexture.size())
-        //setupPhysicsBody()
+
         setupTiles()
     }
     
     
     private func setupTiles() {
-        
-        
         
         let node1 = SKSpriteNode(texture: tileTexture)
         let physicBody1 = SKPhysicsBody(rectangleOf: tileTexture.size())

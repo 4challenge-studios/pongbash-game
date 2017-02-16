@@ -41,7 +41,8 @@ class KickNode : SKNode {
         self.addChild(self.sprite)
     }
     
-    private func setupPhysicsBody(){
+    private func setupPhysicsBody() {
+        
         let bezier =  UIBezierPath(arcCenter: CGPoint(x:0.0,y:0.0), radius: radius, startAngle: CGFloat(M_PI_2), endAngle: CGFloat(-M_PI_2), clockwise: false)
         let halfCirclePath = bezier.cgPath
         self.physicsBody = SKPhysicsBody(polygonFrom:halfCirclePath)

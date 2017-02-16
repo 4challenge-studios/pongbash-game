@@ -9,7 +9,7 @@
 import Foundation
 import MultipeerConnectivity
 
-enum ControllerButton {
+enum ControllerCommand {
     case leftDown
     case leftUp
     case rightDown
@@ -18,20 +18,18 @@ enum ControllerButton {
 }
 
 protocol ControllerDelegate {
-    func controller(_ controller: Controller, didPressButton button: ControllerButton)
-    func controller(_ controller: Controller, didReleaseButton button: ControllerButton)
+    func controller(_ controller: Controller, didSendCommand command: ControllerCommand)
 }
 
 extension ControllerDelegate {
-    func controller(_ controller: Controller, didPressButton button: ControllerButton) {}
-    func controller(_ controller: Controller, didReleaseButton button: ControllerButton) {}
+    func controller(_ controller: Controller, didSendCommand command: ControllerCommand) { }
 }
 
 class Controller {
     var id: String = ""
     var displayName: String = ""
     
-    var commands: [String:ControllerButton] = [
+    var commands: [String:ControllerCommand] = [
         "kick": .kick, "leftDown": .leftDown, "leftUp": .leftUp,
         "rightDown": .rightDown, "rightUp": .rightUp
     ]
@@ -40,7 +38,7 @@ class Controller {
     
     func parseCommand(_ command: String) {
         if let cmd = commands[command] {
-            self.delegate?.controller(self, didPressButton: cmd)
+            self.delegate?.controller(self, didSendCommand: cmd)
         }
     }
 }

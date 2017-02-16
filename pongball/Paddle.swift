@@ -112,9 +112,9 @@ extension PaddleNode: Updatable {
 
 extension PaddleNode: ControllerDelegate {
     
-    func controller(_ controller: Controller, didPressButton button: ControllerButton) {
+    func controller(_ controller: Controller, didSendCommand command: ControllerCommand) {
         
-        switch(button) {
+        switch(command) {
         case .leftDown:
             self.moveLeft = true
         case .rightDown:
@@ -127,9 +127,5 @@ extension PaddleNode: ControllerDelegate {
             self.performKick()
             break
         }
-    }
-    
-    func controller(_ controller: Controller, didReleaseButton button: ControllerButton) {
-
     }
 }
