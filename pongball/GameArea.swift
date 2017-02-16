@@ -12,12 +12,11 @@ import SpriteKit
 
 class GameAreaNode : SKNode {
     
+    let size: CGSize
+    
     var paddles = [PaddleNode]()
     var balls = [BallNode]()
     var goals = [GoalNode]()
-    
-    
-    let size: CGSize
     
     init(withSize size: CGSize) {
         self.size = size
@@ -111,31 +110,9 @@ extension GameAreaNode: SKPhysicsContactDelegate {
     
     
     func didBegin(_ contact:SKPhysicsContact){
-        if (contact.bodyA.categoryBitMask == CategoryBitmasks.ball.rawValue && contact.bodyB.categoryBitMask == CategoryBitmasks.kick.rawValue)  {
-            let ball = contact.bodyA.node
-            let kick = contact.bodyB.node
-            
-            let kickPos = scene!.convert(kick!.position, from: kick!.parent!)
-            let ballPos = scene!.convert(ball!.position, from: ball!.parent!)
-            
-            let dir = (ballPos - kickPos)
-            let vel = CGVector(dx: dir.x, dy: dir.y)
-            
-            ball?.physicsBody?.velocity = vel/vel.length()  * 400
-
-            
-        }else if (contact.bodyB.categoryBitMask == CategoryBitmasks.ball.rawValue && contact.bodyA.categoryBitMask == CategoryBitmasks.kick.rawValue){
-            let kick = contact.bodyA.node
-            let ball = contact.bodyB.node
-
-            let kickPos = scene!.convert(kick!.position, from: kick!.parent!)
-            let ballPos = scene!.convert(ball!.position, from: ball!.parent!)
-            
-            let dir = (ballPos - kickPos)
-            let vel = CGVector(dx: dir.x, dy: dir.y)
-            
-            ball?.physicsBody?.velocity = vel/vel.length()  * 400
-        }
+        
+        (contact.bodyA.node as? ContactDelegate)?.didBeginContact(contact)
+        (contact.bodyB.node as? ContactDelegate)?.didBeginContact(contact)
     }
     func didEnd(_ contact:SKPhysicsContact){
         if contact.bodyB.categoryBitMask == CategoryBitmasks.ball.rawValue {

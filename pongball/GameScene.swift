@@ -20,8 +20,6 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         self.setupGameArea()
         self.physicsWorld.contactDelegate = gameArea
-        
-
     }
     
     func setupGameArea() {
