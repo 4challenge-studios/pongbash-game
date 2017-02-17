@@ -36,8 +36,6 @@ class GameScene: SKScene {
         let width = self.size.width
         for i in 0..<self.scoreLabels.count {
             scoreLabels[i].position = CGPoint(x:width/3,y:(0.25 + CGFloat(i) * 0.05)*height)
-            scoreLabels[i].text = "00"
-            scoreLabels[i].fontName = "silkscreen"
             addChild(scoreLabels[i])
             scoreLabels[i].owner = self.gameArea.paddles[i].owner
         }
@@ -133,7 +131,7 @@ extension GameScene: GoalDelegate {
         scoreLabels.forEach { (score) in
             if let owner = score.owner {
                 if owner === ball.owner {
-                    score.text = "\(owner.score)"
+                    score.label.text = "\(owner.score)"
                 }
             }
         }

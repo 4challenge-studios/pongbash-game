@@ -65,12 +65,6 @@ class GameAreaNode : SKNode {
         self.goals[1].position = CGPoint(x: size.width/2, y: -size.height/2)
         self.goals[2].position = CGPoint(x: -size.width/2, y: size.height/2)
         self.goals[3].position = CGPoint(x:-size.width/2 - size.width/16 , y: -size.height/2)
-        
-        self.goals[0].addChild(SKLabelNode(text: "gol0"))
-        self.goals[1].addChild(SKLabelNode(text: "gol1"))
-        self.goals[2].addChild(SKLabelNode(text: "gol2"))
-        self.goals[3].addChild(SKLabelNode(text: "gol3"))
-        
         self.goals.forEach { self.addChild($0) }
     }
     

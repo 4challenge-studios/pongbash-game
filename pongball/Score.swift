@@ -8,15 +8,23 @@
 
 import Foundation
 import SpriteKit
-class ScoreNode: SKLabelNode {
+class ScoreNode: SKNode {
+    var label = SKLabelNode()
+    
     var owner:Player!
     init(withOwner owner:Player) {
         super.init()
         self.owner = owner
+        label.text = "00"
+        label.fontName = "silkscreen"
+        addChild(label)
     }
     
     override init() {
         super.init()
+        label.text = "00"
+        label.fontName = "silkscreen"
+        addChild(label)
     }
     
     required init?(coder aDecoder: NSCoder) {
