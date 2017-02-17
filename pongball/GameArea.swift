@@ -44,7 +44,6 @@ class GameAreaNode : SKNode {
             
             let action = SKAction.rotate(toAngle: angle - CGFloat(M_PI_2), duration: 0)
             ball.run(action)
-            ball.isKicked = true
         }
     }
     
