@@ -122,8 +122,8 @@ extension GameAreaNode: SKPhysicsContactDelegate {
     
     func didEnd(_ contact:SKPhysicsContact){
         
-        (contact.bodyA.node as? ContactDelegate)?.didBeginContact(contact)
-        (contact.bodyB.node as? ContactDelegate)?.didBeginContact(contact)
+        (contact.bodyA.node as? ContactDelegate)?.didEndContact(contact)
+        (contact.bodyB.node as? ContactDelegate)?.didEndContact(contact)
     }
     
     func didBegin(_ contact:SKPhysicsContact){

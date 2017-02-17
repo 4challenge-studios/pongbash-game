@@ -16,7 +16,7 @@ class GameScene: SKScene {
     
     var players = [Player(), Player(), Player(), Player()]
     var gameArea: GameAreaNode!
-    var playerScoreLabels = [SKLabelNode(),SKLabelNode(),SKLabelNode(),SKLabelNode()]
+    var scoreLabels = [ScoreNode(),ScoreNode(),ScoreNode(),ScoreNode()]
     override func didMove(to view: SKView) {
         self.setupGameArea()
         self.physicsWorld.contactDelegate = gameArea
@@ -28,11 +28,20 @@ class GameScene: SKScene {
         addChild(self.gameArea)
         self.gameArea.setup()
         self.gameArea.goals.forEach {$0.delegate = self}
-        self.playerScoreLabels.forEach { (label) in
-            label.text = "00"
-        }
+        self.setupLabels()
     }
     
+    func setupLabels(){
+        let height = self.size.height
+        let width = self.size.width
+        for i in 0..<self.scoreLabels.count {
+            scoreLabels[i].position = CGPoint(x:width/3,y:(0.25 + CGFloat(i) * 0.05)*height)
+            scoreLabels[i].text = "00"
+            scoreLabels[i].fontName = "silkscreen"
+            addChild(scoreLabels[i])
+            scoreLabels[i].owner = self.gameArea.paddles[i].owner
+        }
+    }
     
     func touchDown(atPoint pos : CGPoint) {
         
@@ -97,7 +106,7 @@ extension GameScene: ControllerManagerDelegate, ControllerDelegate {
                 self.players[i] = player
                 gameArea.paddles[i].owner = player
                 gameArea.goals[i].owner = player
-                
+                self.scoreLabels[i].owner = player
                 controller.delegate = gameArea.paddles[i]
                 break
             }
@@ -121,5 +130,12 @@ extension GameScene: GoalDelegate {
         ball.owner?.score += isSame ? 0 : 100
         
         print("\(ball.owner?.name) fez gol em \(goal.owner?.name)")
+        scoreLabels.forEach { (score) in
+            if let owner = score.owner {
+                if owner === ball.owner {
+                    score.text = "\(owner.score)"
+                }
+            }
+        }
     }
 }

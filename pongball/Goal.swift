@@ -55,7 +55,7 @@ extension GoalNode:ContactDelegate {
         if let ball = other as? BallNode {
             self.delegate?.goal(self, didReceiveBall: ball)
         }
-       
+
     }
     func didEndContact(_ contact: SKPhysicsContact){
     }

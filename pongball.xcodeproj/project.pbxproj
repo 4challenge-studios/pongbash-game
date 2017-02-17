@@ -25,6 +25,16 @@
 		10808D551E5717BB006FEDAC /* kick_2_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 10808D511E5717BB006FEDAC /* kick_2_3.png */; };
 		10808D561E5717BB006FEDAC /* kick_2_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 10808D521E5717BB006FEDAC /* kick_2_4.png */; };
 		10808D581E571853006FEDAC /* kick_4_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 10808D571E571853006FEDAC /* kick_4_4.png */; };
+		10A67F381E57670D00AEC5DB /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A67F371E57670D00AEC5DB /* Score.swift */; };
+		10A67F401E5778DF00AEC5DB /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 10A67F3B1E5778DF00AEC5DB /* readme.txt */; };
+		10A67F411E5778DF00AEC5DB /* slkscr.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10A67F3C1E5778DF00AEC5DB /* slkscr.ttf */; };
+		10A67F421E5778DF00AEC5DB /* slkscrb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10A67F3D1E5778DF00AEC5DB /* slkscrb.ttf */; };
+		10A67F431E5778DF00AEC5DB /* slkscre.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10A67F3E1E5778DF00AEC5DB /* slkscre.ttf */; };
+		10A67F441E5778DF00AEC5DB /* slkscreb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10A67F3F1E5778DF00AEC5DB /* slkscreb.ttf */; };
+		10A67F461E577A9900AEC5DB /* slkscr.ttf in Copy Files */ = {isa = PBXBuildFile; fileRef = 10A67F3C1E5778DF00AEC5DB /* slkscr.ttf */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		10A67F471E577A9900AEC5DB /* slkscrb.ttf in Copy Files */ = {isa = PBXBuildFile; fileRef = 10A67F3D1E5778DF00AEC5DB /* slkscrb.ttf */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		10A67F481E577A9900AEC5DB /* slkscre.ttf in Copy Files */ = {isa = PBXBuildFile; fileRef = 10A67F3E1E5778DF00AEC5DB /* slkscre.ttf */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		10A67F491E577A9900AEC5DB /* slkscreb.ttf in Copy Files */ = {isa = PBXBuildFile; fileRef = 10A67F3F1E5778DF00AEC5DB /* slkscreb.ttf */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		10AE78D21E532996003465F0 /* tile-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 10AE78D11E532996003465F0 /* tile-01.png */; };
 		10B1F6951E5511490067738C /* Kick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B1F6941E5511490067738C /* Kick.swift */; };
 		10B1F6971E55CF750067738C /* CGVector+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B1F6961E55CF750067738C /* CGVector+Extensions.swift */; };
@@ -76,8 +86,25 @@
 		FBA3B3463588886C6473A21E /* Pods_pongball.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8E24F1664AD5174D4BABB5 /* Pods_pongball.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		10A67F451E57798700AEC5DB /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = Resources/Fonts;
+			dstSubfolderSpec = 7;
+			files = (
+				10A67F461E577A9900AEC5DB /* slkscr.ttf in Copy Files */,
+				10A67F471E577A9900AEC5DB /* slkscrb.ttf in Copy Files */,
+				10A67F481E577A9900AEC5DB /* slkscre.ttf in Copy Files */,
+				10A67F491E577A9900AEC5DB /* slkscreb.ttf in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		1005D2D41E561E5300953EE8 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		1005D2D41E561E5300953EE8 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Player.swift; path = ../Player.swift; sourceTree = "<group>"; };
 		1005D2D61E56224A00953EE8 /* GoalDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalDelegate.swift; sourceTree = "<group>"; };
 		1005D2DA1E57160100953EE8 /* kick_3_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_3_1.png; sourceTree = "<group>"; };
 		1005D2DB1E57160100953EE8 /* kick_3_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_3_2.png; sourceTree = "<group>"; };
@@ -95,6 +122,12 @@
 		10808D511E5717BB006FEDAC /* kick_2_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_2_3.png; sourceTree = "<group>"; };
 		10808D521E5717BB006FEDAC /* kick_2_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_2_4.png; sourceTree = "<group>"; };
 		10808D571E571853006FEDAC /* kick_4_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_4_4.png; sourceTree = "<group>"; };
+		10A67F371E57670D00AEC5DB /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		10A67F3B1E5778DF00AEC5DB /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		10A67F3C1E5778DF00AEC5DB /* slkscr.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = slkscr.ttf; sourceTree = "<group>"; };
+		10A67F3D1E5778DF00AEC5DB /* slkscrb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = slkscrb.ttf; sourceTree = "<group>"; };
+		10A67F3E1E5778DF00AEC5DB /* slkscre.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = slkscre.ttf; sourceTree = "<group>"; };
+		10A67F3F1E5778DF00AEC5DB /* slkscreb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = slkscreb.ttf; sourceTree = "<group>"; };
 		10AE78D11E532996003465F0 /* tile-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile-01.png"; sourceTree = "<group>"; };
 		10B1F6941E5511490067738C /* Kick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kick.swift; sourceTree = "<group>"; };
 		10B1F6961E55CF750067738C /* CGVector+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGVector+Extensions.swift"; sourceTree = "<group>"; };
@@ -205,6 +238,18 @@
 			name = Kick2;
 			sourceTree = "<group>";
 		};
+		10A67F391E57789600AEC5DB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				10A67F3B1E5778DF00AEC5DB /* readme.txt */,
+				10A67F3C1E5778DF00AEC5DB /* slkscr.ttf */,
+				10A67F3D1E5778DF00AEC5DB /* slkscrb.ttf */,
+				10A67F3E1E5778DF00AEC5DB /* slkscre.ttf */,
+				10A67F3F1E5778DF00AEC5DB /* slkscreb.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		10B6F6F51E537865003896DF /* Tile */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +269,7 @@
 		10E6183D1E4E407F00462512 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				10A67F391E57789600AEC5DB /* Fonts */,
 				1005D2D81E5715A000953EE8 /* Kicks */,
 				10B6F6F51E537865003896DF /* Tile */,
 				10E618401E4FAB3300462512 /* Balls */,
@@ -364,7 +410,6 @@
 		D16BB1ED1E43917600A2BE0B = {
 			isa = PBXGroup;
 			children = (
-				1005D2D41E561E5300953EE8 /* Player.swift */,
 				D16BB1F81E43917700A2BE0B /* pongball */,
 				D16BB1F71E43917700A2BE0B /* Products */,
 				E96726BC0D42576A6B1E5725 /* Pods */,
@@ -391,6 +436,7 @@
 				D16BB1F91E43917700A2BE0B /* AppDelegate.swift */,
 				6A45A56D1E4D724700212AA1 /* MultipeerManager.swift */,
 				D16045321E4DE8DC0007B4B7 /* ControllerManager.swift */,
+				1005D2D41E561E5300953EE8 /* Player.swift */,
 				D16BB1FF1E43917700A2BE0B /* Game.xcassets */,
 				1017C2A41E51E13C00DFEF26 /* Bitmasks.swift */,
 				D16BB2031E43917700A2BE0B /* GameViewController.swift */,
@@ -411,6 +457,7 @@
 				1017C2A01E51CB3800DFEF26 /* GameArea.swift */,
 				D112F4001E532C0800959664 /* TiledNode.swift */,
 				10B1F6941E5511490067738C /* Kick.swift */,
+				10A67F371E57670D00AEC5DB /* Score.swift */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -437,6 +484,7 @@
 				D16BB1F41E43917600A2BE0B /* Resources */,
 				0F5FE3B5334AFB30D48FE719 /* [CP] Embed Pods Frameworks */,
 				C45AEC82DA69E02AA14B8251 /* [CP] Copy Pods Resources */,
+				10A67F451E57798700AEC5DB /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -459,7 +507,7 @@
 				TargetAttributes = {
 					D16BB1F51E43917600A2BE0B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = FWD9V5VYJ2;
+						DevelopmentTeam = 93ZH5ZQA23;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -499,6 +547,7 @@
 				10E6186A1E4FACC100462512 /* green-01.png in Resources */,
 				10E6185B1E4FAC4F00462512 /* orange-02.png in Resources */,
 				10E6187E1E4FAD3900462512 /* red-03.png in Resources */,
+				10A67F431E5778DF00AEC5DB /* slkscre.ttf in Resources */,
 				10E6184A1E4FABDA00462512 /* blue-01.png in Resources */,
 				10808D4D1E5716E8006FEDAC /* kick_4_3.png in Resources */,
 				10E6186C1E4FACC100462512 /* green-03.png in Resources */,
@@ -509,17 +558,21 @@
 				10808D561E5717BB006FEDAC /* kick_2_4.png in Resources */,
 				10AE78D21E532996003465F0 /* tile-01.png in Resources */,
 				10808D531E5717BB006FEDAC /* kick_2_1.png in Resources */,
+				10A67F441E5778DF00AEC5DB /* slkscreb.ttf in Resources */,
 				10E618751E4FAD0000462512 /* purple-02.png in Resources */,
 				10808D4B1E5716E8006FEDAC /* kick_4_1.png in Resources */,
 				10808D541E5717BB006FEDAC /* kick_2_2.png in Resources */,
 				D16BB2071E43917700A2BE0B /* Main.storyboard in Resources */,
 				1005D2E01E57160100953EE8 /* kick_3_3.png in Resources */,
+				10A67F421E5778DF00AEC5DB /* slkscrb.ttf in Resources */,
 				10E618531E4FAC2D00462512 /* white-02.png in Resources */,
 				10E6187C1E4FAD3900462512 /* red-01.png in Resources */,
 				10E618761E4FAD0000462512 /* purple-03.png in Resources */,
+				10A67F401E5778DF00AEC5DB /* readme.txt in Resources */,
 				10E618541E4FAC2D00462512 /* white-03.png in Resources */,
 				10808D551E5717BB006FEDAC /* kick_2_3.png in Resources */,
 				10E6185C1E4FAC4F00462512 /* orange-03.png in Resources */,
+				10A67F411E5778DF00AEC5DB /* slkscr.ttf in Resources */,
 				10E6184D1E4FABDA00462512 /* blue-04.png in Resources */,
 				10E618551E4FAC2D00462512 /* white-04.png in Resources */,
 				10C8D27D1E5619260036224E /* Menu.sks in Resources */,
@@ -610,6 +663,7 @@
 				1017C2A51E51E13C00DFEF26 /* Bitmasks.swift in Sources */,
 				6A45A56E1E4D724700212AA1 /* MultipeerManager.swift in Sources */,
 				D191136C1E55F01F00AB6F17 /* ContactDelegate.swift in Sources */,
+				10A67F381E57670D00AEC5DB /* Score.swift in Sources */,
 				D16045311E4DE6CE0007B4B7 /* SKNode+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -727,7 +781,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = FWD9V5VYJ2;
+				DEVELOPMENT_TEAM = 93ZH5ZQA23;
 				INFOPLIST_FILE = pongball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmcardoso.pongball;
@@ -742,7 +796,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = FWD9V5VYJ2;
+				DEVELOPMENT_TEAM = 93ZH5ZQA23;
 				INFOPLIST_FILE = pongball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmcardoso.pongball;
