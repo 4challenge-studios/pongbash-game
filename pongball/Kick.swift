@@ -59,9 +59,9 @@ class KickNode : SKNode {
             let sprite = SKTexture(imageNamed: "kick_\(size)_\(i)")
             sprites.append(sprite)
         }
-        let animation = SKAction.animate(with: sprites, timePerFrame: 0.2)
-        let appear = SKAction.fadeIn(withDuration: 0.125)
-        let disappear = SKAction.fadeOut(withDuration: 0.125)
+        let animation = SKAction.animate(with: sprites, timePerFrame: 0.1)
+        let appear = SKAction.fadeIn(withDuration: 0.05)
+        let disappear = SKAction.fadeOut(withDuration: 0.05)
         self.sprite.run(SKAction.sequence([appear,animation,disappear]))
     }
     

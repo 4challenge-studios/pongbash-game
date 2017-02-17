@@ -118,7 +118,7 @@ extension BallNode: ContactDelegate {
             let dir = (ballPos - kickPos)
             let vel = CGVector(dx: dir.x, dy: dir.y)
             
-            self.physicsBody?.velocity = vel/vel.length()  * 400
+            self.physicsBody?.velocity = vel/vel.length()  * 800
             
             
             self.isKicked = true

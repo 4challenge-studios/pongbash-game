@@ -101,11 +101,11 @@ extension PaddleNode: Updatable {
     func update(_ currentTime: TimeInterval, _ deltaTime: TimeInterval) {
         
         if (self.moveLeft) {
-            let dx =  -(CGFloat)(deltaTime)*speed*200
+            let dx =  -(CGFloat)(deltaTime)*speed*400
             self.position = self.position.offset(dx: dx*cos(self.zRotation), dy: dx*sin(self.zRotation))
         }
         else if(self.moveRight) {
-            let dx =  (CGFloat)(deltaTime)*speed*200
+            let dx =  (CGFloat)(deltaTime)*speed*400
             self.position = self.position.offset(dx: dx*cos(self.zRotation), dy: dx*sin(self.zRotation))
         }
     }
