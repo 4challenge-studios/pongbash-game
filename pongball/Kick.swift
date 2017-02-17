@@ -31,12 +31,11 @@ class KickNode : SKNode {
     }
     
     private func setupSprite(){
-        let texture = SKTexture(image: #imageLiteral(resourceName: "pulse.png"))
+        let texture = SKTexture(image: #imageLiteral(resourceName: "kick_3_1.png"))
         self.sprite = SKSpriteNode(texture: texture)
         self.sprite.alpha = 0.0
         self.sprite.anchorPoint = CGPoint(x: 0.5, y: 0.25)
-        self.sprite.xScale = 2.0
-        self.sprite.yScale = 2.0
+        
         self.sprite.zRotation = -CGFloat(M_PI_2)
         self.addChild(self.sprite)
     }
@@ -53,10 +52,16 @@ class KickNode : SKNode {
         self.physicsBody?.contactTestBitMask = CategoryBitmasks.ball.rawValue | CategoryBitmasks.kick.rawValue
     }
     
-    func animateKick() {
+    func animateKick(withSize size:Int) {
+        var sprites = [SKTexture]()
+        for i in 1...size {
+            let sprite = SKTexture(imageNamed: "kick_\(size)_\(i)")
+            sprites.append(sprite)
+        }
+        let animation = SKAction.animate(with: sprites, timePerFrame: 0.2)
         let appear = SKAction.fadeIn(withDuration: 0.125)
         let disappear = SKAction.fadeOut(withDuration: 0.125)
-        self.sprite.run(SKAction.sequence([appear, disappear]))
+        self.sprite.run(SKAction.sequence([appear,animation,disappear]))
     }
     
     required init?(coder aDecoder: NSCoder) {

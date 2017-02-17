@@ -14,6 +14,7 @@ class PaddleNode : TiledNode {
     weak var owner: Player?
     
     var sprite: SKSpriteNode!
+    var tiles = [SKSpriteNode]()
     var kick: KickNode!
     
     var moveRight: Bool = false
@@ -37,38 +38,18 @@ class PaddleNode : TiledNode {
     }
     
     private func setupTiles() {
-        
-        let node1 = SKSpriteNode(texture: tileTexture)
-        let physicBody1 = SKPhysicsBody(rectangleOf: tileTexture.size())
-        node1.physicsBody = physicBody1
-        node1.physicsBody?.categoryBitMask = CategoryBitmasks.corner.rawValue
-        node1.physicsBody?.collisionBitMask = CategoryBitmasks.ball.rawValue
-        node1.physicsBody?.contactTestBitMask = CategoryBitmasks.ball.rawValue
-        node1.physicsBody?.affectedByGravity = false
-        node1.physicsBody?.isDynamic = false
-        
-        let node2 = SKSpriteNode(texture: tileTexture)
-        let physicBody2 = SKPhysicsBody(rectangleOf: tileTexture.size())
-        node2.physicsBody = physicBody2
-        node2.physicsBody?.categoryBitMask = CategoryBitmasks.corner.rawValue
-        node2.physicsBody?.collisionBitMask = CategoryBitmasks.ball.rawValue
-        node1.physicsBody?.contactTestBitMask = CategoryBitmasks.ball.rawValue
-        node2.physicsBody?.affectedByGravity = false
-        node2.physicsBody?.isDynamic = false
-        
-        
-        let node3 = SKSpriteNode(texture: tileTexture)
-        let physicBody3 = SKPhysicsBody(rectangleOf: tileTexture.size())
-        node3.physicsBody = physicBody3
-        node3.physicsBody?.categoryBitMask = CategoryBitmasks.corner.rawValue
-        node3.physicsBody?.collisionBitMask = CategoryBitmasks.ball.rawValue
-        node1.physicsBody?.contactTestBitMask = CategoryBitmasks.ball.rawValue
-        node3.physicsBody?.affectedByGravity = false
-        node3.physicsBody?.isDynamic = false
-        
-        addChild(node1, atPosition: CGPoint(x: 0, y: 0))
-        addChild(node2, atPosition: CGPoint(x: 1, y: 0))
-        addChild(node3, atPosition: CGPoint(x: 2, y: 0))
+        for i in 0..<3 {
+            let node = SKSpriteNode(texture: tileTexture)
+            let physicBody = SKPhysicsBody(rectangleOf: tileTexture.size())
+            node.physicsBody = physicBody
+            node.physicsBody?.categoryBitMask = CategoryBitmasks.corner.rawValue
+            node.physicsBody?.collisionBitMask = CategoryBitmasks.ball.rawValue
+            node.physicsBody?.contactTestBitMask = CategoryBitmasks.ball.rawValue
+            node.physicsBody?.affectedByGravity = false
+            node.physicsBody?.isDynamic = false
+            addChild(node, atPosition: CGPoint(x: i, y: 0))
+            self.tiles.append(node)
+        }
     }
     
     func performKick(){
@@ -78,7 +59,7 @@ class PaddleNode : TiledNode {
             
             let kickAction = SKAction.run {
                 self.kick.enabled = true
-                self.kick.animateKick()
+                self.kick.animateKick(withSize: self.tiles.count-1)
             }
             
             let delayAction = SKAction.wait(forDuration: 0.250)

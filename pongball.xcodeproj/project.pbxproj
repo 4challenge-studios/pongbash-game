@@ -9,10 +9,22 @@
 /* Begin PBXBuildFile section */
 		1005D2D51E561E5300953EE8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1005D2D41E561E5300953EE8 /* Player.swift */; };
 		1005D2D71E56224A00953EE8 /* GoalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1005D2D61E56224A00953EE8 /* GoalDelegate.swift */; };
+		1005D2DE1E57160100953EE8 /* kick_3_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1005D2DA1E57160100953EE8 /* kick_3_1.png */; };
+		1005D2DF1E57160100953EE8 /* kick_3_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1005D2DB1E57160100953EE8 /* kick_3_2.png */; };
+		1005D2E01E57160100953EE8 /* kick_3_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1005D2DC1E57160100953EE8 /* kick_3_3.png */; };
+		1005D2E11E57160100953EE8 /* kick_3_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1005D2DD1E57160100953EE8 /* kick_3_4.png */; };
 		1017C2A11E51CB3800DFEF26 /* GameArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1017C2A01E51CB3800DFEF26 /* GameArea.swift */; };
 		1017C2A31E51DD7A00DFEF26 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1017C2A21E51DD7A00DFEF26 /* Goal.swift */; };
 		1017C2A51E51E13C00DFEF26 /* Bitmasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1017C2A41E51E13C00DFEF26 /* Bitmasks.swift */; };
 		1055BA9A1E4DDFB7000FDB1A /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055BA991E4DDFB7000FDB1A /* Ball.swift */; };
+		10808D4B1E5716E8006FEDAC /* kick_4_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 10808D471E5716E8006FEDAC /* kick_4_1.png */; };
+		10808D4C1E5716E8006FEDAC /* kick_4_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 10808D481E5716E8006FEDAC /* kick_4_2.png */; };
+		10808D4D1E5716E8006FEDAC /* kick_4_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 10808D491E5716E8006FEDAC /* kick_4_3.png */; };
+		10808D531E5717BB006FEDAC /* kick_2_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 10808D4F1E5717BB006FEDAC /* kick_2_1.png */; };
+		10808D541E5717BB006FEDAC /* kick_2_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 10808D501E5717BB006FEDAC /* kick_2_2.png */; };
+		10808D551E5717BB006FEDAC /* kick_2_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 10808D511E5717BB006FEDAC /* kick_2_3.png */; };
+		10808D561E5717BB006FEDAC /* kick_2_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 10808D521E5717BB006FEDAC /* kick_2_4.png */; };
+		10808D581E571853006FEDAC /* kick_4_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 10808D571E571853006FEDAC /* kick_4_4.png */; };
 		10AE78D21E532996003465F0 /* tile-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 10AE78D11E532996003465F0 /* tile-01.png */; };
 		10B1F6911E549F930067738C /* pulse.png in Resources */ = {isa = PBXBuildFile; fileRef = 10B1F6901E549F930067738C /* pulse.png */; };
 		10B1F6951E5511490067738C /* Kick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B1F6941E5511490067738C /* Kick.swift */; };
@@ -68,10 +80,22 @@
 /* Begin PBXFileReference section */
 		1005D2D41E561E5300953EE8 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1005D2D61E56224A00953EE8 /* GoalDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalDelegate.swift; sourceTree = "<group>"; };
+		1005D2DA1E57160100953EE8 /* kick_3_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_3_1.png; sourceTree = "<group>"; };
+		1005D2DB1E57160100953EE8 /* kick_3_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_3_2.png; sourceTree = "<group>"; };
+		1005D2DC1E57160100953EE8 /* kick_3_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_3_3.png; sourceTree = "<group>"; };
+		1005D2DD1E57160100953EE8 /* kick_3_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_3_4.png; sourceTree = "<group>"; };
 		1017C2A01E51CB3800DFEF26 /* GameArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameArea.swift; sourceTree = "<group>"; };
 		1017C2A21E51DD7A00DFEF26 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		1017C2A41E51E13C00DFEF26 /* Bitmasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bitmasks.swift; sourceTree = "<group>"; };
 		1055BA991E4DDFB7000FDB1A /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		10808D471E5716E8006FEDAC /* kick_4_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_4_1.png; sourceTree = "<group>"; };
+		10808D481E5716E8006FEDAC /* kick_4_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_4_2.png; sourceTree = "<group>"; };
+		10808D491E5716E8006FEDAC /* kick_4_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_4_3.png; sourceTree = "<group>"; };
+		10808D4F1E5717BB006FEDAC /* kick_2_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_2_1.png; sourceTree = "<group>"; };
+		10808D501E5717BB006FEDAC /* kick_2_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_2_2.png; sourceTree = "<group>"; };
+		10808D511E5717BB006FEDAC /* kick_2_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_2_3.png; sourceTree = "<group>"; };
+		10808D521E5717BB006FEDAC /* kick_2_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_2_4.png; sourceTree = "<group>"; };
+		10808D571E571853006FEDAC /* kick_4_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_4_4.png; sourceTree = "<group>"; };
 		10AE78D11E532996003465F0 /* tile-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile-01.png"; sourceTree = "<group>"; };
 		10B1F6901E549F930067738C /* pulse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pulse.png; sourceTree = "<group>"; };
 		10B1F6941E5511490067738C /* Kick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kick.swift; sourceTree = "<group>"; };
@@ -140,6 +164,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1005D2D81E5715A000953EE8 /* Kicks */ = {
+			isa = PBXGroup;
+			children = (
+				1005D2E31E57162D00953EE8 /* Kick2 */,
+				1005D2E21E57162500953EE8 /* Kick4 */,
+				1005D2D91E5715DE00953EE8 /* Kick3 */,
+			);
+			name = Kicks;
+			sourceTree = "<group>";
+		};
+		1005D2D91E5715DE00953EE8 /* Kick3 */ = {
+			isa = PBXGroup;
+			children = (
+				1005D2DA1E57160100953EE8 /* kick_3_1.png */,
+				1005D2DB1E57160100953EE8 /* kick_3_2.png */,
+				1005D2DC1E57160100953EE8 /* kick_3_3.png */,
+				1005D2DD1E57160100953EE8 /* kick_3_4.png */,
+			);
+			name = Kick3;
+			sourceTree = "<group>";
+		};
+		1005D2E21E57162500953EE8 /* Kick4 */ = {
+			isa = PBXGroup;
+			children = (
+				10808D471E5716E8006FEDAC /* kick_4_1.png */,
+				10808D481E5716E8006FEDAC /* kick_4_2.png */,
+				10808D491E5716E8006FEDAC /* kick_4_3.png */,
+				10808D571E571853006FEDAC /* kick_4_4.png */,
+			);
+			name = Kick4;
+			sourceTree = "<group>";
+		};
+		1005D2E31E57162D00953EE8 /* Kick2 */ = {
+			isa = PBXGroup;
+			children = (
+				10808D4F1E5717BB006FEDAC /* kick_2_1.png */,
+				10808D501E5717BB006FEDAC /* kick_2_2.png */,
+				10808D511E5717BB006FEDAC /* kick_2_3.png */,
+				10808D521E5717BB006FEDAC /* kick_2_4.png */,
+			);
+			name = Kick2;
+			sourceTree = "<group>";
+		};
 		10B6F6F51E537865003896DF /* Tile */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				10B1F6901E549F930067738C /* pulse.png */,
+				1005D2D81E5715A000953EE8 /* Kicks */,
 				10B6F6F51E537865003896DF /* Tile */,
 				10E618401E4FAB3300462512 /* Balls */,
 			);
@@ -424,27 +492,37 @@
 			files = (
 				10E6185A1E4FAC4F00462512 /* orange-01.png in Resources */,
 				10E618621E4FAC8100462512 /* pink-01.png in Resources */,
+				10808D4C1E5716E8006FEDAC /* kick_4_2.png in Resources */,
 				10E618521E4FAC2D00462512 /* white-01.png in Resources */,
 				10E6184C1E4FABDA00462512 /* blue-03.png in Resources */,
 				10E618641E4FAC8100462512 /* pink-03.png in Resources */,
 				10E6187D1E4FAD3900462512 /* red-02.png in Resources */,
+				1005D2DF1E57160100953EE8 /* kick_3_2.png in Resources */,
 				10E618651E4FAC8100462512 /* pink-04.png in Resources */,
 				10E6186A1E4FACC100462512 /* green-01.png in Resources */,
 				10E6185B1E4FAC4F00462512 /* orange-02.png in Resources */,
 				10E6187E1E4FAD3900462512 /* red-03.png in Resources */,
 				10E6184A1E4FABDA00462512 /* blue-01.png in Resources */,
+				10808D4D1E5716E8006FEDAC /* kick_4_3.png in Resources */,
 				10E6186C1E4FACC100462512 /* green-03.png in Resources */,
 				10E618741E4FAD0000462512 /* purple-01.png in Resources */,
 				10E6186B1E4FACC100462512 /* green-02.png in Resources */,
 				D16BB2001E43917700A2BE0B /* Game.xcassets in Resources */,
+				10808D581E571853006FEDAC /* kick_4_4.png in Resources */,
+				10808D561E5717BB006FEDAC /* kick_2_4.png in Resources */,
 				10AE78D21E532996003465F0 /* tile-01.png in Resources */,
+				10808D531E5717BB006FEDAC /* kick_2_1.png in Resources */,
 				10E618751E4FAD0000462512 /* purple-02.png in Resources */,
+				10808D4B1E5716E8006FEDAC /* kick_4_1.png in Resources */,
+				10808D541E5717BB006FEDAC /* kick_2_2.png in Resources */,
 				D16BB2071E43917700A2BE0B /* Main.storyboard in Resources */,
+				1005D2E01E57160100953EE8 /* kick_3_3.png in Resources */,
 				10E618531E4FAC2D00462512 /* white-02.png in Resources */,
 				10E6187C1E4FAD3900462512 /* red-01.png in Resources */,
 				10E618761E4FAD0000462512 /* purple-03.png in Resources */,
 				10E618541E4FAC2D00462512 /* white-03.png in Resources */,
 				10B1F6911E549F930067738C /* pulse.png in Resources */,
+				10808D551E5717BB006FEDAC /* kick_2_3.png in Resources */,
 				10E6185C1E4FAC4F00462512 /* orange-03.png in Resources */,
 				10E6184D1E4FABDA00462512 /* blue-04.png in Resources */,
 				10E618551E4FAC2D00462512 /* white-04.png in Resources */,
@@ -452,10 +530,12 @@
 				10E6185D1E4FAC4F00462512 /* orange-04.png in Resources */,
 				D16BB2091E43917700A2BE0B /* Assets.xcassets in Resources */,
 				10E6186D1E4FACC100462512 /* green-04.png in Resources */,
+				1005D2E11E57160100953EE8 /* kick_3_4.png in Resources */,
 				10E618771E4FAD0000462512 /* purple-04.png in Resources */,
 				10E6187F1E4FAD3900462512 /* red-04.png in Resources */,
 				10E6184B1E4FABDA00462512 /* blue-02.png in Resources */,
 				10E618631E4FAC8100462512 /* pink-02.png in Resources */,
+				1005D2DE1E57160100953EE8 /* kick_3_1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
