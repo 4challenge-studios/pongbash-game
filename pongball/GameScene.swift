@@ -16,7 +16,7 @@ class GameScene: SKScene {
     
     var players = [Player(), Player(), Player(), Player()]
     var gameArea: GameAreaNode!
-    
+    var playerScoreLabels = [SKLabelNode(),SKLabelNode(),SKLabelNode(),SKLabelNode()]
     override func didMove(to view: SKView) {
         self.setupGameArea()
         self.physicsWorld.contactDelegate = gameArea
@@ -28,6 +28,9 @@ class GameScene: SKScene {
         addChild(self.gameArea)
         self.gameArea.setup()
         self.gameArea.goals.forEach {$0.delegate = self}
+        self.playerScoreLabels.forEach { (label) in
+            label.text = "00"
+        }
     }
     
     
