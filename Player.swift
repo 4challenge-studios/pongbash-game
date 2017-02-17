@@ -13,7 +13,7 @@ class Player {
     
     var score = 0
     var name = ""
-    let controller:Controller!
+    var controller: Controller?
     var color = UIColor.red
     
     init(withController controller:Controller) {
@@ -21,7 +21,6 @@ class Player {
         self.name = controller.displayName
     }
     init() {
-        self.controller = Controller()
         self.name = "Bot"
     }
 }

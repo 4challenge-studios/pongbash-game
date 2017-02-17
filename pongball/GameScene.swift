@@ -84,9 +84,6 @@ class GameScene: SKScene {
         
         previousTime = currentTime
     }
-    
-    //gambis
-    var playerCount = 0
 }
 
 extension GameScene: ControllerManagerDelegate, ControllerDelegate {
@@ -95,13 +92,16 @@ extension GameScene: ControllerManagerDelegate, ControllerDelegate {
         
         let player = Player(withController: controller)
 
-        players[self.playerCount] = player
-        gameArea.paddles[self.playerCount].owner = player
-        gameArea.goals[self.playerCount].owner = player
-        
-        controller.delegate = gameArea.paddles[playerCount]
-        
-        self.playerCount += 1
+        for (i,p) in self.players.enumerated() {
+            if p.controller == nil {
+                self.players[i] = player
+                gameArea.paddles[i].owner = player
+                gameArea.goals[i].owner = player
+                
+                controller.delegate = gameArea.paddles[i]
+                break
+            }
+        }
     }
     
     func controllerManager(_ controllerManager: ControllerManager, controllerDisconnected controller: Controller) {
