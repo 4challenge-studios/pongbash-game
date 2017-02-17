@@ -11,6 +11,9 @@ import SpriteKit
 
 
 class BallNode : SKNode {
+    
+    weak var owner: Player?
+    
     var sprite: SKSpriteNode!
     private let animationDidKick = SKAction.animate(with: [SKTexture(image: #imageLiteral(resourceName: "white-01.png")), SKTexture(image: #imageLiteral(resourceName: "white-02.png")), SKTexture(image: #imageLiteral(resourceName: "white-03.png")), SKTexture(image: #imageLiteral(resourceName: "white-04.png"))], timePerFrame: 1, resize: true, restore: true)
     private let animationAfterKick = SKAction.animate(with: [SKTexture(image: #imageLiteral(resourceName: "white-03.png")), SKTexture(image: #imageLiteral(resourceName: "white-04.png"))], timePerFrame: 0.5, resize: true, restore: true)
@@ -27,15 +30,14 @@ class BallNode : SKNode {
         didSet {
             if isKicked == true {
                sprite.run(self.animation)
-            }else {
+            } else {
                 self.removeAllActions()
             }
         }
     }
     
-    var owner:Player?
-    
     override init() {
+        
         super.init()
         setupSprite()
         setupPhysicsBody()
@@ -43,6 +45,7 @@ class BallNode : SKNode {
     }
 
     private func setupSprite() {
+        
         let texture = SKTexture(image: #imageLiteral(resourceName: "white-01.png"))
         self.sprite = SKSpriteNode(texture: texture)
         self.sprite.size = CGSize(width: self.radius*2, height: self.radius*2)
@@ -51,6 +54,7 @@ class BallNode : SKNode {
     }
     
     private func setupPhysicsBody() {
+        
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.radius)
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.restitution = 1
@@ -86,6 +90,7 @@ class BallNode : SKNode {
 }
 
 extension BallNode: ContactDelegate {
+
     func didBeginContact(_ contact: SKPhysicsContact) {
         
         let nodeA = contact.bodyA.node

@@ -89,12 +89,15 @@ class GameScene: SKScene {
 extension GameScene: ControllerManagerDelegate, ControllerDelegate {
     
     func controllerManager(_ controllerManager: ControllerManager, controllerConnected controller: Controller) {
+        
         let player = Player(withController: controller)
-        //players.append(player)
-        //controller.delegate = gameArea.paddles[players.count-1]
-        controller.delegate = gameArea.paddles[playerCount]
-        //gambis
+
         players[self.playerCount] = player
+        gameArea.paddles[self.playerCount].owner = player
+        gameArea.goals[self.playerCount].owner = player
+        
+        controller.delegate = gameArea.paddles[playerCount]
+        
         self.playerCount += 1
     }
     
@@ -104,17 +107,16 @@ extension GameScene: ControllerManagerDelegate, ControllerDelegate {
     }
 }
 
-extension GameScene: GoalDelegate{
+extension GameScene: GoalDelegate {
+    
     func goal(_ goal: GoalNode, didReceiveBall ball: BallNode) {
-        if let ballOwner = ball.owner{
-            if goal.owner === ballOwner {
-                goal.owner.score -= 25
-            }else {
-                ballOwner.score += 100
-            }
-        }else {
-           goal.owner.score -= 25
-        }
-        print("\(ball.owner?.name) fez gol em \(goal.owner.name)")
+        
+        goal.owner?.score += -25
+        
+        let isSame = (goal.owner === ball.owner)
+        
+        ball.owner?.score += isSame ? 0 : 100
+        
+        print("\(ball.owner?.name) fez gol em \(goal.owner?.name)")
     }
 }

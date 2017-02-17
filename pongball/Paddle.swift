@@ -11,6 +11,8 @@ import SpriteKit
 
 class PaddleNode : TiledNode {
     
+    weak var owner: Player?
+    
     var sprite: SKSpriteNode!
     var kick: KickNode!
     
@@ -20,12 +22,14 @@ class PaddleNode : TiledNode {
     var canKick: Bool = true
     
     init() {
+        
         super.init(withTileSize: tileTexture.size())
         setupTiles()
         setupKick()
     }
     
     private func setupKick() {
+        
         self.kick = KickNode(withRadius:1.5 * self.tileTexture.size().width)
         self.kick.zRotation = CGFloat(M_PI_2)
         self.kick.position = CGPoint(x:1.5 * self.tileTexture.size().width, y: self.tileTexture.size().height)
@@ -70,7 +74,7 @@ class PaddleNode : TiledNode {
     func performKick(){
         if self.canKick {
             self.canKick = false
-            kick!.isHidden = false
+            kick.isHidden = false
             
             let kickAction = SKAction.run {
                 self.kick.enabled = true

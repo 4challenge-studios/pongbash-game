@@ -12,16 +12,15 @@ import SpriteKit
 // travessão
 class GoalNode : SKNode {
     
-    init(rect:CGRect,owner:Player) {
+    weak var owner: Player?
+    var delegate: GoalDelegate?
+    
+    init(rect:CGRect) {
+        
         self.rect = rect
-        self.owner = owner
         super.init()
         self.setupPhysicsBody()
     }
-    
-    var owner:Player
-    var delegate:GoalDelegate?
-    
     
     var rect: CGRect {
         didSet {

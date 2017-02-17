@@ -54,10 +54,10 @@ class GameAreaNode : SKNode {
         let rect2 = CGRect(x: size.width/2, y: -size.height/2, width: size.width/16, height: size.height)
         let rect3 = CGRect(x: -size.width/2, y: -size.height/2  - size.height/16, width: size.width, height: size.width/16)
         
-        self.goals = [GoalNode(rect: rect0, owner: Player()),
-             GoalNode(rect: rect1, owner: Player()),
-             GoalNode(rect: rect2, owner: Player()),
-             GoalNode(rect: rect3, owner: Player())]
+        self.goals = [GoalNode(rect: rect0),
+             GoalNode(rect: rect1),
+             GoalNode(rect: rect2),
+             GoalNode(rect: rect3)]
         
         self.goals.forEach { self.addChild($0) }
     }
@@ -66,7 +66,7 @@ class GameAreaNode : SKNode {
         let corners = [CornerNode(), CornerNode(),
                        CornerNode(), CornerNode()]
         
-        corners[0].position = CGPoint(x: -self.size.width/2, y: -self.size.height/2)//CGPoint(x: , y: 100)
+        corners[0].position = CGPoint(x: -self.size.width/2, y: -self.size.height/2)
         corners[1].position = CGPoint(x: self.size.width/2, y: -self.size.height/2)
         corners[1].zRotation = CGFloat(M_PI_2)
         corners[2].position = CGPoint(x: -self.size.width/2, y: self.size.height/2)
