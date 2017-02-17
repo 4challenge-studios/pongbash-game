@@ -15,14 +15,24 @@ class BallNode : SKNode {
     weak var owner: Player?
     
     var sprite: SKSpriteNode!
-    private let animationDidKick = SKAction.animate(with: [SKTexture(image: #imageLiteral(resourceName: "white-01.png")), SKTexture(image: #imageLiteral(resourceName: "white-02.png")), SKTexture(image: #imageLiteral(resourceName: "white-03.png")), SKTexture(image: #imageLiteral(resourceName: "white-04.png"))], timePerFrame: 1, resize: true, restore: true)
-    private let animationAfterKick = SKAction.animate(with: [SKTexture(image: #imageLiteral(resourceName: "white-03.png")), SKTexture(image: #imageLiteral(resourceName: "white-04.png"))], timePerFrame: 0.5, resize: true, restore: true)
+    private let animationDidKick = SKAction.animate(with: [SKTexture(image: #imageLiteral(resourceName: "white-01.png")), SKTexture(image: #imageLiteral(resourceName: "white-02.png")), SKTexture(image: #imageLiteral(resourceName: "white-03.png")), SKTexture(image: #imageLiteral(resourceName: "white-04.png"))], timePerFrame: 0.25, resize: true, restore: true)
+    private let animationAfterKick = SKAction.animate(with: [SKTexture(image: #imageLiteral(resourceName: "white-03.png")), SKTexture(image: #imageLiteral(resourceName: "white-04.png"))], timePerFrame: 0.25, resize: true, restore: true)
     private var animation:SKAction!
    
     var radius: CGFloat = 30.0 {
+        
         didSet {
+            
             setupSprite()
             setupPhysicsBody()
+        }
+    }
+    
+    var color: UIColor = .white {
+        
+        didSet {
+            
+            self.sprite.color = self.color
         }
     }
     
@@ -48,6 +58,8 @@ class BallNode : SKNode {
         
         let texture = SKTexture(image: #imageLiteral(resourceName: "white-01.png"))
         self.sprite = SKSpriteNode(texture: texture)
+        self.color = .white
+        self.sprite.colorBlendFactor = 1.0
         self.sprite.size = CGSize(width: self.radius*2, height: self.radius*2)
         // add sprite as child
         self.addChild(self.sprite)
@@ -107,6 +119,22 @@ extension BallNode: ContactDelegate {
             let vel = CGVector(dx: dir.x, dy: dir.y)
             
             self.physicsBody?.velocity = vel/vel.length()  * 400
+            
+            
+            self.isKicked = true
+            
+            self.owner = kick.paddle!.owner
+            self.color = kick.paddle!.color
+            
+        } else if let paddle = other as? PaddleNode {
+            
+            self.owner = paddle.owner
+            self.color = paddle.color
+            
+            self.isKicked = false
+        } else {
+            
+            self.isKicked = false
         }
         
         self.updateRotation()

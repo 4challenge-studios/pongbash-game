@@ -7,10 +7,15 @@
 //
 
 import Foundation
+import UIKit
+
 class Player {
+    
     var score = 0
     var name = ""
     let controller:Controller!
+    var color = UIColor.red
+    
     init(withController controller:Controller) {
         self.controller = controller
         self.name = controller.displayName

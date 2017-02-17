@@ -12,6 +12,7 @@ import SpriteKit
 
 class KickNode : SKNode {
     
+    weak var paddle: PaddleNode?
     var sprite: SKSpriteNode!
     var animation: SKAction?
     var enabled: Bool = false

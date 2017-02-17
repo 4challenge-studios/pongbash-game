@@ -48,10 +48,10 @@ class GameAreaNode : SKNode {
     }
     
     private func setupGoals() {
-        let rect0 = CGRect(x: -size.width/2, y: -size.height/2  - size.height/16, width: size.width, height: size.width/16)
-        let rect1 = CGRect(x:-size.width/2 - size.width/16 , y: -size.height/2, width: size.width/16, height: size.height)
-        let rect2 = CGRect(x: -size.width/2, y: size.height/2, width: size.width, height: size.height/16)
-        let rect3 = CGRect(x: size.width/2, y: -size.height/2, width: size.width/16, height: size.height)
+        let rect0 = CGRect(x:-size.width/2 - size.width/16 , y: -size.height/2, width: size.width/16, height: size.height)
+        let rect1 = CGRect(x: -size.width/2, y: size.height/2, width: size.width, height: size.height/16)
+        let rect2 = CGRect(x: size.width/2, y: -size.height/2, width: size.width/16, height: size.height)
+        let rect3 = CGRect(x: -size.width/2, y: -size.height/2  - size.height/16, width: size.width, height: size.width/16)
         
         self.goals = [GoalNode(rect: rect0),
              GoalNode(rect: rect1),

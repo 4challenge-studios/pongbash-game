@@ -22,11 +22,19 @@ class PaddleNode : TiledNode {
     let tileTexture = SKTexture(image: #imageLiteral(resourceName: "tile-01.png"))
     var canKick: Bool = true
     
+    static var colorIndex = 0
+    static var colors: [UIColor] = [.red, .green, .blue, .yellow]
+    var color: UIColor = .white
+    
     init() {
         
         super.init(withTileSize: tileTexture.size())
         setupTiles()
         setupKick()
+        
+        self.color = PaddleNode.colors[PaddleNode.colorIndex]
+        PaddleNode.colorIndex += 1
+        self.tiles.forEach { $0.color = self.color }
     }
     
     private func setupKick() {
@@ -34,22 +42,30 @@ class PaddleNode : TiledNode {
         self.kick = KickNode(withRadius:1.5 * self.tileTexture.size().width)
         self.kick.zRotation = CGFloat(M_PI_2)
         self.kick.position = CGPoint(x:1.5 * self.tileTexture.size().width, y: self.tileTexture.size().height)
+        self.kick.paddle = self
         self.addChild(self.kick)
     }
     
     private func setupTiles() {
+        
         for i in 0..<3 {
             let node = SKSpriteNode(texture: tileTexture)
-            let physicBody = SKPhysicsBody(rectangleOf: tileTexture.size())
+            node.colorBlendFactor = 1.0
+            /*let physicBody = SKPhysicsBody(rectangleOf: tileTexture.size())
             node.physicsBody = physicBody
             node.physicsBody?.categoryBitMask = CategoryBitmasks.corner.rawValue
             node.physicsBody?.collisionBitMask = CategoryBitmasks.ball.rawValue
             node.physicsBody?.contactTestBitMask = CategoryBitmasks.ball.rawValue
             node.physicsBody?.affectedByGravity = false
-            node.physicsBody?.isDynamic = false
+            node.physicsBody?.isDynamic = false*/
             addChild(node, atPosition: CGPoint(x: i, y: 0))
             self.tiles.append(node)
         }
+        
+        let textureSize = self.tileTexture.size()
+        let size = CGSize(width: textureSize.width*3, height: textureSize.height)
+        self.physicsBody = SKPhysicsBody(rectangleOf: size, center: CGPoint(x: size.width/2, y: size.height/2))
+        self.physicsBody?.isDynamic = false
     }
     
     func performKick(){
