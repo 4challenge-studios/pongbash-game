@@ -48,15 +48,28 @@ class GameAreaNode : SKNode {
     }
     
     private func setupGoals() {
-        let rect0 = CGRect(x:-size.width/2 - size.width/16 , y: -size.height/2, width: size.width/16, height: size.height)
-        let rect1 = CGRect(x: -size.width/2, y: size.height/2, width: size.width, height: size.height/16)
-        let rect2 = CGRect(x: size.width/2, y: -size.height/2, width: size.width/16, height: size.height)
-        let rect3 = CGRect(x: -size.width/2, y: -size.height/2  - size.height/16, width: size.width, height: size.width/16)
+        
+        
+        let rect0 = CGRect(x: 0, y: 0, width: size.width, height: size.height/16)
+        let rect1 = CGRect(x: 0, y: 0, width: size.width/16, height: size.height)
+        let rect2 = CGRect(x: 0, y: 0, width: size.width, height: size.width/16)
+        let rect3 = CGRect(x: 0, y: 0, width: size.width/16, height: size.height)
         
         self.goals = [GoalNode(rect: rect0),
              GoalNode(rect: rect1),
              GoalNode(rect: rect2),
              GoalNode(rect: rect3)]
+        
+       
+        self.goals[0].position = CGPoint(x: -size.width/2, y: -size.height/2  - size.height/16)
+        self.goals[1].position = CGPoint(x: size.width/2, y: -size.height/2)
+        self.goals[2].position = CGPoint(x: -size.width/2, y: size.height/2)
+        self.goals[3].position = CGPoint(x:-size.width/2 - size.width/16 , y: -size.height/2)
+        
+        self.goals[0].addChild(SKLabelNode(text: "gol0"))
+        self.goals[1].addChild(SKLabelNode(text: "gol1"))
+        self.goals[2].addChild(SKLabelNode(text: "gol2"))
+        self.goals[3].addChild(SKLabelNode(text: "gol3"))
         
         self.goals.forEach { self.addChild($0) }
     }
