@@ -35,6 +35,7 @@
 		10A67F471E577A9900AEC5DB /* slkscrb.ttf in Copy Files */ = {isa = PBXBuildFile; fileRef = 10A67F3D1E5778DF00AEC5DB /* slkscrb.ttf */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		10A67F481E577A9900AEC5DB /* slkscre.ttf in Copy Files */ = {isa = PBXBuildFile; fileRef = 10A67F3E1E5778DF00AEC5DB /* slkscre.ttf */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		10A67F491E577A9900AEC5DB /* slkscreb.ttf in Copy Files */ = {isa = PBXBuildFile; fileRef = 10A67F3F1E5778DF00AEC5DB /* slkscreb.ttf */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		10A67F4B1E578B8E00AEC5DB /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A67F4A1E578B8E00AEC5DB /* UIColor+Extensions.swift */; };
 		10AE78D21E532996003465F0 /* tile-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 10AE78D11E532996003465F0 /* tile-01.png */; };
 		10B1F6951E5511490067738C /* Kick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B1F6941E5511490067738C /* Kick.swift */; };
 		10B1F6971E55CF750067738C /* CGVector+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B1F6961E55CF750067738C /* CGVector+Extensions.swift */; };
@@ -128,6 +129,7 @@
 		10A67F3D1E5778DF00AEC5DB /* slkscrb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = slkscrb.ttf; sourceTree = "<group>"; };
 		10A67F3E1E5778DF00AEC5DB /* slkscre.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = slkscre.ttf; sourceTree = "<group>"; };
 		10A67F3F1E5778DF00AEC5DB /* slkscreb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = slkscreb.ttf; sourceTree = "<group>"; };
+		10A67F4A1E578B8E00AEC5DB /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		10AE78D11E532996003465F0 /* tile-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile-01.png"; sourceTree = "<group>"; };
 		10B1F6941E5511490067738C /* Kick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kick.swift; sourceTree = "<group>"; };
 		10B1F6961E55CF750067738C /* CGVector+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGVector+Extensions.swift"; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				D10909471E49EC76007AE92C /* SKNode+Extensions.swift */,
 				D16045391E4DF5B70007B4B7 /* CGPoint+Extensions.swift */,
 				10B1F6961E55CF750067738C /* CGVector+Extensions.swift */,
+				10A67F4A1E578B8E00AEC5DB /* UIColor+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				6A45A56E1E4D724700212AA1 /* MultipeerManager.swift in Sources */,
 				D191136C1E55F01F00AB6F17 /* ContactDelegate.swift in Sources */,
 				10A67F381E57670D00AEC5DB /* Score.swift in Sources */,
+				10A67F4B1E578B8E00AEC5DB /* UIColor+Extensions.swift in Sources */,
 				D16045311E4DE6CE0007B4B7 /* SKNode+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

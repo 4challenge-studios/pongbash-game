@@ -10,16 +10,16 @@ import SpriteKit
 import GameplayKit
 import GameController
 
-
-
 class GameScene: SKScene {
     
     var players = [Player(), Player(), Player(), Player()]
     var gameArea: GameAreaNode!
     var scoreLabels = [ScoreNode(),ScoreNode(),ScoreNode(),ScoreNode()]
     override func didMove(to view: SKView) {
+        self.backgroundColor = UIColor(r: 38, g: 38, b: 38, alpha: 1.0)
         self.setupGameArea()
         self.physicsWorld.contactDelegate = gameArea
+        self.setupScores()
     }
     
     func setupGameArea() {
@@ -28,14 +28,13 @@ class GameScene: SKScene {
         addChild(self.gameArea)
         self.gameArea.setup()
         self.gameArea.goals.forEach {$0.delegate = self}
-        self.setupLabels()
     }
     
-    func setupLabels(){
+    func setupScores(){
         let height = self.size.height
         let width = self.size.width
         for i in 0..<self.scoreLabels.count {
-            scoreLabels[i].position = CGPoint(x:width/3,y:(0.25 + CGFloat(i) * 0.05)*height)
+            scoreLabels[i].position = CGPoint(x:width/3,y:(0.415 - CGFloat(i) * 0.1)*height)
             addChild(scoreLabels[i])
             scoreLabels[i].owner = self.gameArea.paddles[i].owner
         }
@@ -129,11 +128,9 @@ extension GameScene: GoalDelegate {
         
         print("\(ball.owner?.name) fez gol em \(goal.owner?.name)")
         scoreLabels.forEach { (score) in
-            if let owner = score.owner {
-                if owner === ball.owner {
-                    score.label.text = "\(owner.score)"
-                }
-            }
+             if let owner = score.owner {
+                    score.label.text = "- \(owner.score.description)"
+             }
         }
     }
 }
