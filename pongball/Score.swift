@@ -31,6 +31,7 @@ class ScoreNode: SKNode {
         label.text = " - 00"
         label.fontName = "silkscreen"
         label.position = CGPoint(x: 100, y: -10)//ajeitar isso depois para que nao fique um numeor magico
+        label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
         addChild(label)
     }
     
