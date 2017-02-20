@@ -9,11 +9,13 @@
 import Foundation
 import SpriteKit
 class ScoreNode: SKNode {
+    
     var label:SKLabelNode!
     var tileSprite:SKSpriteNode!
     var crownSprite:SKSpriteNode!
     var owner:Player!
-    init(withOwner owner:Player) {
+    
+    init(withOwner owner: Player) {
         super.init()
         self.owner = owner
         setupSprites()

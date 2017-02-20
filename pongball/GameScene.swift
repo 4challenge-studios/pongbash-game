@@ -18,6 +18,15 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         self.backgroundColor = UIColor(r: 38, g: 38, b: 38, alpha: 1.0)
         self.setupGameArea()
+        
+        for (k,v) in self.gameArea.paddles.enumerated() {
+            v.owner = players[k]
+        }
+        
+        for (k,v) in self.gameArea.goals.enumerated() {
+            v.owner = players[k]
+        }
+        
         self.physicsWorld.contactDelegate = gameArea
         self.setupScores()
     }
@@ -36,7 +45,7 @@ class GameScene: SKScene {
         for i in 0..<self.scoreLabels.count {
             scoreLabels[i].position = CGPoint(x:width/3,y:(0.415 - CGFloat(i) * 0.1)*height)
             addChild(scoreLabels[i])
-            scoreLabels[i].owner = self.gameArea.paddles[i].owner
+            scoreLabels[i].owner = self.players[i]
         }
     }
     
@@ -96,14 +105,14 @@ extension GameScene: ControllerManagerDelegate, ControllerDelegate {
     
     func controllerManager(_ controllerManager: ControllerManager, controllerConnected controller: Controller) {
         
-        let player = Player(withController: controller)
+        //let player = Player(withController: controller)
 
         for (i,p) in self.players.enumerated() {
             if p.controller == nil {
-                self.players[i] = player
-                gameArea.paddles[i].owner = player
-                gameArea.goals[i].owner = player
-                self.scoreLabels[i].owner = player
+                self.players[i].controller = controller
+                gameArea.paddles[i].owner = self.players[i]
+                gameArea.goals[i].owner = self.players[i]
+                self.scoreLabels[i].owner = self.players[i]
                 controller.delegate = gameArea.paddles[i]
                 break
             }
@@ -129,7 +138,7 @@ extension GameScene: GoalDelegate {
         print("\(ball.owner?.name) fez gol em \(goal.owner?.name)")
         scoreLabels.forEach { (score) in
              if let owner = score.owner {
-                    score.label.text = "- \(owner.score.description)"
+                score.label.text = "- \(owner.score.description)"
              }
         }
     }
