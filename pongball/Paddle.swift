@@ -27,45 +27,47 @@ class PaddleNode : TiledNode {
     var color: UIColor = .white
     
     init() {
-        
-        super.init(withTileSize: tileTexture.size())
-        setupTiles()
-        setupKick()
-        
         self.color = PaddleNode.colors[PaddleNode.colorIndex]
         PaddleNode.colorIndex += 1
-        self.tiles.forEach { $0.color = self.color }
+        super.init(withTileSize: tileTexture.size())
+        setupTiles(numberOfTiles:3)
+        setupKick(withRadius:1.5 * self.tileTexture.size().width)
     }
     
-    private func setupKick() {
-        
-        self.kick = KickNode(withRadius:1.5 * self.tileTexture.size().width)
+    private func setupKick(withRadius radius:CGFloat) {
+        if self.kick?.parent != nil {
+            self.kick.removeFromParent()
+        }
+        self.kick = KickNode(withRadius:radius)
         self.kick.zRotation = CGFloat(M_PI_2)
-        self.kick.position = CGPoint(x:1.5 * self.tileTexture.size().width, y: self.tileTexture.size().height)
+        self.kick.position = CGPoint(x:radius, y: self.tileTexture.size().height)
         self.kick.paddle = self
         self.addChild(self.kick)
     }
     
-    private func setupTiles() {
+    private func setupTiles(numberOfTiles number:Int) {
+        self.tiles.forEach {
+            if $0.parent != nil {
+                $0.removeFromParent()
+            }
+        }
+        self.tiles.removeAll()
         
-        for i in 0..<3 {
+        for i in 0..<number {
             let node = SKSpriteNode(texture: tileTexture)
             node.colorBlendFactor = 1.0
-            /*let physicBody = SKPhysicsBody(rectangleOf: tileTexture.size())
-            node.physicsBody = physicBody
-            node.physicsBody?.categoryBitMask = CategoryBitmasks.corner.rawValue
-            node.physicsBody?.collisionBitMask = CategoryBitmasks.ball.rawValue
-            node.physicsBody?.contactTestBitMask = CategoryBitmasks.ball.rawValue
-            node.physicsBody?.affectedByGravity = false
-            node.physicsBody?.isDynamic = false*/
             addChild(node, atPosition: CGPoint(x: i, y: 0))
             self.tiles.append(node)
         }
         
+        
+        
         let textureSize = self.tileTexture.size()
-        let size = CGSize(width: textureSize.width*3, height: textureSize.height)
+        let size = CGSize(width: textureSize.width*CGFloat(number), height: textureSize.height)
         self.physicsBody = SKPhysicsBody(rectangleOf: size, center: CGPoint(x: size.width/2, y: size.height/2))
         self.physicsBody?.isDynamic = false
+        
+        self.tiles.forEach { $0.color = self.color }
     }
     
     func performKick(){
@@ -89,6 +91,19 @@ class PaddleNode : TiledNode {
             kick!.run(
                 SKAction.sequence([kickAction, delayAction, canKick]))
         }
+    }
+    
+    
+    func increaseSize() {
+        //self.setupTiles(numberOfTiles:self.tiles.count)
+        self.setupTiles(numberOfTiles:self.tiles.count+1)
+        self.setupKick(withRadius:(CGFloat((Double(self.tiles.count)))) * self.tileTexture.size().width/2.0)
+        self.tiles.last?.color = (self.tiles.first?.color)!
+    }
+    
+    func decreaseSize() {
+        self.setupTiles(numberOfTiles:self.tiles.count-1)
+        self.setupKick(withRadius:(CGFloat((Double(self.tiles.count)))) * self.tileTexture.size().width/2)
     }
     
     required init?(coder aDecoder: NSCoder) {

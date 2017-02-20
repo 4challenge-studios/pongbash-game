@@ -14,26 +14,24 @@ class ItemNode:SKNode,ContactDelegate{
         let nodeA = contact.bodyA.node
         let nodeB = contact.bodyB.node
         
-        let other = (nodeA as? BallNode) != nil ? nodeB : nodeA
-
-        if let ball = other as? BallNode {
-            let gameArea = ball.parent as! GameAreaNode
-            let paddles = gameArea.paddles
-            for paddle in paddles {
-                if  ball.owner === paddle.owner {
-                    didCollected(byPlayerPaddle:paddle)
-                    return
-                }
-            }
+        let other = (nodeA as? ItemNode) != nil ? nodeB : nodeA
+        let ball = other as? BallNode
+        if let owner = ball?.owner {
+            wasCollected(byPlayer: owner)
+            self.removeFromParent()
         }
+        
     }
     internal func didEndContact(_ contact: SKPhysicsContact) {
         
     }
     
-    func didCollected(byPlayerPaddle paddle:PaddleNode){
-        //método a ser sobrescrito
-        //tá estranho os nomes e os objetos dos parametros
+    func wasCollected(byPlayer player:Player){
+        
+    }
+    
+    override init() {
+        super.init()
     }
     
     required init?(coder aDecoder: NSCoder) {

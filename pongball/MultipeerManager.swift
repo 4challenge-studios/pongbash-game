@@ -103,7 +103,7 @@ extension MultipeerManager: MCSessionDelegate {
         case .notConnected:
             
             // PEER DISCONNECTED
-
+            
             delegate?.peerDisconnected(peer: peers[peerID]!)
             peers.removeValue(forKey: peerID)
         }

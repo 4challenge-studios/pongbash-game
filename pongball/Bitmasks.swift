@@ -14,6 +14,7 @@ enum CategoryBitmasks: UInt32 {
     case corner   = 0b00000010
     case goal     = 0b00000100
     case kick     = 0b00010000
+    case item     = 0b00100000
 }
 
 enum CollisionBitmasks: UInt32 {
