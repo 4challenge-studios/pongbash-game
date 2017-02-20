@@ -37,7 +37,7 @@ class IncreaseSizeItemNode: ItemNode {
     }
     
     private func setupPhysicsBody(){
-        self.physicsBody = SKPhysicsBody(circleOfRadius: 50, center: CGPoint(x:0,y:0))
+        self.physicsBody = SKPhysicsBody(circleOfRadius: 25, center: CGPoint(x:0,y:0))
         self.physicsBody?.categoryBitMask = CategoryBitmasks.item.rawValue
         self.physicsBody?.collisionBitMask =  CategoryBitmasks.ball.rawValue
         self.physicsBody?.contactTestBitMask = CategoryBitmasks.ball.rawValue

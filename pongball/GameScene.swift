@@ -15,6 +15,7 @@ class GameScene: SKScene {
     var players = [Player(), Player(), Player(), Player()]
     var gameArea: GameAreaNode!
     var scoreLabels = [ScoreNode(),ScoreNode(),ScoreNode(),ScoreNode()]
+    var gameTimer = GameTimerNode(withTime: 30)
     override func didMove(to view: SKView) {
         self.backgroundColor = UIColor(r: 38, g: 38, b: 38, alpha: 1.0)
         self.setupGameArea()
@@ -29,6 +30,13 @@ class GameScene: SKScene {
         
         self.physicsWorld.contactDelegate = gameArea
         self.setupScores()
+        self.setupGameTimer()
+        
+    }
+    
+    func setupGameTimer(){
+        self.addChild(self.gameTimer)
+        gameTimer.start()
     }
     
     func setupGameArea() {
@@ -44,8 +52,9 @@ class GameScene: SKScene {
         let width = self.size.width
         for i in 0..<self.scoreLabels.count {
             scoreLabels[i].position = CGPoint(x:width/3,y:(0.415 - CGFloat(i) * 0.1)*height)
-            addChild(scoreLabels[i])
             scoreLabels[i].owner = self.players[i]
+            scoreLabels[i].color = self.players[i].color
+            addChild(scoreLabels[i])
         }
     }
     
@@ -138,7 +147,8 @@ extension GameScene: GoalDelegate {
         print("\(ball.owner?.name) fez gol em \(goal.owner?.name)")
         scoreLabels.forEach { (score) in
              if let owner = score.owner {
-                score.label.text = "- \(owner.score.description)"
+                let string = String(format:"%02d",owner.score)
+                score.label.text = string
              }
         }
     }

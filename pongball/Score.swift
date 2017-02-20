@@ -14,6 +14,12 @@ class ScoreNode: SKNode {
     var tileSprite:SKSpriteNode!
     var crownSprite:SKSpriteNode!
     var owner:Player!
+    var color: UIColor = .white {
+        didSet {
+            self.tileSprite.color = self.color
+        }
+    }
+    
     
     init(withOwner owner: Player) {
         super.init()
@@ -40,6 +46,7 @@ class ScoreNode: SKNode {
     private func setupSprites(){
         let tileTexture = SKTexture(image: #imageLiteral(resourceName: "tile-01.png"))
         tileSprite = SKSpriteNode(texture: tileTexture)
+        tileSprite.colorBlendFactor = 1.0
         addChild(tileSprite)
     }
     
