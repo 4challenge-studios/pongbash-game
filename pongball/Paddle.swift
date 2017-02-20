@@ -77,7 +77,7 @@ class PaddleNode : TiledNode {
             
             let kickAction = SKAction.run {
                 self.kick.enabled = true
-                self.kick.animateKick(withSize: self.tiles.count-1)
+                self.kick.animateKick(withSize: self.tiles.count)
             }
             
             let delayAction = SKAction.wait(forDuration: 0.250)
@@ -95,7 +95,6 @@ class PaddleNode : TiledNode {
     
     
     func increaseSize() {
-        //self.setupTiles(numberOfTiles:self.tiles.count)
         self.setupTiles(numberOfTiles:self.tiles.count+1)
         self.setupKick(withRadius:(CGFloat((Double(self.tiles.count)))) * self.tileTexture.size().width/2.0)
         self.tiles.last?.color = (self.tiles.first?.color)!
