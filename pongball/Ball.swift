@@ -41,7 +41,11 @@ class BallNode : SKNode {
             if isKicked == true {
                sprite.run(self.animation)
             } else {
-                self.removeAllActions()
+                self.sprite.removeAllActions()
+                self.sprite.removeFromParent()
+                self.setupSprite()
+                let vel =  self.physicsBody?.velocity
+                self.physicsBody?.velocity = vel!/(vel?.length())!  * 400
             }
         }
     }
@@ -128,10 +132,12 @@ extension BallNode: ContactDelegate {
             
         } else if let paddle = other as? PaddleNode {
             
-            self.owner = paddle.owner
-            self.color = paddle.color
+
             
             self.isKicked = false
+            
+            self.owner = paddle.owner
+            self.color = paddle.color
         } else {
             
             self.isKicked = false
