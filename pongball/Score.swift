@@ -44,7 +44,7 @@ class ScoreNode: SKNode {
     }
     
     private func setupSprites(){
-        let tileTexture = SKTexture(image: #imageLiteral(resourceName: "tile-01.png"))
+        let tileTexture = SKTexture(image: #imageLiteral(resourceName: "green_tile.png"))
         tileSprite = SKSpriteNode(texture: tileTexture)
         tileSprite.colorBlendFactor = 1.0
         addChild(tileSprite)

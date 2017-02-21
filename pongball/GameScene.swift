@@ -54,7 +54,7 @@ class GameScene: SKScene {
         for i in 0..<self.scoreLabels.count {
             scoreLabels[i].position = CGPoint(x:width/3,y:(0.415 - CGFloat(i) * 0.1)*height)
             scoreLabels[i].owner = self.players[i]
-            scoreLabels[i].color = self.players[i].color
+            scoreLabels[i].color = UIColor(r:14,g:198,b:167,alpha:1)//self.players[i].color
             addChild(scoreLabels[i])
         }
     }
