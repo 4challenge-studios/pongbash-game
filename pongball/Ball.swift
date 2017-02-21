@@ -131,9 +131,7 @@ extension BallNode: ContactDelegate {
             self.color = kick.paddle!.color
             
         } else if let paddle = other as? PaddleNode {
-            
-
-            
+        
             self.isKicked = false
             
             self.owner = paddle.owner

@@ -36,6 +36,7 @@ class GameScene: SKScene {
     
     func setupGameTimer(){
         self.addChild(self.gameTimer)
+        self.gameTimer.position = CGPoint(x: -0.4*(scene?.size.width)!, y:0.4*(scene?.size.height)!)
         gameTimer.start()
     }
     

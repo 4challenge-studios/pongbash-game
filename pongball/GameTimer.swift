@@ -22,7 +22,6 @@ class GameTimerNode: SKNode {
     }
     
     private func setupTimerLabel(){
-      //TO DO:Colocar na posicao correta a label e setar a fonte
         self.label = SKLabelNode(fontNamed: "silkscreen")
         let string = String(format: "%2.0f", self.timeInterval)
         self.label.text = string
