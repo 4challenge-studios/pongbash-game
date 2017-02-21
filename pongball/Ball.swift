@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 
 
-class BallNode : SKNode {
+class BallNode : SKNode, Updatable {
     
     weak var owner: Player?
     
@@ -103,6 +103,29 @@ class BallNode : SKNode {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func update(_ currentTime: TimeInterval, _ deltaTime: TimeInterval) {
+        
+        
+        self.physicsBody!.allContactedBodies().forEach {
+            
+            if let kick = $0.node as? KickNode, kick.enabled {
+                self.isKicked = true
+            
+                self.owner = kick.paddle!.owner
+                self.color = kick.paddle!.color
+                
+                let kickPos = scene!.convert(kick.position, from: kick.parent!)
+                let ballPos = scene!.convert(self.position, from: self.parent!)
+                
+                let dir = (ballPos - kickPos)
+                let vel = CGVector(dx: dir.x, dy: dir.y)
+                self.physicsBody?.velocity = vel/(vel.length())  * 800
+                
+                updateRotation()
+            }
+        }
+    }
 }
 
 extension BallNode: ContactDelegate {
@@ -114,33 +137,12 @@ extension BallNode: ContactDelegate {
         
         let other = (nodeA as? BallNode) != nil ? nodeB : nodeA
         
-        if let kick = other as? KickNode, kick.enabled {
-            
-            let kickPos = scene!.convert(kick.position, from: kick.parent!)
-            let ballPos = scene!.convert(self.position, from: self.parent!)
-            
-            let dir = (ballPos - kickPos)
-            let vel = CGVector(dx: dir.x, dy: dir.y)
-            
-            self.physicsBody?.velocity = vel/vel.length()  * 800
-            
-            
-            self.isKicked = true
-            
-            self.owner = kick.paddle!.owner
-            self.color = kick.paddle!.color
-            
-        } else if let paddle = other as? PaddleNode {
-            
-
+        if let paddle = other as? PaddleNode {
             
             self.isKicked = false
             
             self.owner = paddle.owner
             self.color = paddle.color
-        } else {
-            
-            //self.isKicked = false
         }
         
         self.updateRotation()
