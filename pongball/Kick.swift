@@ -59,6 +59,8 @@ class KickNode : SKNode {
             let sprite = SKTexture(imageNamed: "kick_\(size)_\(i)")
             sprites.append(sprite)
         }
+        self.sprite.colorBlendFactor = 1.0
+        self.sprite.color = (self.paddle?.color)!
         let animation = SKAction.animate(with: sprites, timePerFrame: 0.1)
         let appear = SKAction.fadeIn(withDuration: 0.05)
         let disappear = SKAction.fadeOut(withDuration: 0.05)

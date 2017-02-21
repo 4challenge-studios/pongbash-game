@@ -30,8 +30,8 @@ class GameAreaNode : SKNode {
         setupBalls()
         //let increaseItem = IncreaseSizeItemNode()
         //addChild(increaseItem)
-        let decreaseItem = DecreaseSizeItemNode()
-        addChild(decreaseItem)
+        //let decreaseItem = DecreaseSizeItemNode()
+        //addChild(decreaseItem)
     }
     
     private func setupBalls() {

@@ -138,7 +138,6 @@ extension BallNode: ContactDelegate {
         let other = (nodeA as? BallNode) != nil ? nodeB : nodeA
         
         if let paddle = other as? PaddleNode {
-            
             self.isKicked = false
             
             self.owner = paddle.owner
