@@ -36,12 +36,12 @@ class GameAreaNode : SKNode {
     
     private func setupBalls() {
         
-        self.balls = [BallNode()]
+        self.balls = [BallNode(),BallNode(),BallNode()]
         
         for ball in self.balls {
             self.addChild(ball)
             
-            ball.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 25))
+            ball.physicsBody?.applyImpulse(CGVector(dx: Int(Int(arc4random()%40)), dy:Int(arc4random()%40)))
             let dx = ball.physicsBody?.velocity.dx
             let dy = ball.physicsBody?.velocity.dy
             let angle = atan2(dy!, dx!)

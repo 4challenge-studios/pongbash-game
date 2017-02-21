@@ -55,8 +55,8 @@ class KickNode : SKNode {
     
     func animateKick(withSize size:Int) {
         var sprites = [SKTexture]()
-        for i in 1...size {
-            let sprite = SKTexture(imageNamed: "kick_\(size)_\(i)")
+        for i in 1...5 {
+            let sprite = SKTexture(imageNamed: "kick_\(3)_\(i)")
             sprites.append(sprite)
         }
         self.sprite.colorBlendFactor = 1.0
