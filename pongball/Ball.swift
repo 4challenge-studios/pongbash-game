@@ -138,7 +138,7 @@ extension BallNode: ContactDelegate {
             self.color = paddle.color
         } else {
             
-            self.isKicked = false
+            //self.isKicked = false
         }
         
         self.updateRotation()
