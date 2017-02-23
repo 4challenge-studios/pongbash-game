@@ -94,6 +94,7 @@
 		10E6187F1E4FAD3900462512 /* red-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E6187B1E4FAD3900462512 /* red-04.png */; };
 		6A45A56E1E4D724700212AA1 /* MultipeerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A45A56D1E4D724700212AA1 /* MultipeerManager.swift */; };
 		D112F4011E532C0800959664 /* TiledNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D112F4001E532C0800959664 /* TiledNode.swift */; };
+		D113529A1E5F0B7000C5852B /* SiriRemoteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11352991E5F0B7000C5852B /* SiriRemoteDelegate.swift */; };
 		D16045311E4DE6CE0007B4B7 /* SKNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10909471E49EC76007AE92C /* SKNode+Extensions.swift */; };
 		D16045331E4DE8DC0007B4B7 /* ControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16045321E4DE8DC0007B4B7 /* ControllerManager.swift */; };
 		D16045381E4DF0610007B4B7 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16045371E4DF0610007B4B7 /* Updatable.swift */; };
@@ -213,6 +214,7 @@
 		6F8E24F1664AD5174D4BABB5 /* Pods_pongball.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pongball.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10909471E49EC76007AE92C /* SKNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Extensions.swift"; sourceTree = "<group>"; };
 		D112F4001E532C0800959664 /* TiledNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TiledNode.swift; sourceTree = "<group>"; };
+		D11352991E5F0B7000C5852B /* SiriRemoteDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiriRemoteDelegate.swift; sourceTree = "<group>"; };
 		D16045321E4DE8DC0007B4B7 /* ControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerManager.swift; sourceTree = "<group>"; };
 		D16045371E4DF0610007B4B7 /* Updatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
 		D16045391E4DF5B70007B4B7 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
@@ -539,6 +541,7 @@
 				D16045371E4DF0610007B4B7 /* Updatable.swift */,
 				D191136B1E55F01F00AB6F17 /* ContactDelegate.swift */,
 				1005D2D61E56224A00953EE8 /* GoalDelegate.swift */,
+				D11352991E5F0B7000C5852B /* SiriRemoteDelegate.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -797,6 +800,7 @@
 				D16045331E4DE8DC0007B4B7 /* ControllerManager.swift in Sources */,
 				10CCA6DE1E5B4F6E00891623 /* DecreaseSizeItem.swift in Sources */,
 				D16BB2021E43917700A2BE0B /* GameScene.swift in Sources */,
+				D113529A1E5F0B7000C5852B /* SiriRemoteDelegate.swift in Sources */,
 				1005D2D51E561E5300953EE8 /* Player.swift in Sources */,
 				10E6183A1E4E0C9100462512 /* Corner.swift in Sources */,
 				D19EB3BB1E44B23F00C44DEA /* Paddle.swift in Sources */,
