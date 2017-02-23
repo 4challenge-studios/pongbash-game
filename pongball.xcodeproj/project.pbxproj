@@ -281,6 +281,14 @@
 			name = Kick2;
 			sourceTree = "<group>";
 		};
+		1018F9901E5F0828002588EA /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				10BADDD61E5DBB69002E362E /* Logo */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
 		10A67F391E57789600AEC5DB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,7 +399,7 @@
 		10E6183D1E4E407F00462512 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				10BADDD61E5DBB69002E362E /* Logo */,
+				1018F9901E5F0828002588EA /* Menu */,
 				10BADDD11E5DBAAA002E362E /* PlayButton */,
 				10BADDCE1E5DB536002E362E /* Iphone */,
 				10BADDBF1E5DB3C3002E362E /* HourGlass */,

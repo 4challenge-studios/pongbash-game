@@ -7,14 +7,17 @@
 //
 
 import SpriteKit
-
+import GameController
 
 
 class MenuScene: SKScene {
     
+    var playButton:SKSpriteNode?
     
     override func didMove(to view: SKView) {
-    
+        super.didMove(to: view)
+        self.playButton = self.childNode(withName: "PlayButton") as! SKSpriteNode?
+        self.playButton?.isUserInteractionEnabled = true
     }
     
     
@@ -31,8 +34,21 @@ class MenuScene: SKScene {
     }
     
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
-        
+        for item in presses {
+            if item.type == .playPause {
+                print("apertando")
+            }
+        }
     }
+    
+    override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        for item in presses {
+            if item.type == .playPause {
+                print("apertando")
+            }
+        }
+    }
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
