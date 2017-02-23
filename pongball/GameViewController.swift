@@ -22,30 +22,31 @@ class GameViewController: UIViewController {
 
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            /*if let scene = SKScene(fileNamed: "GameScene") {
+            if let scene = SKScene(fileNamed: "Menu") {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
-
+                scene.backgroundColor = UIColor(r: 20, g: 20, b: 20, alpha: 1)
                 // Present the scene
                 view.presentScene(scene)
-            }*/
+            }
 
             //let scene = ControllerTestScene(size: CGSize(width: 1024, height: 576))
-
+            /* // GameScene of GameArea
             let scene = GameScene(size: CGSize(width: 1920, height: 1080))
             controllerManager.delegate = scene
             scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
-
+ 
             // Present the scene
             view.presentScene(scene)
-
+ 
             view.ignoresSiblingOrder = true
 
             view.showsPhysics = true
             view.showsFPS = true
             view.showsNodeCount = true
+           */
         }
     }
 
