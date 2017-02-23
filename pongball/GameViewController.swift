@@ -89,6 +89,7 @@ extension GameViewController: MenuDelegate {
     }
     
     func didRelease(button: MenuButton) {
+        self.siriRemoteDelegate = nil
         self.presentGameScene()
     }
 }
