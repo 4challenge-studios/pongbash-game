@@ -9,10 +9,19 @@
 import SpriteKit
 import GameController
 
+enum MenuButton {
+    case play
+}
+
+protocol MenuDelegate: class {
+    func didPress(button: MenuButton)
+    func didRelease(button: MenuButton)
+}
 
 class MenuScene: SKScene {
     
     var playButton:SKSpriteNode?
+    weak var menuDelegate: MenuDelegate?
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
@@ -31,22 +40,6 @@ class MenuScene: SKScene {
     
     func touchUp(atPoint pos : CGPoint) {
         
-    }
-    
-    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
-        for item in presses {
-            if item.type == .playPause {
-                print("apertando")
-            }
-        }
-    }
-    
-    override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
-        for item in presses {
-            if item.type == .playPause {
-                print("apertando")
-            }
-        }
     }
     
     
@@ -70,5 +63,22 @@ class MenuScene: SKScene {
     private var previousTime: TimeInterval = 0.0
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+    }
+}
+
+extension MenuScene: SiriRemoteDelegate {
+    
+    func didPress(button: SiriRemoteButton) {
+        switch(button) {
+        case .select:
+            self.menuDelegate?.didRelease(button: .play)
+        }
+    }
+    
+    func didRelease(button: SiriRemoteButton) {
+        switch(button) {
+        case .select:
+            self.menuDelegate?.didRelease(button: .play)
+        }
     }
 }

@@ -49,7 +49,6 @@
 		10BADDD31E5DBACE002E362E /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 10BADDD21E5DBACE002E362E /* play.png */; };
 		10BADDD51E5DBB65002E362E /* pong_bash_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 10BADDD41E5DBB65002E362E /* pong_bash_test.png */; };
 		10BADDD81E5DBE1C002E362E /* pong_bash.png in Resources */ = {isa = PBXBuildFile; fileRef = 10BADDD71E5DBE1C002E362E /* pong_bash.png */; };
-		10C8D27D1E5619260036224E /* Menu.sks in Resources */ = {isa = PBXBuildFile; fileRef = 10C8D27C1E5619260036224E /* Menu.sks */; };
 		10CCA6DE1E5B4F6E00891623 /* DecreaseSizeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CCA6DD1E5B4F6E00891623 /* DecreaseSizeItem.swift */; };
 		10CCA6E01E5B685B00891623 /* GameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CCA6DF1E5B685B00891623 /* GameTimer.swift */; };
 		10CCA6EE1E5C7D5500891623 /* green_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 10CCA6ED1E5C7D5500891623 /* green_tile.png */; };
@@ -93,8 +92,10 @@
 		10E6187D1E4FAD3900462512 /* red-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E618791E4FAD3900462512 /* red-02.png */; };
 		10E6187E1E4FAD3900462512 /* red-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E6187A1E4FAD3900462512 /* red-03.png */; };
 		10E6187F1E4FAD3900462512 /* red-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E6187B1E4FAD3900462512 /* red-04.png */; };
+		10E62FC91E5F147900A437DA /* Menu.sks in Resources */ = {isa = PBXBuildFile; fileRef = 10E62FC81E5F147900A437DA /* Menu.sks */; };
 		6A45A56E1E4D724700212AA1 /* MultipeerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A45A56D1E4D724700212AA1 /* MultipeerManager.swift */; };
 		D112F4011E532C0800959664 /* TiledNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D112F4001E532C0800959664 /* TiledNode.swift */; };
+		D113529A1E5F0B7000C5852B /* SiriRemoteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11352991E5F0B7000C5852B /* SiriRemoteDelegate.swift */; };
 		D16045311E4DE6CE0007B4B7 /* SKNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10909471E49EC76007AE92C /* SKNode+Extensions.swift */; };
 		D16045331E4DE8DC0007B4B7 /* ControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16045321E4DE8DC0007B4B7 /* ControllerManager.swift */; };
 		D16045381E4DF0610007B4B7 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16045371E4DF0610007B4B7 /* Updatable.swift */; };
@@ -165,7 +166,6 @@
 		10BADDD21E5DBACE002E362E /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		10BADDD41E5DBB65002E362E /* pong_bash_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pong_bash_test.png; sourceTree = "<group>"; };
 		10BADDD71E5DBE1C002E362E /* pong_bash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pong_bash.png; sourceTree = "<group>"; };
-		10C8D27C1E5619260036224E /* Menu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Menu.sks; sourceTree = "<group>"; };
 		10CCA6DD1E5B4F6E00891623 /* DecreaseSizeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecreaseSizeItem.swift; sourceTree = "<group>"; };
 		10CCA6DF1E5B685B00891623 /* GameTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTimer.swift; sourceTree = "<group>"; };
 		10CCA6ED1E5C7D5500891623 /* green_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_tile.png; sourceTree = "<group>"; };
@@ -209,12 +209,14 @@
 		10E618791E4FAD3900462512 /* red-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-02.png"; sourceTree = "<group>"; };
 		10E6187A1E4FAD3900462512 /* red-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-03.png"; sourceTree = "<group>"; };
 		10E6187B1E4FAD3900462512 /* red-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-04.png"; sourceTree = "<group>"; };
+		10E62FC81E5F147900A437DA /* Menu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Menu.sks; sourceTree = "<group>"; };
 		2725AB485C07487854E5A6AC /* Pods-pongball.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pongball.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pongball/Pods-pongball.debug.xcconfig"; sourceTree = "<group>"; };
 		42C18ADB95DE28E519BC97DE /* Pods-pongball.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pongball.release.xcconfig"; path = "Pods/Target Support Files/Pods-pongball/Pods-pongball.release.xcconfig"; sourceTree = "<group>"; };
 		6A45A56D1E4D724700212AA1 /* MultipeerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipeerManager.swift; sourceTree = "<group>"; };
 		6F8E24F1664AD5174D4BABB5 /* Pods_pongball.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pongball.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10909471E49EC76007AE92C /* SKNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Extensions.swift"; sourceTree = "<group>"; };
 		D112F4001E532C0800959664 /* TiledNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TiledNode.swift; sourceTree = "<group>"; };
+		D11352991E5F0B7000C5852B /* SiriRemoteDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiriRemoteDelegate.swift; sourceTree = "<group>"; };
 		D16045321E4DE8DC0007B4B7 /* ControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerManager.swift; sourceTree = "<group>"; };
 		D16045371E4DF0610007B4B7 /* Updatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
 		D16045391E4DF5B70007B4B7 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
@@ -393,8 +395,8 @@
 		10DEA5001E56177B00427858 /* Sks */ = {
 			isa = PBXGroup;
 			children = (
-				10C8D27C1E5619260036224E /* Menu.sks */,
 				108D98CB1E5F0BAA0088F879 /* Hourglass.sks */,
+				10E62FC81E5F147900A437DA /* Menu.sks */,
 			);
 			name = Sks;
 			sourceTree = "<group>";
@@ -542,6 +544,7 @@
 				D16045371E4DF0610007B4B7 /* Updatable.swift */,
 				D191136B1E55F01F00AB6F17 /* ContactDelegate.swift */,
 				1005D2D61E56224A00953EE8 /* GoalDelegate.swift */,
+				D11352991E5F0B7000C5852B /* SiriRemoteDelegate.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -640,7 +643,7 @@
 				TargetAttributes = {
 					D16BB1F51E43917600A2BE0B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 93ZH5ZQA23;
+						DevelopmentTeam = FWD9V5VYJ2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -722,10 +725,10 @@
 				10BADDCC1E5DB3D6002E362E /* hour_glass_6.png in Resources */,
 				10BADDD31E5DBACE002E362E /* play.png in Resources */,
 				10E6185C1E4FAC4F00462512 /* orange-03.png in Resources */,
+				10E62FC91E5F147900A437DA /* Menu.sks in Resources */,
 				10A67F411E5778DF00AEC5DB /* slkscr.ttf in Resources */,
 				10E6184D1E4FABDA00462512 /* blue-04.png in Resources */,
 				10E618551E4FAC2D00462512 /* white-04.png in Resources */,
-				10C8D27D1E5619260036224E /* Menu.sks in Resources */,
 				10BADDCA1E5DB3D6002E362E /* hour_glass_4.png in Resources */,
 				10E6185D1E4FAC4F00462512 /* orange-04.png in Resources */,
 				10E6186D1E4FACC100462512 /* green-04.png in Resources */,
@@ -801,6 +804,7 @@
 				D16045331E4DE8DC0007B4B7 /* ControllerManager.swift in Sources */,
 				10CCA6DE1E5B4F6E00891623 /* DecreaseSizeItem.swift in Sources */,
 				D16BB2021E43917700A2BE0B /* GameScene.swift in Sources */,
+				D113529A1E5F0B7000C5852B /* SiriRemoteDelegate.swift in Sources */,
 				1005D2D51E561E5300953EE8 /* Player.swift in Sources */,
 				10E6183A1E4E0C9100462512 /* Corner.swift in Sources */,
 				D19EB3BB1E44B23F00C44DEA /* Paddle.swift in Sources */,
@@ -938,7 +942,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 93ZH5ZQA23;
+				DEVELOPMENT_TEAM = FWD9V5VYJ2;
 				INFOPLIST_FILE = pongball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmcardoso.pongball;
@@ -954,7 +958,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 93ZH5ZQA23;
+				DEVELOPMENT_TEAM = FWD9V5VYJ2;
 				INFOPLIST_FILE = pongball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmcardoso.pongball;
