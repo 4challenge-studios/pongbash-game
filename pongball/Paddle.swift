@@ -34,6 +34,43 @@ class PaddleNode : TiledNode {
         setupKick(withRadius:1.5 * self.tileTexture.size().width)
     }
     
+    func paddleSize() -> CGSize {
+        let w = self.tiles.reduce(0) { return $0.0 + $0.1.size.width }
+        let h = self.tiles.reduce(0) { return $0.0 + $0.1.size.height }
+        
+        return CGSize(width: w, height: h)
+    }
+    
+    func canMoveLeft() -> Bool {
+        
+        var p = self.position.x
+        
+        if self.zRotation == CGFloat(M_PI_2) {
+            p = self.position.y
+        } else if self.zRotation == CGFloat(-M_PI_2) {
+            p = -self.position.y
+        } else if self.zRotation == CGFloat(M_PI) {
+            p = -self.position.x
+        }
+        
+        return p > -418
+    }
+    
+    func canMoveRight() -> Bool {
+        
+        var p = self.position.y
+        
+        if self.zRotation == CGFloat(M_PI_2) {
+            p = self.position.x
+        } else if self.zRotation == CGFloat(-M_PI_2) {
+            p = -self.position.x
+        } else if self.zRotation == CGFloat(M_PI) {
+            p = -self.position.y
+        }
+        
+        return p < (418 - self.paddleSize().width)
+    }
+    
     private func setupKick(withRadius radius:CGFloat) {
         if self.kick?.parent != nil {
             self.kick.removeFromParent()
@@ -95,12 +132,14 @@ class PaddleNode : TiledNode {
     
     
     func increaseSize() {
+        
         self.setupTiles(numberOfTiles:self.tiles.count+1)
         self.setupKick(withRadius:(CGFloat((Double(self.tiles.count)))) * self.tileTexture.size().width/2.0)
         self.tiles.last?.color = (self.tiles.first?.color)!
     }
     
     func decreaseSize() {
+        
         self.setupTiles(numberOfTiles:self.tiles.count-1)
         self.setupKick(withRadius:(CGFloat((Double(self.tiles.count)))) * self.tileTexture.size().width/2)
     }
@@ -114,11 +153,11 @@ extension PaddleNode: Updatable {
     
     func update(_ currentTime: TimeInterval, _ deltaTime: TimeInterval) {
         
-        if (self.moveLeft) {
+        if (self.moveLeft && self.canMoveLeft()) {
             let dx =  -(CGFloat)(deltaTime)*speed*400
             self.position = self.position.offset(dx: dx*cos(self.zRotation), dy: dx*sin(self.zRotation))
         }
-        else if(self.moveRight) {
+        else if(self.moveRight && self.canMoveRight()) {
             let dx =  (CGFloat)(deltaTime)*speed*400
             self.position = self.position.offset(dx: dx*cos(self.zRotation), dy: dx*sin(self.zRotation))
         }
