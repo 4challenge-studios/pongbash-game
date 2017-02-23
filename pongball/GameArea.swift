@@ -28,10 +28,10 @@ class GameAreaNode : SKNode {
         setupCorners()
         setupPaddles()
         setupBalls()
-        let increaseItem = IncreaseSizeItemNode()
-        addChild(increaseItem)
-        //let decreaseItem = DecreaseSizeItemNode()
-        //addChild(decreaseItem)
+//        let increaseItem = IncreaseSizeItemNode()
+//        addChild(increaseItem)
+        let decreaseItem = DecreaseSizeItemNode()
+        addChild(decreaseItem)
     }
     
     private func setupBalls() {

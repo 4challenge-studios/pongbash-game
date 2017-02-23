@@ -19,15 +19,17 @@ class PaddleNode : TiledNode {
     
     var moveRight: Bool = false
     var moveLeft: Bool = false
-    let tileTexture = SKTexture(image: #imageLiteral(resourceName: "green_tile.png"))
     var canKick: Bool = true
     
     static var colorIndex = 0
     static var colors: [UIColor] = [.red, .green, .blue, .yellow]
+    static var tiles:[SKTexture] = [SKTexture(image: #imageLiteral(resourceName: "red_tile.png")),SKTexture(image: #imageLiteral(resourceName: "green_tile.png")),SKTexture(image: #imageLiteral(resourceName: "blue_tile.png")),SKTexture(image: #imageLiteral(resourceName: "orange_tile.png"))]
+    var tileTexture = SKTexture(image: #imageLiteral(resourceName: "green_tile.png"))
     var color: UIColor = .white
     
     init() {
         self.color = PaddleNode.colors[PaddleNode.colorIndex]
+        self.tileTexture = PaddleNode.tiles[PaddleNode.colorIndex]
         PaddleNode.colorIndex += 1
         super.init(withTileSize: tileTexture.size())
         setupTiles(numberOfTiles:3)
