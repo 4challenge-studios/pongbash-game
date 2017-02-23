@@ -23,6 +23,7 @@
 		10808D551E5717BB006FEDAC /* kick_2_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 10808D511E5717BB006FEDAC /* kick_2_3.png */; };
 		10808D561E5717BB006FEDAC /* kick_2_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 10808D521E5717BB006FEDAC /* kick_2_4.png */; };
 		10808D581E571853006FEDAC /* kick_4_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 10808D571E571853006FEDAC /* kick_4_4.png */; };
+		108D98CC1E5F0BAA0088F879 /* Hourglass.sks in Resources */ = {isa = PBXBuildFile; fileRef = 108D98CB1E5F0BAA0088F879 /* Hourglass.sks */; };
 		10A67F381E57670D00AEC5DB /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A67F371E57670D00AEC5DB /* Score.swift */; };
 		10A67F401E5778DF00AEC5DB /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 10A67F3B1E5778DF00AEC5DB /* readme.txt */; };
 		10A67F411E5778DF00AEC5DB /* slkscr.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10A67F3C1E5778DF00AEC5DB /* slkscr.ttf */; };
@@ -142,6 +143,7 @@
 		10808D511E5717BB006FEDAC /* kick_2_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_2_3.png; sourceTree = "<group>"; };
 		10808D521E5717BB006FEDAC /* kick_2_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_2_4.png; sourceTree = "<group>"; };
 		10808D571E571853006FEDAC /* kick_4_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_4_4.png; sourceTree = "<group>"; };
+		108D98CB1E5F0BAA0088F879 /* Hourglass.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Hourglass.sks; sourceTree = "<group>"; };
 		10A67F371E57670D00AEC5DB /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		10A67F3B1E5778DF00AEC5DB /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		10A67F3C1E5778DF00AEC5DB /* slkscr.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = slkscr.ttf; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				10C8D27C1E5619260036224E /* Menu.sks */,
+				108D98CB1E5F0BAA0088F879 /* Hourglass.sks */,
 			);
 			name = Sks;
 			sourceTree = "<group>";
@@ -686,6 +689,7 @@
 				10A67F431E5778DF00AEC5DB /* slkscre.ttf in Resources */,
 				10E6184A1E4FABDA00462512 /* blue-01.png in Resources */,
 				10808D4D1E5716E8006FEDAC /* kick_4_3.png in Resources */,
+				108D98CC1E5F0BAA0088F879 /* Hourglass.sks in Resources */,
 				10E6186C1E4FACC100462512 /* green-03.png in Resources */,
 				10E618741E4FAD0000462512 /* purple-01.png in Resources */,
 				10BADDCB1E5DB3D6002E362E /* hour_glass_5.png in Resources */,
