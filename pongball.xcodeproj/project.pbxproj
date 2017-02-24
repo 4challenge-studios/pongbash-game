@@ -48,13 +48,13 @@
 		10BADDD81E5DBE1C002E362E /* pong_bash.png in Resources */ = {isa = PBXBuildFile; fileRef = 10BADDD71E5DBE1C002E362E /* pong_bash.png */; };
 		10CCA6DE1E5B4F6E00891623 /* DecreaseSizeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CCA6DD1E5B4F6E00891623 /* DecreaseSizeItem.swift */; };
 		10CCA6E01E5B685B00891623 /* GameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CCA6DF1E5B685B00891623 /* GameTimer.swift */; };
-		10CCA6EE1E5C7D5500891623 /* green_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 10CCA6ED1E5C7D5500891623 /* green_tile.png */; };
 		10CCA6F01E5C7D9C00891623 /* tile-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 10CCA6EF1E5C7D9C00891623 /* tile-01.png */; };
-		10CCA6F61E5C7DC400891623 /* blue_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 10CCA6F11E5C7DC400891623 /* blue_tile.png */; };
-		10CCA6F71E5C7DC400891623 /* orange_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 10CCA6F21E5C7DC400891623 /* orange_tile.png */; };
-		10CCA6F81E5C7DC400891623 /* pink_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 10CCA6F31E5C7DC400891623 /* pink_tile.png */; };
-		10CCA6F91E5C7DC400891623 /* purple_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 10CCA6F41E5C7DC400891623 /* purple_tile.png */; };
-		10CCA6FA1E5C7DC400891623 /* red_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 10CCA6F51E5C7DC400891623 /* red_tile.png */; };
+		10D5DF191E5F8A4400FFB6A2 /* blue_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D5DF131E5F8A4400FFB6A2 /* blue_tile.png */; };
+		10D5DF1A1E5F8A4400FFB6A2 /* green_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D5DF141E5F8A4400FFB6A2 /* green_tile.png */; };
+		10D5DF1B1E5F8A4400FFB6A2 /* orange_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D5DF151E5F8A4400FFB6A2 /* orange_tile.png */; };
+		10D5DF1C1E5F8A4400FFB6A2 /* pink_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D5DF161E5F8A4400FFB6A2 /* pink_tile.png */; };
+		10D5DF1D1E5F8A4400FFB6A2 /* purple_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D5DF171E5F8A4400FFB6A2 /* purple_tile.png */; };
+		10D5DF1E1E5F8A4400FFB6A2 /* red_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D5DF181E5F8A4400FFB6A2 /* red_tile.png */; };
 		10E5CE831E5A4A42008DF6DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10E5CE821E5A4A42008DF6DF /* Assets.xcassets */; };
 		10E5CE851E5B0FAF008DF6DF /* IncreaseSizeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E5CE841E5B0FAF008DF6DF /* IncreaseSizeItem.swift */; };
 		10E6183A1E4E0C9100462512 /* Corner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E618391E4E0C9100462512 /* Corner.swift */; };
@@ -159,13 +159,13 @@
 		10BADDD71E5DBE1C002E362E /* pong_bash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pong_bash.png; sourceTree = "<group>"; };
 		10CCA6DD1E5B4F6E00891623 /* DecreaseSizeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecreaseSizeItem.swift; sourceTree = "<group>"; };
 		10CCA6DF1E5B685B00891623 /* GameTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTimer.swift; sourceTree = "<group>"; };
-		10CCA6ED1E5C7D5500891623 /* green_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_tile.png; sourceTree = "<group>"; };
 		10CCA6EF1E5C7D9C00891623 /* tile-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile-01.png"; sourceTree = "<group>"; };
-		10CCA6F11E5C7DC400891623 /* blue_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_tile.png; sourceTree = "<group>"; };
-		10CCA6F21E5C7DC400891623 /* orange_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange_tile.png; sourceTree = "<group>"; };
-		10CCA6F31E5C7DC400891623 /* pink_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink_tile.png; sourceTree = "<group>"; };
-		10CCA6F41E5C7DC400891623 /* purple_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purple_tile.png; sourceTree = "<group>"; };
-		10CCA6F51E5C7DC400891623 /* red_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_tile.png; sourceTree = "<group>"; };
+		10D5DF131E5F8A4400FFB6A2 /* blue_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_tile.png; sourceTree = "<group>"; };
+		10D5DF141E5F8A4400FFB6A2 /* green_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_tile.png; sourceTree = "<group>"; };
+		10D5DF151E5F8A4400FFB6A2 /* orange_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange_tile.png; sourceTree = "<group>"; };
+		10D5DF161E5F8A4400FFB6A2 /* pink_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink_tile.png; sourceTree = "<group>"; };
+		10D5DF171E5F8A4400FFB6A2 /* purple_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purple_tile.png; sourceTree = "<group>"; };
+		10D5DF181E5F8A4400FFB6A2 /* red_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_tile.png; sourceTree = "<group>"; };
 		10E5CE821E5A4A42008DF6DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10E5CE841E5B0FAF008DF6DF /* IncreaseSizeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncreaseSizeItem.swift; sourceTree = "<group>"; };
 		10E618391E4E0C9100462512 /* Corner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Corner.swift; sourceTree = "<group>"; };
@@ -300,12 +300,12 @@
 			isa = PBXGroup;
 			children = (
 				10CCA6EF1E5C7D9C00891623 /* tile-01.png */,
-				10CCA6F11E5C7DC400891623 /* blue_tile.png */,
-				10CCA6F21E5C7DC400891623 /* orange_tile.png */,
-				10CCA6F31E5C7DC400891623 /* pink_tile.png */,
-				10CCA6F41E5C7DC400891623 /* purple_tile.png */,
-				10CCA6F51E5C7DC400891623 /* red_tile.png */,
-				10CCA6ED1E5C7D5500891623 /* green_tile.png */,
+				10D5DF131E5F8A4400FFB6A2 /* blue_tile.png */,
+				10D5DF141E5F8A4400FFB6A2 /* green_tile.png */,
+				10D5DF151E5F8A4400FFB6A2 /* orange_tile.png */,
+				10D5DF161E5F8A4400FFB6A2 /* pink_tile.png */,
+				10D5DF171E5F8A4400FFB6A2 /* purple_tile.png */,
+				10D5DF181E5F8A4400FFB6A2 /* red_tile.png */,
 			);
 			name = Tiles;
 			sourceTree = "<group>";
@@ -637,23 +637,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10CCA6F81E5C7DC400891623 /* pink_tile.png in Resources */,
 				1031E7A81E5F2F7000E7CB9C /* kick_2_1.png in Resources */,
 				10E6185A1E4FAC4F00462512 /* orange-01.png in Resources */,
 				10E618621E4FAC8100462512 /* pink-01.png in Resources */,
 				1031E79E1E5F2CE400E7CB9C /* kick_3_1.png in Resources */,
 				10808D4C1E5716E8006FEDAC /* kick_4_2.png in Resources */,
+				10D5DF191E5F8A4400FFB6A2 /* blue_tile.png in Resources */,
 				10E618521E4FAC2D00462512 /* white-01.png in Resources */,
 				1031E7AA1E5F2F7000E7CB9C /* kick_2_3.png in Resources */,
+				10D5DF1A1E5F8A4400FFB6A2 /* green_tile.png in Resources */,
 				10E6184C1E4FABDA00462512 /* blue-03.png in Resources */,
 				10E618641E4FAC8100462512 /* pink-03.png in Resources */,
 				10BADDD01E5DB549002E362E /* iphone_white.png in Resources */,
 				10E6187D1E4FAD3900462512 /* red-02.png in Resources */,
-				10CCA6F61E5C7DC400891623 /* blue_tile.png in Resources */,
 				1031E79F1E5F2CE400E7CB9C /* kick_3_2.png in Resources */,
-				10CCA6FA1E5C7DC400891623 /* red_tile.png in Resources */,
 				10CCA6F01E5C7D9C00891623 /* tile-01.png in Resources */,
 				10E618651E4FAC8100462512 /* pink-04.png in Resources */,
+				10D5DF1E1E5F8A4400FFB6A2 /* red_tile.png in Resources */,
 				10E6186A1E4FACC100462512 /* green-01.png in Resources */,
 				10E6185B1E4FAC4F00462512 /* orange-02.png in Resources */,
 				10E6187E1E4FAD3900462512 /* red-03.png in Resources */,
@@ -666,12 +666,10 @@
 				10E6186B1E4FACC100462512 /* green-02.png in Resources */,
 				D16BB2001E43917700A2BE0B /* Game.xcassets in Resources */,
 				1031E7A21E5F2CE400E7CB9C /* kick_3_5.png in Resources */,
-				10CCA6F91E5C7DC400891623 /* purple_tile.png in Resources */,
 				1031E7A01E5F2CE400E7CB9C /* kick_3_3.png in Resources */,
 				10808D581E571853006FEDAC /* kick_4_4.png in Resources */,
 				10A67F441E5778DF00AEC5DB /* slkscreb.ttf in Resources */,
 				1031E7A11E5F2CE400E7CB9C /* kick_3_4.png in Resources */,
-				10CCA6F71E5C7DC400891623 /* orange_tile.png in Resources */,
 				10E5CE831E5A4A42008DF6DF /* Assets.xcassets in Resources */,
 				10E618751E4FAD0000462512 /* purple-02.png in Resources */,
 				10808D4B1E5716E8006FEDAC /* kick_4_1.png in Resources */,
@@ -679,10 +677,11 @@
 				10A67F421E5778DF00AEC5DB /* slkscrb.ttf in Resources */,
 				10E618531E4FAC2D00462512 /* white-02.png in Resources */,
 				10E6187C1E4FAD3900462512 /* red-01.png in Resources */,
+				10D5DF1B1E5F8A4400FFB6A2 /* orange_tile.png in Resources */,
 				10E618761E4FAD0000462512 /* purple-03.png in Resources */,
-				10CCA6EE1E5C7D5500891623 /* green_tile.png in Resources */,
 				10A67F401E5778DF00AEC5DB /* readme.txt in Resources */,
 				10E618541E4FAC2D00462512 /* white-03.png in Resources */,
+				10D5DF1D1E5F8A4400FFB6A2 /* purple_tile.png in Resources */,
 				10BADDD81E5DBE1C002E362E /* pong_bash.png in Resources */,
 				10BADDD31E5DBACE002E362E /* play.png in Resources */,
 				10E6185C1E4FAC4F00462512 /* orange-03.png in Resources */,
@@ -693,6 +692,7 @@
 				10E6185D1E4FAC4F00462512 /* orange-04.png in Resources */,
 				1031E7A91E5F2F7000E7CB9C /* kick_2_2.png in Resources */,
 				1031E7AB1E5F2F7000E7CB9C /* kick_2_4.png in Resources */,
+				10D5DF1C1E5F8A4400FFB6A2 /* pink_tile.png in Resources */,
 				10E6186D1E4FACC100462512 /* green-04.png in Resources */,
 				10E618771E4FAD0000462512 /* purple-04.png in Resources */,
 				10E6187F1E4FAD3900462512 /* red-04.png in Resources */,

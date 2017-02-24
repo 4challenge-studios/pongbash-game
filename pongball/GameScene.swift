@@ -14,7 +14,7 @@ class GameScene: SKScene {
     
     var players = [Player(), Player(), Player(), Player()]
     var gameArea: GameAreaNode!
-    var scoreLabels = [ScoreNode(),ScoreNode(),ScoreNode(),ScoreNode()]
+    var scoreLabels:[ScoreNode]! = [ScoreNode]()
     var gameTimer = GameTimerNode(withTime: 30)
     override func didMove(to view: SKView) {
         self.backgroundColor = UIColor(r: 38, g: 38, b: 38, alpha: 1.0)
@@ -51,11 +51,14 @@ class GameScene: SKScene {
     func setupScores(){
         let height = self.size.height
         let width = self.size.width
-        for i in 0..<self.scoreLabels.count {
-            scoreLabels[i].position = CGPoint(x:width/3,y:(0.415 - CGFloat(i) * 0.1)*height)
-            scoreLabels[i].owner = self.players[i]
-            scoreLabels[i].color = UIColor(r:14,g:198,b:167,alpha:1)//self.players[i].color
-            addChild(scoreLabels[i])
+        for i in 0..<self.players.count {
+            let scoreLabel = ScoreNode(withOwner:players[i])
+            scoreLabel.position = CGPoint(x:width/3,y:(0.415 - CGFloat(i) * 0.1)*height)
+            
+            let texture = self.gameArea.paddles[i].tileTexture
+            scoreLabel.tileTexture = texture
+            scoreLabels.append(scoreLabel)
+            addChild(scoreLabel)
         }
     }
     
