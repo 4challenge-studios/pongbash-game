@@ -30,8 +30,11 @@ class GameAreaNode : SKNode {
         setupBalls()
 //        let increaseItem = IncreaseSizeItemNode()
 //        addChild(increaseItem)
-        let decreaseItem = DecreaseSizeItemNode()
-        addChild(decreaseItem)
+        //let decreaseItem = DecreaseSizeItemNode()
+       // addChild(decreaseItem)
+        let background = SKSpriteNode(color: .black, size: self.size)
+        addChild(background)
+        background.zPosition = -1
     }
     
     private func setupBalls() {
@@ -40,7 +43,6 @@ class GameAreaNode : SKNode {
         
         for ball in self.balls {
             self.addChild(ball)
-            
             ball.physicsBody?.applyImpulse(CGVector(dx: Int(Int(arc4random()%40)), dy:Int(arc4random()%40)))
             let dx = ball.physicsBody?.velocity.dx
             let dy = ball.physicsBody?.velocity.dy

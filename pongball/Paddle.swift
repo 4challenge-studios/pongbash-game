@@ -22,8 +22,8 @@ class PaddleNode : TiledNode {
     var canKick: Bool = true
     
     static var colorIndex = 0
-    static var colors: [UIColor] = [.red, .green, .blue, .yellow]
-    static var tiles:[SKTexture] = [SKTexture(image: #imageLiteral(resourceName: "green_tile.png")),SKTexture(image: #imageLiteral(resourceName: "blue_tile.png")),SKTexture(image: #imageLiteral(resourceName: "red_tile.png")),SKTexture(image: #imageLiteral(resourceName: "purple_tile.png"))]
+    static var colors: [UIColor] = [.red, .green, .blue, .orange]
+    static var tiles:[SKTexture] = [SKTexture(image: #imageLiteral(resourceName: "red_tile.png")),SKTexture(image: #imageLiteral(resourceName: "green_tile.png")),SKTexture(image: #imageLiteral(resourceName: "blue_tile.png")),SKTexture(image: #imageLiteral(resourceName: "orange_tile.png"))]
     var tileTexture = SKTexture(image: #imageLiteral(resourceName: "green_tile.png"))
     var color: UIColor = .white
     init() {
