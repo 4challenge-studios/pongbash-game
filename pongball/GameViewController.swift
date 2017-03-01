@@ -30,6 +30,7 @@ class GameViewController: UIViewController {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "Menu") as? MenuScene {
                 // Set the scale mode to scale to fit the window
+                controllerManager.delegate = scene
                 scene.scaleMode = .aspectFill
                 scene.backgroundColor = UIColor(r: 20, g: 20, b: 20, alpha: 1)
                 // Present the scene
@@ -41,11 +42,10 @@ class GameViewController: UIViewController {
         }
     }
     
-    func presentGameScene() {
+    func presentGameScene(withPlayers players: [Player]) {
         if let view = self.view as! SKView? {
             //let scene = ControllerTestScene(size: CGSize(width: 1024, height: 576))
             let scene = GameScene(size: CGSize(width: 1920, height: 1080))
-            controllerManager.delegate = scene
             scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
@@ -58,6 +58,8 @@ class GameViewController: UIViewController {
            // view.showsPhysics = true
             view.showsFPS = true
             view.showsNodeCount = true
+            
+            scene.players = players
         }
     }
     
@@ -84,12 +86,12 @@ class GameViewController: UIViewController {
 }
 
 extension GameViewController: MenuDelegate {
-    func didPress(button: MenuButton) {
+    func menuScene(menuScene: MenuScene, didPressButton button: MenuButton) {
         
     }
     
-    func didRelease(button: MenuButton) {
+    func menuScene(menuScene: MenuScene, didReleaseButton button: MenuButton) {
         self.siriRemoteDelegate = nil
-        self.presentGameScene()
+        self.presentGameScene(withPlayers: menuScene.players)
     }
 }

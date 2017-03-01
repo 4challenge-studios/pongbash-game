@@ -22,6 +22,7 @@ class GameScene: SKScene {
         
         for (k,v) in self.gameArea.paddles.enumerated() {
             v.owner = players[k]
+            players[k].controller?.delegate = v
         }
         
         for (k,v) in self.gameArea.goals.enumerated() {
@@ -111,30 +112,6 @@ class GameScene: SKScene {
         }
         
         previousTime = currentTime
-    }
-}
-
-extension GameScene: ControllerManagerDelegate, ControllerDelegate {
-    
-    func controllerManager(_ controllerManager: ControllerManager, controllerConnected controller: Controller) {
-        
-        //let player = Player(withController: controller)
-
-        for (i,p) in self.players.enumerated() {
-            if p.controller == nil {
-                self.players[i].controller = controller
-                gameArea.paddles[i].owner = self.players[i]
-                gameArea.goals[i].owner = self.players[i]
-                self.scoreLabels[i].owner = self.players[i]
-                controller.delegate = gameArea.paddles[i]
-                break
-            }
-        }
-    }
-    
-    func controllerManager(_ controllerManager: ControllerManager, controllerDisconnected controller: Controller) {
-        
-        print("\(controller.displayName) desconectou!")
     }
 }
 
