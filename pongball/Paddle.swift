@@ -19,15 +19,16 @@ class PaddleNode : TiledNode {
     
     var moveRight: Bool = false
     var moveLeft: Bool = false
-    let tileTexture = SKTexture(image: #imageLiteral(resourceName: "green_tile.png"))
     var canKick: Bool = true
     
     static var colorIndex = 0
     static var colors: [UIColor] = [.red, .green, .blue, .yellow]
+    static var tiles:[SKTexture] = [SKTexture(image: #imageLiteral(resourceName: "green_tile.png")),SKTexture(image: #imageLiteral(resourceName: "blue_tile.png")),SKTexture(image: #imageLiteral(resourceName: "red_tile.png")),SKTexture(image: #imageLiteral(resourceName: "purple_tile.png"))]
+    var tileTexture = SKTexture(image: #imageLiteral(resourceName: "green_tile.png"))
     var color: UIColor = .white
-    
     init() {
         self.color = PaddleNode.colors[PaddleNode.colorIndex]
+        self.tileTexture = PaddleNode.tiles[PaddleNode.colorIndex]
         PaddleNode.colorIndex += 1
         super.init(withTileSize: tileTexture.size())
         setupTiles(numberOfTiles:3)
@@ -92,19 +93,14 @@ class PaddleNode : TiledNode {
         
         for i in 0..<number {
             let node = SKSpriteNode(texture: tileTexture)
-            node.colorBlendFactor = 1.0
             addChild(node, atPosition: CGPoint(x: i, y: 0))
             self.tiles.append(node)
         }
-        
-        
-        
+    
         let textureSize = self.tileTexture.size()
         let size = CGSize(width: textureSize.width*CGFloat(number), height: textureSize.height)
         self.physicsBody = SKPhysicsBody(rectangleOf: size, center: CGPoint(x: size.width/2, y: size.height/2))
         self.physicsBody?.isDynamic = false
-        
-        self.tiles.forEach { $0.color = self.color }
     }
     
     func performKick(){

@@ -35,7 +35,7 @@ class KickNode : SKNode {
         let texture = SKTexture(image: #imageLiteral(resourceName: "kick_3_1.png"))
         self.sprite = SKSpriteNode(texture: texture)
         self.sprite.alpha = 0.0
-        self.sprite.anchorPoint = CGPoint(x: 0.5, y: 0.25)
+        self.sprite.anchorPoint = CGPoint(x: 0.5, y: 0)
         
         self.sprite.zRotation = -CGFloat(M_PI_2)
         self.addChild(self.sprite)
@@ -55,12 +55,10 @@ class KickNode : SKNode {
     
     func animateKick(withSize size:Int) {
         var sprites = [SKTexture]()
-        for i in 1...3 {
-            let sprite = SKTexture(imageNamed: "kick_\(3)_\(i)")
+        for i in 1...5 {
+            let sprite = SKTexture(imageNamed: "kick_\(size)_\(i)")
             sprites.append(sprite)
         }
-        //self.sprite.colorBlendFactor = 1.0
-        //self.sprite.color = (self.paddle?.color)!
         let animation = SKAction.animate(with: sprites, timePerFrame: 0.1)
         let appear = SKAction.fadeIn(withDuration: 0.05)
         let disappear = SKAction.fadeOut(withDuration: 0.05)
