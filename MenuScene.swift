@@ -27,8 +27,6 @@ class MenuScene: SKScene {
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
-        self.playButton = self.childNode(withName: "PlayButton") as! SKSpriteNode?
-        self.playButton?.isUserInteractionEnabled = true
     }
     
     

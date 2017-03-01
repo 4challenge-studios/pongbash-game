@@ -23,6 +23,11 @@
 		1031E7AA1E5F2F7000E7CB9C /* kick_2_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1031E7A51E5F2F7000E7CB9C /* kick_2_3.png */; };
 		1031E7AB1E5F2F7000E7CB9C /* kick_2_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1031E7A61E5F2F7000E7CB9C /* kick_2_4.png */; };
 		1031E7AC1E5F2F7000E7CB9C /* kick_2_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1031E7A71E5F2F7000E7CB9C /* kick_2_5.png */; };
+		10454AA81E6771AD0012A1D5 /* watch_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 10454AA41E6771AD0012A1D5 /* watch_1.png */; };
+		10454AA91E6771AD0012A1D5 /* watch_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 10454AA51E6771AD0012A1D5 /* watch_2.png */; };
+		10454AAA1E6771AD0012A1D5 /* watch_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 10454AA61E6771AD0012A1D5 /* watch_3.png */; };
+		10454AAB1E6771AD0012A1D5 /* watch_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 10454AA71E6771AD0012A1D5 /* watch_4.png */; };
+		10454AAD1E6771D10012A1D5 /* Watch.sks in Resources */ = {isa = PBXBuildFile; fileRef = 10454AAC1E6771D10012A1D5 /* Watch.sks */; };
 		105489641E5B18C600E7F7D6 /* SwiftyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105489631E5B18C600E7F7D6 /* SwiftyTimer.swift */; };
 		1055BA9A1E4DDFB7000FDB1A /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055BA991E4DDFB7000FDB1A /* Ball.swift */; };
 		10808D4B1E5716E8006FEDAC /* kick_4_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 10808D471E5716E8006FEDAC /* kick_4_1.png */; };
@@ -137,6 +142,11 @@
 		1031E7A51E5F2F7000E7CB9C /* kick_2_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_2_3.png; sourceTree = "<group>"; };
 		1031E7A61E5F2F7000E7CB9C /* kick_2_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_2_4.png; sourceTree = "<group>"; };
 		1031E7A71E5F2F7000E7CB9C /* kick_2_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_2_5.png; sourceTree = "<group>"; };
+		10454AA41E6771AD0012A1D5 /* watch_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watch_1.png; sourceTree = "<group>"; };
+		10454AA51E6771AD0012A1D5 /* watch_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watch_2.png; sourceTree = "<group>"; };
+		10454AA61E6771AD0012A1D5 /* watch_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watch_3.png; sourceTree = "<group>"; };
+		10454AA71E6771AD0012A1D5 /* watch_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watch_4.png; sourceTree = "<group>"; };
+		10454AAC1E6771D10012A1D5 /* Watch.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Watch.sks; sourceTree = "<group>"; };
 		105489631E5B18C600E7F7D6 /* SwiftyTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyTimer.swift; sourceTree = "<group>"; };
 		1055BA991E4DDFB7000FDB1A /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		10808D471E5716E8006FEDAC /* kick_4_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_4_1.png; sourceTree = "<group>"; };
@@ -282,6 +292,17 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
+		10454AA31E67717F0012A1D5 /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				10454AA41E6771AD0012A1D5 /* watch_1.png */,
+				10454AA51E6771AD0012A1D5 /* watch_2.png */,
+				10454AA61E6771AD0012A1D5 /* watch_3.png */,
+				10454AA71E6771AD0012A1D5 /* watch_4.png */,
+			);
+			name = Watch;
+			sourceTree = "<group>";
+		};
 		10A67F391E57789600AEC5DB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				10E62FCA1E5F155A00A437DA /* Menu.sks */,
+				10454AAC1E6771D10012A1D5 /* Watch.sks */,
 			);
 			name = Sks;
 			sourceTree = "<group>";
@@ -370,6 +392,7 @@
 		10E6183D1E4E407F00462512 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				10454AA31E67717F0012A1D5 /* Watch */,
 				1018F9901E5F0828002588EA /* Menu */,
 				10BADDD11E5DBAAA002E362E /* PlayButton */,
 				10BADDCE1E5DB536002E362E /* Iphone */,
@@ -640,6 +663,7 @@
 				1031E79E1E5F2CE400E7CB9C /* kick_3_1.png in Resources */,
 				10808D4C1E5716E8006FEDAC /* kick_4_2.png in Resources */,
 				10D5DF191E5F8A4400FFB6A2 /* blue_tile.png in Resources */,
+				10454AAB1E6771AD0012A1D5 /* watch_4.png in Resources */,
 				10E618521E4FAC2D00462512 /* white_1.png in Resources */,
 				1031E7AA1E5F2F7000E7CB9C /* kick_2_3.png in Resources */,
 				10D5DF1A1E5F8A4400FFB6A2 /* green_tile.png in Resources */,
@@ -649,7 +673,9 @@
 				10E6187D1E4FAD3900462512 /* red_2.png in Resources */,
 				1031E79F1E5F2CE400E7CB9C /* kick_3_2.png in Resources */,
 				10CCA6F01E5C7D9C00891623 /* tile-01.png in Resources */,
+				10454AA81E6771AD0012A1D5 /* watch_1.png in Resources */,
 				10E618651E4FAC8100462512 /* pink_4.png in Resources */,
+				10454AA91E6771AD0012A1D5 /* watch_2.png in Resources */,
 				10D5DF1E1E5F8A4400FFB6A2 /* red_tile.png in Resources */,
 				10E6186A1E4FACC100462512 /* green_1.png in Resources */,
 				10E6185B1E4FAC4F00462512 /* orange_2.png in Resources */,
@@ -658,6 +684,7 @@
 				10A67F431E5778DF00AEC5DB /* slkscre.ttf in Resources */,
 				10E6184A1E4FABDA00462512 /* blue_1.png in Resources */,
 				10808D4D1E5716E8006FEDAC /* kick_4_3.png in Resources */,
+				10454AAD1E6771D10012A1D5 /* Watch.sks in Resources */,
 				10E6186C1E4FACC100462512 /* green_3.png in Resources */,
 				10E618741E4FAD0000462512 /* purple_1.png in Resources */,
 				10E6186B1E4FACC100462512 /* green_2.png in Resources */,
@@ -671,6 +698,7 @@
 				10E618751E4FAD0000462512 /* purple_2.png in Resources */,
 				10808D4B1E5716E8006FEDAC /* kick_4_1.png in Resources */,
 				D16BB2071E43917700A2BE0B /* Main.storyboard in Resources */,
+				10454AAA1E6771AD0012A1D5 /* watch_3.png in Resources */,
 				10A67F421E5778DF00AEC5DB /* slkscrb.ttf in Resources */,
 				10E618531E4FAC2D00462512 /* white_2.png in Resources */,
 				10E6187C1E4FAD3900462512 /* red_1.png in Resources */,
