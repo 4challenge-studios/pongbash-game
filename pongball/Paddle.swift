@@ -37,7 +37,6 @@ class PaddleNode : TiledNode {
         self.style = style
         
         super.init(withTileSize: self.style.tileTexture.size())
-        
         setupTiles(numberOfTiles:3)
         setupKick(withRadius:1.5 * self.style.tileTexture.size().width)
     }

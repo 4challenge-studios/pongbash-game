@@ -9,16 +9,24 @@
 import Foundation
 import UIKit
 
+
+enum PlayerColor:String {
+    case blue = "blue_"
+    case red = "red_"
+    case orange = "orange_"
+    case green = "green_"
+}
+
 class Player {
     
     var score = 0
     var name = ""
     var controller: Controller?
-    var color = UIColor.red
+    var color = PlayerColor.red
     static var colorIndex = 0
-    static var colors: [UIColor] = [.red, .green, .blue, .yellow]
+    static var colors: [PlayerColor] = [.red, .green, .blue, .orange]
     init(withController controller:Controller) {
-        self.color = Player.colors[Player.colorIndex]
+        self.color = Player.colors[Player.colorIndex % 4]
         Player.colorIndex += 1
         self.controller = controller
         self.name = controller.displayName

@@ -19,6 +19,7 @@ class GameTimerNode: SKNode {
         self.timeInterval = timeInterval
         self.setupTimerLabel()
         self.setupTimer()
+        self.setupWatchAnimation()
     }
     
     private func setupTimerLabel(){
@@ -42,6 +43,15 @@ class GameTimerNode: SKNode {
         let string = String(format: "%2.0f", self.timeInterval)
         self.label.text = string
     }
+    
+    private func setupWatchAnimation(){
+        let watchScene = SKScene(fileNamed: "Watch")
+        let watchNode = watchScene?.childNode(withName: "Watch") as! SKSpriteNode
+        watchNode.removeFromParent()
+        self.addChild(watchNode)
+        watchNode.position = CGPoint(x: -100, y: 0)
+    }
+    
     
     func start(){
         self.timer.start(modes: .defaultRunLoopMode)
