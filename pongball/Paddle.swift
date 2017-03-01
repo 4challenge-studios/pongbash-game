@@ -58,14 +58,14 @@ class PaddleNode : TiledNode {
     
     func canMoveRight() -> Bool {
         
-        var p = self.position.y
+        var p = self.position.x
         
         if self.zRotation == CGFloat(M_PI_2) {
-            p = self.position.x
+            p = self.position.y
         } else if self.zRotation == CGFloat(-M_PI_2) {
-            p = -self.position.x
-        } else if self.zRotation == CGFloat(M_PI) {
             p = -self.position.y
+        } else if self.zRotation == CGFloat(M_PI) {
+            p = -self.position.x
         }
         
         return p < (418 - self.paddleSize().width)

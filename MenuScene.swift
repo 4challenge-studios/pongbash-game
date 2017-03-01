@@ -14,11 +14,13 @@ enum MenuButton {
 }
 
 protocol MenuDelegate: class {
-    func didPress(button: MenuButton)
-    func didRelease(button: MenuButton)
+    func menuScene(menuScene: MenuScene, didPressButton button: MenuButton)
+    func menuScene(menuScene: MenuScene, didReleaseButton button: MenuButton)
 }
 
 class MenuScene: SKScene {
+    
+    var players = [Player(), Player(), Player(), Player()]
     
     var playButton:SKSpriteNode?
     weak var menuDelegate: MenuDelegate?
@@ -66,19 +68,39 @@ class MenuScene: SKScene {
     }
 }
 
+extension MenuScene: ControllerManagerDelegate, ControllerDelegate {
+    
+    func controllerManager(_ controllerManager: ControllerManager, controllerConnected controller: Controller) {
+        
+        //let player = Player(withController: controller)
+        
+        for (i,p) in self.players.enumerated() {
+            if p.controller == nil {
+                self.players[i].controller = controller
+                break
+            }
+        }
+    }
+    
+    func controllerManager(_ controllerManager: ControllerManager, controllerDisconnected controller: Controller) {
+        
+        print("\(controller.displayName) desconectou!")
+    }
+}
+
 extension MenuScene: SiriRemoteDelegate {
     
     func didPress(button: SiriRemoteButton) {
         switch(button) {
         case .select:
-            self.menuDelegate?.didRelease(button: .play)
+            self.menuDelegate?.menuScene(menuScene: self, didPressButton: .play)
         }
     }
     
     func didRelease(button: SiriRemoteButton) {
         switch(button) {
         case .select:
-            self.menuDelegate?.didRelease(button: .play)
+            self.menuDelegate?.menuScene(menuScene: self, didReleaseButton: .play)
         }
     }
 }
