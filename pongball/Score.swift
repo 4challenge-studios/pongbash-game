@@ -11,7 +11,7 @@ import SpriteKit
 class ScoreNode: SKNode {
     
     var label:SKLabelNode!
-    var tileTexture:SKTexture! = SKTexture(image: #imageLiteral(resourceName: "green_tile.png")){
+    var tileTexture:SKTexture! = SKTexture(imageNamed: "tile_blue"){
         didSet{
             self.setupSprite()
         }

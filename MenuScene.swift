@@ -76,6 +76,7 @@ extension MenuScene: ControllerManagerDelegate, ControllerDelegate {
         
         for (i,p) in self.players.enumerated() {
             if p.controller == nil {
+                self.players[i].name = "player\(i)"
                 self.players[i].controller = controller
                 break
             }

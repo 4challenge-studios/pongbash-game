@@ -14,10 +14,7 @@ class BallNode : SKNode, Updatable {
     
     weak var owner: Player?
     
-    var sprite: SKSpriteNode!
-    private let animationDidKick = SKAction.animate(with: [SKTexture(image: #imageLiteral(resourceName: "white-01.png")), SKTexture(image: #imageLiteral(resourceName: "white-02.png")), SKTexture(image: #imageLiteral(resourceName: "white-03.png")), SKTexture(image: #imageLiteral(resourceName: "white-04.png"))], timePerFrame: 0.25, resize: true, restore: true)
-    private let animationAfterKick = SKAction.animate(with: [SKTexture(image: #imageLiteral(resourceName: "white-03.png")), SKTexture(image: #imageLiteral(resourceName: "white-04.png"))], timePerFrame: 0.25, resize: true, restore: true)
-    private var animation:SKAction!
+    var sprite: SKSpriteNode?
    
     var radius: CGFloat = 30.0 {
         
@@ -28,22 +25,41 @@ class BallNode : SKNode, Updatable {
         }
     }
     
-    var color: UIColor = .white {
-        
+    var style: Style = .white {
         didSet {
-            
-            self.sprite.color = self.color
+            self.setupSprite()
         }
+    }
+    
+    var textures: [SKTexture]
+    
+    func animateFast() {
+        //self.sprite?.removeAction(forKey: "fast")
+        
+        let start = SKAction.animate(with: [textures[0], textures[1], textures[2], textures[3]],
+                                     timePerFrame: 0.25, resize: true, restore: true)
+        let end = SKAction.animate(with: [textures[2], textures[3]],
+                                    timePerFrame: 0.25, resize: true, restore: true)
+        let loop = SKAction.repeatForever(end)
+        
+        let action = SKAction.sequence([start,loop])
+
+        self.sprite?.run(action, withKey: "fast")
+    }
+    
+    func animateNormal() {
+        self.sprite?.removeAction(forKey: "fast")
     }
     
     var isKicked:Bool = false {
         didSet {
-            if isKicked == true {
-               sprite.run(self.animation)
+            if isKicked {
+               self.animateFast()
             } else {
-                self.sprite.removeAllActions()
+                /*self.sprite.removeAllActions()
                 self.sprite.removeFromParent()
-                self.setupSprite()
+                self.setupSprite()*/
+                self.animateNormal()
                 let vel =  self.physicsBody?.velocity
                 self.physicsBody?.velocity = vel!/(vel?.length())!  * 400
             }
@@ -51,22 +67,23 @@ class BallNode : SKNode, Updatable {
     }
     
     override init() {
-        
+        self.textures = self.style.ballTextures
         super.init()
         setupSprite()
         setupPhysicsBody()
-        setupAnimation()
     }
 
     private func setupSprite() {
+        self.sprite?.removeFromParent()
         
-        let texture = SKTexture(image: #imageLiteral(resourceName: "white-01.png"))
+        let texture = self.style.ballTextures[0]
         self.sprite = SKSpriteNode(texture: texture)
-        self.color = .white
-        self.sprite.colorBlendFactor = 1.0
-        self.sprite.size = CGSize(width: self.radius*2, height: self.radius*2)
+        
+        self.sprite!.colorBlendFactor = 0.0
+        self.sprite!.size = CGSize(width: self.radius*2, height: self.radius*2)
+        
         // add sprite as child
-        self.addChild(self.sprite)
+        self.addChild(self.sprite!)
     }
     
     private func setupPhysicsBody() {
@@ -82,11 +99,6 @@ class BallNode : SKNode, Updatable {
         self.physicsBody?.categoryBitMask = CategoryBitmasks.ball.rawValue
         self.physicsBody?.collisionBitMask = CategoryBitmasks.corner.rawValue | CategoryBitmasks.paddle.rawValue | CategoryBitmasks.goal.rawValue
         self.physicsBody?.contactTestBitMask = CategoryBitmasks.corner.rawValue | CategoryBitmasks.paddle.rawValue | CategoryBitmasks.goal.rawValue | CategoryBitmasks.ball.rawValue | CategoryBitmasks.kick.rawValue
-    }
-    
-    private func setupAnimation(){
-        let forever = SKAction.repeatForever(animationAfterKick)
-        self.animation = SKAction.sequence([animationDidKick,forever])
     }
     
     func updateRotation() {
@@ -113,7 +125,7 @@ class BallNode : SKNode, Updatable {
                 self.isKicked = true
             
                 self.owner = kick.paddle!.owner
-                self.color = kick.paddle!.color
+                self.style = kick.paddle!.style
                 
                 let kickPos = scene!.convert(kick.position, from: kick.parent!)
                 let ballPos = scene!.convert(self.position, from: self.parent!)
@@ -141,7 +153,7 @@ extension BallNode: ContactDelegate {
             self.isKicked = false
             
             self.owner = paddle.owner
-            self.color = paddle.color
+            self.style = paddle.style
         }
         
         self.updateRotation()

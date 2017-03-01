@@ -16,6 +16,7 @@ class GameScene: SKScene {
     var gameArea: GameAreaNode!
     var scoreLabels:[ScoreNode]! = [ScoreNode]()
     var gameTimer = GameTimerNode(withTime: 30)
+    
     override func didMove(to view: SKView) {
         self.backgroundColor = UIColor(r: 38, g: 38, b: 38, alpha: 1.0)
         self.setupGameArea()
@@ -23,6 +24,7 @@ class GameScene: SKScene {
         for (k,v) in self.gameArea.paddles.enumerated() {
             v.owner = players[k]
             players[k].controller?.delegate = v
+            players[k].name = "player\(k)"
         }
         
         for (k,v) in self.gameArea.goals.enumerated() {
@@ -56,7 +58,7 @@ class GameScene: SKScene {
             let scoreLabel = ScoreNode(withOwner:players[i])
             scoreLabel.position = CGPoint(x:width/3,y:(0.415 - CGFloat(i) * 0.1)*height)
             
-            let texture = self.gameArea.paddles[i].tileTexture
+            let texture = self.gameArea.paddles[i].style.tileTexture
             scoreLabel.tileTexture = texture
             scoreLabels.append(scoreLabel)
             addChild(scoreLabel)

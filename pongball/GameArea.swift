@@ -55,8 +55,8 @@ class GameAreaNode : SKNode {
         
         
         let rect0 = CGRect(x: 0, y: 0, width: size.width, height: size.height/16)
-        let rect1 = CGRect(x: 0, y: 0, width: size.width/16, height: size.height)
-        let rect2 = CGRect(x: 0, y: 0, width: size.width, height: size.width/16)
+        let rect1 = CGRect(x: 0, y: 0, width: size.width, height: size.width/16)
+        let rect2 = CGRect(x: 0, y: 0, width: size.width/16, height: size.height)
         let rect3 = CGRect(x: 0, y: 0, width: size.width/16, height: size.height)
         
         self.goals = [GoalNode(rect: rect0),
@@ -64,11 +64,15 @@ class GameAreaNode : SKNode {
              GoalNode(rect: rect2),
              GoalNode(rect: rect3)]
         
-       
+        // bottom
         self.goals[0].position = CGPoint(x: -size.width/2, y: -size.height/2  - size.height/16)
-        self.goals[1].position = CGPoint(x: size.width/2, y: -size.height/2)
-        self.goals[2].position = CGPoint(x: -size.width/2, y: size.height/2)
-        self.goals[3].position = CGPoint(x:-size.width/2 - size.width/16 , y: -size.height/2)
+        // top
+        self.goals[1].position = CGPoint(x: -size.width/2, y: size.height/2)
+        // left
+        self.goals[2].position = CGPoint(x:-size.width/2 - size.width/16 , y: -size.height/2)
+        // right
+        self.goals[3].position = CGPoint(x: size.width/2, y: -size.height/2)
+        
         self.goals.forEach { self.addChild($0) }
     }
     
@@ -89,20 +93,28 @@ class GameAreaNode : SKNode {
     
     private func setupPaddles() {
         
-        self.paddles = [PaddleNode(), PaddleNode(),
-                        PaddleNode(), PaddleNode()]
+        self.paddles = [PaddleNode(withLocation: .bottom, andStyle: .red),
+                        PaddleNode(withLocation: .top, andStyle: .green),
+                        PaddleNode(withLocation: .left, andStyle: .blue),
+                        PaddleNode(withLocation: .right, andStyle: .pink)]
+        
+        self.paddles.forEach { $0.name = $0.style.rawValue }
         
         let centerPaddle0Position = -self.size.width/8+(paddles[0].tileSize.width)/2
         let centerPaddle1Position = self.size.width/8+(paddles[0].tileSize.width)/2
         let centerPaddle2Position = -self.size.width/8+(paddles[0].tileSize.width)/2
         let centerPaddle3Position = -self.size.width/8+(paddles[0].tileSize.width)/2
+        
         paddles[0].position = CGPoint(x:centerPaddle0Position, y: -self.size.height/2)
-        paddles[1].position = CGPoint(x:self.size.width/2, y: -centerPaddle1Position)
-        paddles[1].zRotation = CGFloat(M_PI_2)
+        
+        //paddles[1].zRotation = CGFloat(-M_PI)
+        paddles[1].position = CGPoint(x:centerPaddle1Position, y: self.size.height/2 - paddles[1].tileSize.height)
+        
         paddles[2].zRotation = CGFloat(-M_PI_2)
         paddles[2].position = CGPoint(x:-self.size.width/2, y: centerPaddle2Position)
-        paddles[3].zRotation = CGFloat(-M_PI)
-        paddles[3].position = CGPoint(x:centerPaddle3Position, y: self.size.height/2)
+        
+        paddles[3].position = CGPoint(x:self.size.width/2, y: -centerPaddle1Position)
+        paddles[3].zRotation = CGFloat(M_PI_2)
         
         self.paddles.forEach {
             self.addChild($0)

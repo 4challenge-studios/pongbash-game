@@ -26,6 +26,5 @@ class Player {
     init() {
         self.color = Player.colors[Player.colorIndex % 4]
         Player.colorIndex += 1
-        self.name = "Bot"
     }
 }

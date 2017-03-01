@@ -11,7 +11,7 @@ import SpriteKit
 
 class CornerNode: TiledNode {
     
-    let tileTexture = SKTexture(image: #imageLiteral(resourceName: "tile-01.png"))
+    let tileTexture = SKTexture(image: #imageLiteral(resourceName: "tile_white.png"))
     
     init() {
         

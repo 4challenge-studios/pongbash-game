@@ -9,6 +9,13 @@
 import Foundation
 import SpriteKit
 
+enum PaddleLocation: Int {
+    case bottom = 0
+    case top = 1
+    case left = 2
+    case right = 3
+}
+
 class PaddleNode : TiledNode {
     
     weak var owner: Player?
@@ -21,21 +28,22 @@ class PaddleNode : TiledNode {
     var moveLeft: Bool = false
     var canKick: Bool = true
     
-    static var colorIndex = 0
-    static var colors: [UIColor] = [.red, .green, .blue, .yellow]
-    static var tiles:[SKTexture] = [SKTexture(image: #imageLiteral(resourceName: "green_tile.png")),SKTexture(image: #imageLiteral(resourceName: "blue_tile.png")),SKTexture(image: #imageLiteral(resourceName: "red_tile.png")),SKTexture(image: #imageLiteral(resourceName: "purple_tile.png"))]
-    var tileTexture = SKTexture(image: #imageLiteral(resourceName: "green_tile.png"))
-    var color: UIColor = .white
-    init() {
-        self.color = PaddleNode.colors[PaddleNode.colorIndex]
-        self.tileTexture = PaddleNode.tiles[PaddleNode.colorIndex]
-        PaddleNode.colorIndex += 1
-        super.init(withTileSize: tileTexture.size())
+    let location: PaddleLocation
+    let style: Style
+    
+    init(withLocation location: PaddleLocation, andStyle style: Style) {
+        
+        self.location = location
+        self.style = style
+        
+        super.init(withTileSize: self.style.tileTexture.size())
+        
         setupTiles(numberOfTiles:3)
-        setupKick(withRadius:1.5 * self.tileTexture.size().width)
+        setupKick(withRadius:1.5 * self.style.tileTexture.size().width)
     }
     
     func paddleSize() -> CGSize {
+        
         let w = self.tiles.reduce(0) { return $0.0 + $0.1.size.width }
         let h = self.tiles.reduce(0) { return $0.0 + $0.1.size.height }
         
@@ -43,33 +51,30 @@ class PaddleNode : TiledNode {
     }
     
     func canMoveLeft() -> Bool {
-        
-        var p = self.position.x
-        
-        if self.zRotation == CGFloat(M_PI_2) {
-            p = self.position.y
-        } else if self.zRotation == CGFloat(-M_PI_2) {
-            p = -self.position.y
-        } else if self.zRotation == CGFloat(M_PI) {
-            p = -self.position.x
+        switch(self.location) {
+        case .bottom:
+            return self.position.x > -418
+        case .top:
+            return self.position.x > -418
+        case .left:
+            return self.position.y < 418
+        case .right:
+            return self.position.y > -418
         }
-        
-        return p > -418
     }
     
     func canMoveRight() -> Bool {
-        
-        var p = self.position.x
-        
-        if self.zRotation == CGFloat(M_PI_2) {
-            p = self.position.y
-        } else if self.zRotation == CGFloat(-M_PI_2) {
-            p = -self.position.y
-        } else if self.zRotation == CGFloat(M_PI) {
-            p = -self.position.x
+        let size = CGFloat(self.tiles.count) * self.tileSize.width
+        switch(self.location) {
+        case .bottom:
+            return self.position.x < 418 - size
+        case .top:
+            return self.position.x < 418 - size
+        case .left:
+            return self.position.y > -418 + size
+        case .right:
+            return self.position.y < 418 - size
         }
-        
-        return p < (418 - self.paddleSize().width)
     }
     
     private func setupKick(withRadius radius:CGFloat) {
@@ -78,7 +83,7 @@ class PaddleNode : TiledNode {
         }
         self.kick = KickNode(withRadius:radius)
         self.kick.zRotation = CGFloat(M_PI_2)
-        self.kick.position = CGPoint(x:radius, y: self.tileTexture.size().height)
+        self.kick.position = CGPoint(x:radius, y: self.style.tileTexture.size().height)
         self.kick.paddle = self
         self.addChild(self.kick)
     }
@@ -92,12 +97,12 @@ class PaddleNode : TiledNode {
         self.tiles.removeAll()
         
         for i in 0..<number {
-            let node = SKSpriteNode(texture: tileTexture)
+            let node = SKSpriteNode(texture: self.style.tileTexture)
             addChild(node, atPosition: CGPoint(x: i, y: 0))
             self.tiles.append(node)
         }
     
-        let textureSize = self.tileTexture.size()
+        let textureSize = self.style.tileTexture.size()
         let size = CGSize(width: textureSize.width*CGFloat(number), height: textureSize.height)
         self.physicsBody = SKPhysicsBody(rectangleOf: size, center: CGPoint(x: size.width/2, y: size.height/2))
         self.physicsBody?.isDynamic = false
@@ -130,14 +135,14 @@ class PaddleNode : TiledNode {
     func increaseSize() {
         
         self.setupTiles(numberOfTiles:self.tiles.count+1)
-        self.setupKick(withRadius:(CGFloat((Double(self.tiles.count)))) * self.tileTexture.size().width/2.0)
+        self.setupKick(withRadius:(CGFloat((Double(self.tiles.count)))) * self.style.tileTexture.size().width/2.0)
         self.tiles.last?.color = (self.tiles.first?.color)!
     }
     
     func decreaseSize() {
         
         self.setupTiles(numberOfTiles:self.tiles.count-1)
-        self.setupKick(withRadius:(CGFloat((Double(self.tiles.count)))) * self.tileTexture.size().width/2)
+        self.setupKick(withRadius:(CGFloat((Double(self.tiles.count)))) * self.style.tileTexture.size().width/2)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -149,11 +154,29 @@ extension PaddleNode: Updatable {
     
     func update(_ currentTime: TimeInterval, _ deltaTime: TimeInterval) {
         
-        if (self.moveLeft && self.canMoveLeft()) {
+        // intelijumencia artificial
+        
+        if self.owner?.controller == nil {
+            let mod = fmod(currentTime, 6.0)
+            
+            if (1.9...2.1).contains(mod) { self.performKick() }
+            
+            if mod <= 2.0 {
+                self.moveRight = true
+                self.moveLeft = false
+            } else {
+                self.moveRight = false
+                self.moveLeft = true
+            }
+        }
+        
+        // end intelijumencia artificial
+        
+        if self.moveLeft && self.canMoveLeft() {
             let dx =  -(CGFloat)(deltaTime)*speed*400
             self.position = self.position.offset(dx: dx*cos(self.zRotation), dy: dx*sin(self.zRotation))
         }
-        else if(self.moveRight && self.canMoveRight()) {
+        else if self.moveRight && self.canMoveRight() {
             let dx =  (CGFloat)(deltaTime)*speed*400
             self.position = self.position.offset(dx: dx*cos(self.zRotation), dy: dx*sin(self.zRotation))
         }
