@@ -17,14 +17,18 @@ class ScoreNode: SKNode {
         }
     }
     private var tileSprite:SKSpriteNode!
-    var crownSprite:SKSpriteNode!
+    private var crownSprite:SKSpriteNode!
     var owner:Player!
-    var color: UIColor = .white {
+    var isWinning:Bool = false {
         didSet {
-//            self.tileSprite.color = self.color
+            if isWinning == true {
+                self.activeCrown()
+            }else {
+                self.desactiveCrown()
+            }
+        
         }
     }
-    
     
     init(withOwner owner: Player) {
         super.init()
@@ -52,6 +56,22 @@ class ScoreNode: SKNode {
         tileSprite?.removeFromParent()
         tileSprite = SKSpriteNode(texture: tileTexture)
         addChild(tileSprite)
+    }
+    
+    private func activeCrown(){
+        if self.crownSprite == nil {
+            let crownTexture = SKTexture(image:#imageLiteral(resourceName: "crown.png"))
+            self.crownSprite = SKSpriteNode(texture: crownTexture)
+        }
+        self.crownSprite.removeFromParent()
+        addChild(self.crownSprite)
+        self.crownSprite.position = CGPoint(x: 230, y: 0)
+    }
+    
+    private func desactiveCrown(){
+        if self.crownSprite != nil {
+            self.crownSprite.removeFromParent()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -170,7 +170,6 @@ extension BallNode: ContactDelegate {
             
             self.owner = paddle.owner
             self.style = paddle.style
-            //self.texture = SKTexture(imageNamed:(self.owner?.color.rawValue)! + "1")
         }
         
         self.updateRotation()
