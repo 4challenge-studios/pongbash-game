@@ -105,7 +105,6 @@ class GameAreaNode : SKNode {
         let centerPaddle0Position = -self.size.width/8+(paddles[0].tileSize.width)/2
         let centerPaddle1Position = self.size.width/8+(paddles[0].tileSize.width)/2
         let centerPaddle2Position = -self.size.width/8+(paddles[0].tileSize.width)/2
-        let centerPaddle3Position = -self.size.width/8+(paddles[0].tileSize.width)/2
         
         paddles[0].position = CGPoint(x:centerPaddle0Position, y: -self.size.height/2)
         
