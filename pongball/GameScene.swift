@@ -14,7 +14,7 @@ class GameScene: SKScene {
     
     var players = [Player(), Player(), Player(), Player()]
     var gameArea: GameAreaNode!
-    var scoreLabels:[ScoreNode]! = [ScoreNode]()
+    var scoreLabels: [ScoreNode]! = [ScoreNode]()
     var gameTimer = GameTimerNode(withTime: 30)
     
     override func didMove(to view: SKView) {

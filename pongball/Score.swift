@@ -49,6 +49,7 @@ class ScoreNode: SKNode {
     }
     
     private func setupSprite(){
+        tileSprite?.removeFromParent()
         tileSprite = SKSpriteNode(texture: tileTexture)
         addChild(tileSprite)
     }
