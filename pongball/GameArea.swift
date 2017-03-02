@@ -10,7 +10,7 @@
 import Foundation
 import SpriteKit
 
-class GameAreaNode : SKNode {
+class GameAreaNode : SKCropNode {
     
     let size: CGSize
     
@@ -35,6 +35,7 @@ class GameAreaNode : SKNode {
         let background = SKSpriteNode(color: .black, size: self.size)
         addChild(background)
         background.zPosition = -1
+        self.maskNode = background
     }
     
     private func setupBalls() {

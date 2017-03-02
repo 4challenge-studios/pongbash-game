@@ -63,7 +63,10 @@ extension GoalNode:ContactDelegate {
         
         let other = (nodeA as? GoalNode) != nil ? nodeB : nodeA
         if let ball = other as? BallNode {
-            ball.position = CGPoint.zero
+            let seq = SKAction.sequence(
+                [SKAction.wait(forDuration: 3.0),
+                 SKAction.move(to: CGPoint.zero, duration: 0.0)])
+            ball.run(seq)
             ball.owner = nil
             ball.style = .white
         }
