@@ -49,7 +49,7 @@ class GameTimerNode: SKNode {
         let watchNode = watchScene?.childNode(withName: "Watch") as! SKSpriteNode
         watchNode.removeFromParent()
         self.addChild(watchNode)
-        watchNode.position = CGPoint(x: -100, y: 0)
+        watchNode.position = CGPoint(x: -100, y: 0)//numero mágico
     }
     
     

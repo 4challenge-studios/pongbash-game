@@ -44,8 +44,12 @@ class GameViewController: UIViewController {
     
     func presentGameScene(withPlayers players: [Player]) {
         if let view = self.view as! SKView? {
+            
+            
             //let scene = ControllerTestScene(size: CGSize(width: 1024, height: 576))
             let scene = GameScene(size: CGSize(width: 1920, height: 1080))
+            scene.players = players
+            
             scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
@@ -58,8 +62,6 @@ class GameViewController: UIViewController {
            // view.showsPhysics = true
             view.showsFPS = true
             view.showsNodeCount = true
-            
-            scene.players = players
         }
     }
     

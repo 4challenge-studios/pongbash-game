@@ -25,6 +25,10 @@
 		1031E7AC1E5F2F7000E7CB9C /* kick_2_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1031E7A71E5F2F7000E7CB9C /* kick_2_5.png */; };
 		105489641E5B18C600E7F7D6 /* SwiftyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105489631E5B18C600E7F7D6 /* SwiftyTimer.swift */; };
 		1055BA9A1E4DDFB7000FDB1A /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055BA991E4DDFB7000FDB1A /* Ball.swift */; };
+		107987C41E67AD600057EA15 /* iphone_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 107987C01E67AD600057EA15 /* iphone_blue.png */; };
+		107987C51E67AD600057EA15 /* iphone_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 107987C11E67AD600057EA15 /* iphone_green.png */; };
+		107987C61E67AD600057EA15 /* iphone_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 107987C21E67AD600057EA15 /* iphone_orange.png */; };
+		107987C71E67AD600057EA15 /* iphone_purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 107987C31E67AD600057EA15 /* iphone_purple.png */; };
 		10808D4B1E5716E8006FEDAC /* kick_4_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 10808D471E5716E8006FEDAC /* kick_4_1.png */; };
 		10808D4C1E5716E8006FEDAC /* kick_4_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 10808D481E5716E8006FEDAC /* kick_4_2.png */; };
 		10808D4D1E5716E8006FEDAC /* kick_4_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 10808D491E5716E8006FEDAC /* kick_4_3.png */; };
@@ -145,6 +149,10 @@
 		1031E7A71E5F2F7000E7CB9C /* kick_2_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_2_5.png; sourceTree = "<group>"; };
 		105489631E5B18C600E7F7D6 /* SwiftyTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyTimer.swift; sourceTree = "<group>"; };
 		1055BA991E4DDFB7000FDB1A /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		107987C01E67AD600057EA15 /* iphone_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_blue.png; sourceTree = "<group>"; };
+		107987C11E67AD600057EA15 /* iphone_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_green.png; sourceTree = "<group>"; };
+		107987C21E67AD600057EA15 /* iphone_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_orange.png; sourceTree = "<group>"; };
+		107987C31E67AD600057EA15 /* iphone_purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_purple.png; sourceTree = "<group>"; };
 		10808D471E5716E8006FEDAC /* kick_4_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_4_1.png; sourceTree = "<group>"; };
 		10808D481E5716E8006FEDAC /* kick_4_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_4_2.png; sourceTree = "<group>"; };
 		10808D491E5716E8006FEDAC /* kick_4_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_4_3.png; sourceTree = "<group>"; };
@@ -351,6 +359,10 @@
 			isa = PBXGroup;
 			children = (
 				10BADDCF1E5DB549002E362E /* iphone_white.png */,
+				107987C01E67AD600057EA15 /* iphone_blue.png */,
+				107987C11E67AD600057EA15 /* iphone_green.png */,
+				107987C21E67AD600057EA15 /* iphone_orange.png */,
+				107987C31E67AD600057EA15 /* iphone_purple.png */,
 			);
 			name = Iphone;
 			sourceTree = "<group>";
@@ -669,6 +681,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1031E7A81E5F2F7000E7CB9C /* kick_2_1.png in Resources */,
+				107987C61E67AD600057EA15 /* iphone_orange.png in Resources */,
 				10E6185A1E4FAC4F00462512 /* ball_orange_0.png in Resources */,
 				10E618621E4FAC8100462512 /* ball_pink_0.png in Resources */,
 				1031E79E1E5F2CE400E7CB9C /* kick_3_1.png in Resources */,
@@ -684,6 +697,7 @@
 				1031E79F1E5F2CE400E7CB9C /* kick_3_2.png in Resources */,
 				10CCA6F01E5C7D9C00891623 /* tile_white.png in Resources */,
 				10E618651E4FAC8100462512 /* ball_pink_3.png in Resources */,
+				107987C41E67AD600057EA15 /* iphone_blue.png in Resources */,
 				10D5DF1E1E5F8A4400FFB6A2 /* tile_red.png in Resources */,
 				10E6186A1E4FACC100462512 /* ball_green_0.png in Resources */,
 				10E6185B1E4FAC4F00462512 /* ball_orange_1.png in Resources */,
@@ -700,6 +714,7 @@
 				1031E7A01E5F2CE400E7CB9C /* kick_3_3.png in Resources */,
 				10808D581E571853006FEDAC /* kick_4_4.png in Resources */,
 				10A67F441E5778DF00AEC5DB /* slkscreb.ttf in Resources */,
+				107987C71E67AD600057EA15 /* iphone_purple.png in Resources */,
 				1031E7A11E5F2CE400E7CB9C /* kick_3_4.png in Resources */,
 				10E5CE831E5A4A42008DF6DF /* Assets.xcassets in Resources */,
 				10E618751E4FAD0000462512 /* ball_purple_1.png in Resources */,
@@ -713,6 +728,7 @@
 				10E618761E4FAD0000462512 /* ball_purple_2.png in Resources */,
 				10A67F401E5778DF00AEC5DB /* readme.txt in Resources */,
 				D1C22DD41E67953500F65449 /* watch_4.png in Resources */,
+				107987C51E67AD600057EA15 /* iphone_green.png in Resources */,
 				10E618541E4FAC2D00462512 /* ball_white_2.png in Resources */,
 				10D5DF1D1E5F8A4400FFB6A2 /* tile_purple.png in Resources */,
 				10BADDD81E5DBE1C002E362E /* pong_bash.png in Resources */,
