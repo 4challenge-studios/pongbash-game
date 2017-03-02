@@ -97,7 +97,7 @@ class BallNode : SKNode, Updatable {
         self.physicsBody?.friction = 0
         self.physicsBody?.allowsRotation = true
         self.physicsBody?.categoryBitMask = CategoryBitmasks.ball.rawValue
-        self.physicsBody?.collisionBitMask = CategoryBitmasks.corner.rawValue | CategoryBitmasks.paddle.rawValue
+        self.physicsBody?.collisionBitMask = CategoryBitmasks.corner.rawValue | CategoryBitmasks.paddle.rawValue | CategoryBitmasks.goal.rawValue
         self.physicsBody?.contactTestBitMask = CategoryBitmasks.corner.rawValue | CategoryBitmasks.paddle.rawValue | CategoryBitmasks.goal.rawValue | CategoryBitmasks.ball.rawValue | CategoryBitmasks.kick.rawValue
     }
     
@@ -170,6 +170,13 @@ extension BallNode: ContactDelegate {
             
             self.owner = paddle.owner
             self.style = paddle.style
+        }
+        
+        if let _ = other as? GoalNode {
+            self.isKicked = false
+            
+            self.owner = nil
+            self.style = .white
         }
         
         self.updateRotation()
