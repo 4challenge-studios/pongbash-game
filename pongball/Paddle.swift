@@ -50,11 +50,12 @@ class PaddleNode : TiledNode {
     }
     
     func canMoveLeft() -> Bool {
+        let size = CGFloat(self.tiles.count) * self.tileSize.width
         switch(self.location) {
         case .bottom:
             return self.position.x > -418
         case .top:
-            return self.position.x < 418
+            return self.position.x > -418 + size
         case .left:
             return self.position.y < 418
         case .right:
@@ -68,7 +69,7 @@ class PaddleNode : TiledNode {
         case .bottom:
             return self.position.x < 418 - size
         case .top:
-            return self.position.x > -418 + size
+            return self.position.x < 418
         case .left:
             return self.position.y > -418 + size
         case .right:
@@ -172,11 +173,13 @@ extension PaddleNode: Updatable {
         // end intelijumencia artificial
         
         if self.moveLeft && self.canMoveLeft() {
-            let dx =  -(CGFloat)(deltaTime)*speed*400
+            var dx =  -(CGFloat)(deltaTime)*speed*400
+            if(self.location == .top) { dx = -dx }
             self.position = self.position.offset(dx: dx*cos(self.zRotation), dy: dx*sin(self.zRotation))
         }
         else if self.moveRight && self.canMoveRight() {
-            let dx =  (CGFloat)(deltaTime)*speed*400
+            var dx =  (CGFloat)(deltaTime)*speed*400
+            if(self.location == .top) { dx = -dx }
             self.position = self.position.offset(dx: dx*cos(self.zRotation), dy: dx*sin(self.zRotation))
         }
     }
