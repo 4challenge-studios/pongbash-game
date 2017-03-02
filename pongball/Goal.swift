@@ -58,5 +58,14 @@ extension GoalNode:ContactDelegate {
 
     }
     func didEndContact(_ contact: SKPhysicsContact){
+        let nodeA = contact.bodyA.node
+        let nodeB = contact.bodyB.node
+        
+        let other = (nodeA as? GoalNode) != nil ? nodeB : nodeA
+        if let ball = other as? BallNode {
+            ball.position = CGPoint.zero
+            ball.owner = nil
+            ball.style = .white
+        }
     }
 }
