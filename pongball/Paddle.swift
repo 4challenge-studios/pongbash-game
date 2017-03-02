@@ -172,11 +172,13 @@ extension PaddleNode: Updatable {
         // end intelijumencia artificial
         
         if self.moveLeft && self.canMoveLeft() {
-            let dx =  -(CGFloat)(deltaTime)*speed*400
+            var dx =  -(CGFloat)(deltaTime)*speed*400
+            if(self.location == .top) { dx = -dx }
             self.position = self.position.offset(dx: dx*cos(self.zRotation), dy: dx*sin(self.zRotation))
         }
         else if self.moveRight && self.canMoveRight() {
-            let dx =  (CGFloat)(deltaTime)*speed*400
+            var dx =  (CGFloat)(deltaTime)*speed*400
+            if(self.location == .top) { dx = -dx }
             self.position = self.position.offset(dx: dx*cos(self.zRotation), dy: dx*sin(self.zRotation))
         }
     }
