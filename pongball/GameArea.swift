@@ -109,8 +109,8 @@ class GameAreaNode : SKNode {
         
         paddles[0].position = CGPoint(x:centerPaddle0Position, y: -self.size.height/2)
         
-        //paddles[1].zRotation = CGFloat(-M_PI)
-        paddles[1].position = CGPoint(x:centerPaddle1Position, y: self.size.height/2 - paddles[1].tileSize.height)
+        paddles[1].zRotation = CGFloat(-M_PI)
+        paddles[1].position = CGPoint(x:centerPaddle1Position, y: self.size.height/2)
         
         paddles[2].zRotation = CGFloat(-M_PI_2)
         paddles[2].position = CGPoint(x:-self.size.width/2, y: centerPaddle2Position)

@@ -9,28 +9,11 @@
 import Foundation
 import SpriteKit
 
-
 class BallNode : SKNode, Updatable {
-    //TO DO: TROCAR TODOS OS SPRITES DESSA CLASSE PARA SER DINAMICO
+
     weak var owner: Player?
-//<<<<<<< HEAD
     
     var sprite: SKSpriteNode?
-   
-/*=======
-    let numberAnimationSprite = 4
-    var texture:SKTexture! = SKTexture(image:UIImage(named:"white_1")!) {
-        didSet {
-            self.sprite.removeAllActions()
-            self.sprite.removeFromParent()
-            self.setupSprite()
-            let vel =  self.physicsBody?.velocity
-            self.physicsBody?.velocity = vel!/(vel?.length())!  * 400
-        }
-    }
-    var sprite: SKSpriteNode!
-    private var animation:SKAction!
->>>>>>> e42cd1bf3c1f15f9f73dfd5528db36e2e3f93a58*/
     var radius: CGFloat = 30.0 {
         
         didSet {
@@ -48,7 +31,7 @@ class BallNode : SKNode, Updatable {
     var textures: [SKTexture]
     
     func animateFast() {
-        //self.sprite?.removeAction(forKey: "fast")
+        self.sprite?.removeAction(forKey: "fast")
         
         let start = SKAction.animate(with: [textures[0], textures[1], textures[2], textures[3]],
                                      timePerFrame: 0.25, resize: true, restore: true)
@@ -93,8 +76,8 @@ class BallNode : SKNode, Updatable {
     private func setupSprite() {
         self.sprite?.removeFromParent()
         
-        let texture = self.style.ballTextures[0]
-        self.sprite = SKSpriteNode(texture: texture)
+        self.textures = self.style.ballTextures
+        self.sprite = SKSpriteNode(texture: self.textures[0])
         
         self.sprite!.colorBlendFactor = 0.0
         self.sprite!.size = CGSize(width: self.radius*2, height: self.radius*2)
@@ -154,10 +137,11 @@ class BallNode : SKNode, Updatable {
         self.physicsBody!.allContactedBodies().forEach {
             
             if let kick = $0.node as? KickNode, kick.enabled {
-                self.isKicked = true
             
                 self.owner = kick.paddle!.owner
                 self.style = kick.paddle!.style
+                
+                self.isKicked = true
                 
                 let kickPos = scene!.convert(kick.position, from: kick.parent!)
                 let ballPos = scene!.convert(self.position, from: self.parent!)
