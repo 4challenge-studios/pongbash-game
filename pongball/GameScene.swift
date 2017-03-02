@@ -129,11 +129,14 @@ extension GameScene: GoalDelegate {
         
         print("\(ball.owner?.name) fez gol em \(goal.owner?.name)")
         let sortedPlayers = players.sorted {$0.score > $1.score}
+        let playersWithSameScore = (sortedPlayers.filter {
+          $0.score == sortedPlayers.first?.score
+        }).count
         scoreLabels.forEach { (score) in
             if let owner = score.owner {
                 let string = String(format:"%02d",owner.score)
                 score.label.text = string
-                if score.owner === sortedPlayers.first {
+                if score.owner === sortedPlayers.first && playersWithSameScore < 2{
                     score.isWinning = true
                 }else {
                     score.isWinning = false
