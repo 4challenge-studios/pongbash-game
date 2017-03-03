@@ -53,13 +53,13 @@ class PaddleNode : TiledNode {
         let size = CGFloat(self.tiles.count) * self.tileSize.width
         switch(self.location) {
         case .bottom:
-            return self.position.x > -418
+            return self.position.x > -358
         case .top:
-            return self.position.x > -418 + size
+            return self.position.x > -358 + size
         case .left:
-            return self.position.y < 418
+            return self.position.y < 358
         case .right:
-            return self.position.y > -418
+            return self.position.y > -358
         }
     }
     
@@ -67,13 +67,13 @@ class PaddleNode : TiledNode {
         let size = CGFloat(self.tiles.count) * self.tileSize.width
         switch(self.location) {
         case .bottom:
-            return self.position.x < 418 - size
+            return self.position.x < 358 - size
         case .top:
-            return self.position.x < 418
+            return self.position.x < 358
         case .left:
-            return self.position.y > -418 + size
+            return self.position.y > -358 + size
         case .right:
-            return self.position.y < 418 - size
+            return self.position.y < 358 - size
         }
     }
     
@@ -157,7 +157,7 @@ extension PaddleNode: Updatable {
         // intelijumencia artificial
         
         if self.owner?.controller == nil {
-            let mod = fmod(currentTime, 6.0)
+            let mod = fmod(currentTime, 4.0)
             
             if (1.9...2.1).contains(mod) { self.performKick() }
             
