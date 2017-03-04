@@ -30,7 +30,7 @@ class IncreaseSizeItemNode: ItemNode {
     
     private func setupSprite() {
         
-        let texture = SKTexture(image: #imageLiteral(resourceName: "white-01.png"))
+        let texture = SKTexture(image: #imageLiteral(resourceName: "tile_purple.png"))
         self.sprite = SKSpriteNode(texture: texture)
         // add sprite as child
         self.addChild(self.sprite)

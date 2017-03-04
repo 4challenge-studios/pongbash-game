@@ -21,8 +21,6 @@ protocol MenuDelegate: class {
 class MenuScene: SKScene {
     
     var players = [Player(), Player(), Player(), Player()]
-    
-    var playButton:SKSpriteNode?
     weak var menuDelegate: MenuDelegate?
     
     override func didMove(to view: SKView) {

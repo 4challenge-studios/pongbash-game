@@ -15,8 +15,7 @@ class GameScene: SKScene {
     var players = [Player(), Player(), Player(), Player()]
     var gameArea: GameAreaNode!
     var scoreLabels: [ScoreNode]! = [ScoreNode]()
-    var gameTimer = GameTimerNode(withTime: 30)
-    
+    var gameTimer:GameTimerNode!
     override func didMove(to view: SKView) {
         self.backgroundColor = UIColor(r: 38, g: 38, b: 38, alpha: 1.0)
         self.setupGameArea()
@@ -38,6 +37,9 @@ class GameScene: SKScene {
     }
     
     func setupGameTimer(){
+        self.gameTimer = GameTimerNode(withTime: 30) {
+            self.finishGame()
+        }
         self.addChild(self.gameTimer)
         self.gameTimer.position = CGPoint(x: -0.4*(scene?.size.width)!, y:0.4*(scene?.size.height)!)
         gameTimer.start()
@@ -63,6 +65,27 @@ class GameScene: SKScene {
             scoreLabels.append(scoreLabel)
             addChild(scoreLabel)
         }
+    }
+    
+    func finishGame(){
+        //TODO:verificar quem é o vencedor
+        self.players.sort{
+            $0.score > $1.score
+        }
+//        self.players.forEach{
+//            print("\($0.score) + \($0.name)")
+//        }
+        var isDraw = false
+        let winner = self.players.first
+        let playersWithSameScore = (players.filter {
+            $0.score == players.first?.score
+        }).count
+        if playersWithSameScore >= 2 {
+            isDraw = true
+        }
+        //ordenar por pontuacao
+        //manda para tela de vitória
+        print("Estou disparando no final de tudo")
     }
     
     func touchDown(atPoint pos : CGPoint) {

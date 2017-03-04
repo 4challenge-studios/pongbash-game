@@ -12,14 +12,16 @@ import SpriteKit
 class GameTimerNode: SKNode {
     private var timeInterval:TimeInterval!
     private var timer:Timer!
+    private var action:((Void)->Void)?
     var label:SKLabelNode!
     //classe do timerNode aqui para
-    init(withTime timeInterval:TimeInterval) {
+    init(withTime timeInterval:TimeInterval,andFinishAction action:((Void)->Void)?) {
         super.init()
         self.timeInterval = timeInterval
         self.setupTimerLabel()
         self.setupTimer()
         self.setupWatchAnimation()
+        self.action = action
     }
     
     private func setupTimerLabel(){
@@ -34,6 +36,10 @@ class GameTimerNode: SKNode {
             self.updateTimerLabel()
             if self.timeInterval == 0 {
                 self.stop()
+                if let action = self.action {
+                    //ativa acao planejada
+                    action()
+                }
             }
         }
     }
@@ -59,6 +65,10 @@ class GameTimerNode: SKNode {
     
     func stop(){
         self.timer.invalidate()
+    }
+    
+    func fire(action: ((Void)->Void)){
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
