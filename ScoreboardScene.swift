@@ -50,7 +50,7 @@ class ScoreboardScene: SKScene {
         
         for i in 0..<scoreElements.count {
             scoreElements[i].playerName.text = players?[i].name
-            scoreElements[i].score.text = players?[i].name
+            scoreElements[i].score.text = players?[i].score.description
         }
         
         if isDraw {
