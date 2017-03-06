@@ -96,6 +96,9 @@
 		6A45A56E1E4D724700212AA1 /* MultipeerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A45A56D1E4D724700212AA1 /* MultipeerManager.swift */; };
 		D112F4011E532C0800959664 /* TiledNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D112F4001E532C0800959664 /* TiledNode.swift */; };
 		D113529A1E5F0B7000C5852B /* SiriRemoteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11352991E5F0B7000C5852B /* SiriRemoteDelegate.swift */; };
+		D15269031E6D869F00A5448D /* SKMultilineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15269021E6D869F00A5448D /* SKMultilineLabel.swift */; };
+		D15269071E6D8D6A00A5448D /* loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D15269051E6D8D6A00A5448D /* loop.mp3 */; };
+		D15269081E6D8D6A00A5448D /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D15269061E6D8D6A00A5448D /* music.mp3 */; };
 		D16045331E4DE8DC0007B4B7 /* ControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16045321E4DE8DC0007B4B7 /* ControllerManager.swift */; };
 		D16045381E4DF0610007B4B7 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16045371E4DF0610007B4B7 /* Updatable.swift */; };
 		D160453A1E4DF5B70007B4B7 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16045391E4DF5B70007B4B7 /* CGPoint+Extensions.swift */; };
@@ -221,6 +224,9 @@
 		6F8E24F1664AD5174D4BABB5 /* Pods_pongball.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pongball.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D112F4001E532C0800959664 /* TiledNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TiledNode.swift; sourceTree = "<group>"; };
 		D11352991E5F0B7000C5852B /* SiriRemoteDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiriRemoteDelegate.swift; sourceTree = "<group>"; };
+		D15269021E6D869F00A5448D /* SKMultilineLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMultilineLabel.swift; sourceTree = "<group>"; };
+		D15269051E6D8D6A00A5448D /* loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = loop.mp3; sourceTree = "<group>"; };
+		D15269061E6D8D6A00A5448D /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		D16045321E4DE8DC0007B4B7 /* ControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerManager.swift; sourceTree = "<group>"; };
 		D16045371E4DF0610007B4B7 /* Updatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
 		D16045391E4DF5B70007B4B7 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
@@ -408,6 +414,7 @@
 		10E6183D1E4E407F00462512 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D15269041E6D8D5B00A5448D /* Sounds */,
 				10E3E8541E6846C300668102 /* Crown */,
 				D1C22DCC1E67952A00F65449 /* Watch */,
 				1018F9901E5F0828002588EA /* Menu */,
@@ -542,6 +549,23 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		D15269011E6D868D00A5448D /* External */ = {
+			isa = PBXGroup;
+			children = (
+				D15269021E6D869F00A5448D /* SKMultilineLabel.swift */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		D15269041E6D8D5B00A5448D /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				D15269051E6D8D6A00A5448D /* loop.mp3 */,
+				D15269061E6D8D6A00A5448D /* music.mp3 */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
 		D16045361E4DF0430007B4B7 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -574,6 +598,7 @@
 		D16BB1F81E43917700A2BE0B /* pongball */ = {
 			isa = PBXGroup;
 			children = (
+				D15269011E6D868D00A5448D /* External */,
 				D11BE13C1E51E169009D6414 /* Scenes */,
 				10E6183D1E4E407F00462512 /* Resources */,
 				D1A2BB551E6770FC000259CB /* Enums */,
@@ -666,7 +691,7 @@
 				TargetAttributes = {
 					D16BB1F51E43917600A2BE0B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 93ZH5ZQA23;
+						DevelopmentTeam = FWD9V5VYJ2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -740,6 +765,7 @@
 				10A67F401E5778DF00AEC5DB /* readme.txt in Resources */,
 				D1C22DD41E67953500F65449 /* watch_4.png in Resources */,
 				10E3E85A1E68553B00668102 /* kick_4_1.png in Resources */,
+				D15269071E6D8D6A00A5448D /* loop.mp3 in Resources */,
 				107987C51E67AD600057EA15 /* iphone_green.png in Resources */,
 				10E618541E4FAC2D00462512 /* ball_white_2.png in Resources */,
 				10E3E85D1E68553B00668102 /* kick_4_4.png in Resources */,
@@ -759,6 +785,7 @@
 				1031E7AB1E5F2F7000E7CB9C /* kick_2_4.png in Resources */,
 				D1C22DD11E67953500F65449 /* watch_1.png in Resources */,
 				10E3E8531E6846C000668102 /* crown.png in Resources */,
+				D15269081E6D8D6A00A5448D /* music.mp3 in Resources */,
 				10D5DF1C1E5F8A4400FFB6A2 /* tile_pink.png in Resources */,
 				10E6186D1E4FACC100462512 /* ball_green_3.png in Resources */,
 				10E618771E4FAD0000462512 /* ball_purple_3.png in Resources */,
@@ -826,6 +853,7 @@
 			files = (
 				10B1F6951E5511490067738C /* Kick.swift in Sources */,
 				1055BA9A1E4DDFB7000FDB1A /* Ball.swift in Sources */,
+				D15269031E6D869F00A5448D /* SKMultilineLabel.swift in Sources */,
 				10B1F6971E55CF750067738C /* CGVector+Extensions.swift in Sources */,
 				1017C2A31E51DD7A00DFEF26 /* Goal.swift in Sources */,
 				D112F4011E532C0800959664 /* TiledNode.swift in Sources */,
@@ -970,7 +998,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 93ZH5ZQA23;
+				DEVELOPMENT_TEAM = FWD9V5VYJ2;
 				INFOPLIST_FILE = pongball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmcardoso.pongball;
@@ -986,7 +1014,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 93ZH5ZQA23;
+				DEVELOPMENT_TEAM = FWD9V5VYJ2;
 				INFOPLIST_FILE = pongball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmcardoso.pongball;

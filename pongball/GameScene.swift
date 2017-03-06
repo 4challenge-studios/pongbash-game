@@ -10,12 +10,19 @@ import SpriteKit
 import GameplayKit
 import GameController
 
+protocol GameDelegate: class {
+    func gameSceneDidFinishGame(gameScene: GameScene)
+}
+
 class GameScene: SKScene {
     
     var players = [Player(), Player(), Player(), Player()]
     var gameArea: GameAreaNode!
     var scoreLabels: [ScoreNode]! = [ScoreNode]()
     var gameTimer:GameTimerNode!
+    
+    weak var gameDelegate: GameDelegate?
+    
     override func didMove(to view: SKView) {
         self.backgroundColor = UIColor(r: 38, g: 38, b: 38, alpha: 1.0)
         self.setupGameArea()
@@ -85,7 +92,7 @@ class GameScene: SKScene {
         }
         //ordenar por pontuacao
         //manda para tela de vitória
-        print("Estou disparando no final de tudo")
+        self.gameDelegate?.gameSceneDidFinishGame(gameScene: self)
     }
     
     func touchDown(atPoint pos : CGPoint) {

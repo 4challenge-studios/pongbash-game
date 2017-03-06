@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class GameViewController: UIViewController {
 
@@ -16,6 +17,8 @@ class GameViewController: UIViewController {
     let controllerManager: ControllerManager = ControllerManager()
     
     var siriRemoteDelegate: SiriRemoteDelegate?
+    
+    var audioPlayer: AVAudioPlayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +28,24 @@ class GameViewController: UIViewController {
         presentMenuScene()
     }
     
+    func playMusic(named musicName: String) {
+        let URL: URL = Bundle.main.url(forResource: musicName, withExtension: "mp3")!
+        
+        do {
+            
+            self.audioPlayer = try AVAudioPlayer(contentsOf: URL)
+            self.audioPlayer?.numberOfLoops = -1
+            self.audioPlayer?.play()
+            
+        } catch {
+            
+        }
+    }
+    
     func presentMenuScene() {
+        
+        playMusic(named: "loop")
+        
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "Menu") as? MenuScene {
@@ -43,6 +63,9 @@ class GameViewController: UIViewController {
     }
     
     func presentGameScene(withPlayers players: [Player]) {
+        
+        playMusic(named: "music")
+        
         if let view = self.view as! SKView? {
             
             
@@ -95,5 +118,11 @@ extension GameViewController: MenuDelegate {
     func menuScene(menuScene: MenuScene, didReleaseButton button: MenuButton) {
         self.siriRemoteDelegate = nil
         self.presentGameScene(withPlayers: menuScene.players)
+    }
+}
+
+extension GameViewController : GameDelegate {
+    func gameSceneDidFinishGame(gameScene: GameScene) {
+        
     }
 }

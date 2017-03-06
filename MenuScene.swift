@@ -25,6 +25,8 @@ class MenuScene: SKScene {
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
+        
+
     }
     
     
@@ -38,6 +40,12 @@ class MenuScene: SKScene {
     
     func touchUp(atPoint pos : CGPoint) {
         
+    }
+    
+    func setLabelText(_ text: String, atPlayerId playerId: Int) {
+        let player = self.childNode(withName: "player\(playerId)")
+        let label = player?.childNode(withName: "label") as? SKLabelNode
+        label?.text = text
     }
     
     
@@ -72,8 +80,9 @@ extension MenuScene: ControllerManagerDelegate, ControllerDelegate {
         
         for (i,p) in self.players.enumerated() {
             if p.controller == nil {
-                self.players[i].name = "player\(i)"
+                self.players[i].name = controller.displayName
                 self.players[i].controller = controller
+                self.setLabelText(controller.displayName, atPlayerId: i)
                 break
             }
         }
