@@ -75,9 +75,6 @@ class MenuScene: SKScene {
 extension MenuScene: ControllerManagerDelegate, ControllerDelegate {
     
     func controllerManager(_ controllerManager: ControllerManager, controllerConnected controller: Controller) {
-        
-        //let player = Player(withController: controller)
-        
         for (i,p) in self.players.enumerated() {
             if p.controller == nil {
                 self.players[i].name = controller.displayName
