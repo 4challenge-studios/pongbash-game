@@ -99,9 +99,11 @@ extension MultipeerManager: MCSessionDelegate {
             delegate?.peerConnected(peer: peers[peerID]!, withDisplayName: peerID.displayName)
             
             do {
+
                 try session.send("red".data(using: .utf8, allowLossyConversion: false)!, toPeers: [peerID], with: .reliable)
+
             } catch _ {
-                
+
             }
             
             

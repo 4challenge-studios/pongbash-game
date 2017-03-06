@@ -25,8 +25,8 @@ class GameViewController: UIViewController {
 
         multipeerManager.delegate = controllerManager
 
-        //presentMenuScene()
-        presentScoreboardScene(withPlayers: [Player(),Player(),Player(),Player()])
+        presentMenuScene()
+        //presentScoreboardScene(withPlayers: [Player(),Player(),Player(),Player()])
     }
     
     func playMusic(named musicName: String) {
@@ -77,6 +77,8 @@ class GameViewController: UIViewController {
             scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
+            
+            scene.gameDelegate = self
              
             // Present the scene
             view.presentScene(scene)
@@ -90,6 +92,9 @@ class GameViewController: UIViewController {
     }
     
     func presentScoreboardScene(withPlayers players: [Player]){
+        
+        playMusic(named: "loop")
+        
         if let view = self.view as! SKView? {
             let scene = ScoreboardScene(fileNamed: "Scoreboard")
             scene?.players = players
@@ -140,6 +145,6 @@ extension GameViewController: MenuDelegate {
 
 extension GameViewController : GameDelegate {
     func gameSceneDidFinishGame(gameScene: GameScene) {
-        
+        self.presentScoreboardScene(withPlayers: gameScene.players)
     }
 }
