@@ -76,20 +76,7 @@ class GameScene: SKScene {
     
     func finishGame(){
         //TODO:verificar quem é o vencedor
-        self.players.sort{
-            $0.score > $1.score
-        }
-//        self.players.forEach{
-//            print("\($0.score) + \($0.name)")
-//        }
-        var isDraw = false
-        let winner = self.players.first
-        let playersWithSameScore = (players.filter {
-            $0.score == players.first?.score
-        }).count
-        if playersWithSameScore >= 2 {
-            isDraw = true
-        }
+        
         //ordenar por pontuacao
         //manda para tela de vitória
         self.gameDelegate?.gameSceneDidFinishGame(gameScene: self)
