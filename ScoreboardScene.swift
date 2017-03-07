@@ -10,11 +10,9 @@ import SpriteKit
 import GameController
 class ScoreboardScene: SKScene {
     var players:[Player]?//ordenado por score
-    var scoreboardElement:ScoreboardElement!
     var isDraw:Bool = false
     override func didMove(to view: SKView) {
         super.didMove(to: view)
-        self.scoreboardElement = ScoreboardElement(withNode: self.childNode(withName: "Player0")!)
         self.setupScoreboard()
     }
     
@@ -36,28 +34,17 @@ class ScoreboardScene: SKScene {
         scoreElements.append(ScoreboardElement(withNode: self.childNode(withName: "Player1")!))
         scoreElements.append(ScoreboardElement(withNode: self.childNode(withName: "Player2")!))
         scoreElements.append(ScoreboardElement(withNode: self.childNode(withName: "Player3")!))
-    
+        scoreElements.forEach {
+            $0.crown.isHidden = true
+        }
         self.players?.sort{
             $0.score > $1.score
         }
-        var isDraw = false
-        let playersWithSameScore = (players?.filter {
-            $0.score == players?.first?.score
-        })?.count
-        if playersWithSameScore! >= 2 {
-            isDraw = true
-        }
-        
         for i in 0..<scoreElements.count {
             scoreElements[i].playerName.text = players?[i].name
             scoreElements[i].score.text = players?[i].score.description
-        }
-        
-        if isDraw {
-            scoreElements.reversed().forEach {
-                if $0.score.text != scoreElements.first?.score.text{
-                    $0.crown.isHidden = true
-                }
+            if scoreElements[i].score.text == (players?.first?.score.description)! {
+                scoreElements[i].crown.isHidden = false
             }
         }
     }

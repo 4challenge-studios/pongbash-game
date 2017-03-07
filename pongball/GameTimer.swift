@@ -28,6 +28,7 @@ class GameTimerNode: SKNode {
         self.label = SKLabelNode(fontNamed: "silkscreen")
         let string = String(format: "%2.0f", self.timeInterval)
         self.label.text = string
+        self.label.fontSize = 80
         addChild(self.label)
     }
     
@@ -55,7 +56,7 @@ class GameTimerNode: SKNode {
         let watchNode = watchScene?.childNode(withName: "Watch") as! SKSpriteNode
         watchNode.removeFromParent()
         self.addChild(watchNode)
-        watchNode.position = CGPoint(x: -100, y: 0)//numero mágico
+        watchNode.position = CGPoint(x: -110, y: 30)//numero mágico
     }
     
     
@@ -65,10 +66,6 @@ class GameTimerNode: SKNode {
     
     func stop(){
         self.timer.invalidate()
-    }
-    
-    func fire(action: ((Void)->Void)){
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

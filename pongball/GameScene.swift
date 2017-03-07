@@ -44,7 +44,7 @@ class GameScene: SKScene {
     }
     
     func setupGameTimer(){
-        self.gameTimer = GameTimerNode(withTime: 30) {
+        self.gameTimer = GameTimerNode(withTime: 120) {
             self.finishGame()
         }
         self.addChild(self.gameTimer)
@@ -75,10 +75,6 @@ class GameScene: SKScene {
     }
     
     func finishGame(){
-        //TODO:verificar quem é o vencedor
-        
-        //ordenar por pontuacao
-        //manda para tela de vitória
         self.gameDelegate?.gameSceneDidFinishGame(gameScene: self)
     }
     
@@ -146,14 +142,12 @@ extension GameScene: GoalDelegate {
         
         print("\(ball.owner?.name) fez gol em \(goal.owner?.name)")
         let sortedPlayers = players.sorted {$0.score > $1.score}
-        let playersWithSameScore = (sortedPlayers.filter {
-          $0.score == sortedPlayers.first?.score
-        }).count
+
         scoreLabels.forEach { (score) in
             if let owner = score.owner {
                 let string = String(format:"%02d",owner.score)
                 score.label.text = string
-                if score.owner === sortedPlayers.first && playersWithSameScore < 2{
+                if score.owner.score == sortedPlayers.first?.score {
                     score.isWinning = true
                 }else {
                     score.isWinning = false
