@@ -52,6 +52,7 @@ class GameViewController: UIViewController {
             if let scene = SKScene(fileNamed: "Menu") as? MenuScene {
                 // Set the scale mode to scale to fit the window
                 controllerManager.delegate = scene
+                
                 scene.scaleMode = .aspectFill
                 scene.backgroundColor = UIColor(r: 20, g: 20, b: 20, alpha: 1)
                 // Present the scene

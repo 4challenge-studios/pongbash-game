@@ -76,9 +76,21 @@ extension MenuScene: ControllerManagerDelegate, ControllerDelegate {
     
     func controllerManager(_ controllerManager: ControllerManager, controllerConnected controller: Controller) {
         for (i,p) in self.players.enumerated() {
+            
+            if let id = p.controller?.id, id == controller.id {
+                p.controller = controller
+                p.controller?.delegate = self
+                print("voltou")
+                self.setLabelText(controller.displayName, atPlayerId: i)
+                return
+            }
+        }
+        
+        for (i,p) in self.players.enumerated() {
             if p.controller == nil {
-                self.players[i].name = controller.displayName
-                self.players[i].controller = controller
+                p.name = controller.displayName
+                p.controller = controller
+                p.controller?.delegate = self
                 self.setLabelText(controller.displayName, atPlayerId: i)
                 break
             }
@@ -87,7 +99,22 @@ extension MenuScene: ControllerManagerDelegate, ControllerDelegate {
     
     func controllerManager(_ controllerManager: ControllerManager, controllerDisconnected controller: Controller) {
         
+        for (i,p) in self.players.enumerated() {
+            if p.controller === controller {
+                self.players[i].name = controller.displayName
+                self.players[i].controller = nil
+                self.setLabelText("WAIT...", atPlayerId: i)
+                break
+            }
+        }
+        
         print("\(controller.displayName) desconectou!")
+    }
+    
+    func controller(_ controller: Controller, didSendCommand command: ControllerCommand) {
+        if command == .disconnect {
+
+        }
     }
 }
 

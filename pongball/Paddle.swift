@@ -204,6 +204,8 @@ extension PaddleNode: ControllerDelegate {
         case .kick:
             self.performKick()
             break
+        default:
+            break
         }
     }
 }
