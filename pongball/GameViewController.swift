@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class GameViewController: UIViewController {
 
@@ -16,6 +17,8 @@ class GameViewController: UIViewController {
     let controllerManager: ControllerManager = ControllerManager()
     
     var siriRemoteDelegate: SiriRemoteDelegate?
+    
+    var audioPlayer: AVAudioPlayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,14 +26,33 @@ class GameViewController: UIViewController {
         multipeerManager.delegate = controllerManager
 
         presentMenuScene()
+        //presentScoreboardScene(withPlayers: [Player(),Player(),Player(),Player()])
+    }
+    
+    func playMusic(named musicName: String) {
+        let URL: URL = Bundle.main.url(forResource: musicName, withExtension: "mp3")!
+        
+        do {
+            
+            self.audioPlayer = try AVAudioPlayer(contentsOf: URL)
+            self.audioPlayer?.numberOfLoops = -1
+            self.audioPlayer?.play()
+            
+        } catch {
+            
+        }
     }
     
     func presentMenuScene() {
+        
+        playMusic(named: "loop")
+        
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "Menu") as? MenuScene {
                 // Set the scale mode to scale to fit the window
                 controllerManager.delegate = scene
+                
                 scene.scaleMode = .aspectFill
                 scene.backgroundColor = UIColor(r: 20, g: 20, b: 20, alpha: 1)
                 // Present the scene
@@ -43,6 +65,9 @@ class GameViewController: UIViewController {
     }
     
     func presentGameScene(withPlayers players: [Player]) {
+        
+        playMusic(named: "music")
+        
         if let view = self.view as! SKView? {
             
             
@@ -53,6 +78,8 @@ class GameViewController: UIViewController {
             scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
+            
+            scene.gameDelegate = self
              
             // Present the scene
             view.presentScene(scene)
@@ -62,6 +89,25 @@ class GameViewController: UIViewController {
            // view.showsPhysics = true
             view.showsFPS = true
             view.showsNodeCount = true
+        }
+    }
+    
+    func presentScoreboardScene(withPlayers players: [Player]){
+        
+        playMusic(named: "loop")
+        
+        if let view = self.view as! SKView? {
+            let scene = ScoreboardScene(fileNamed: "Scoreboard")
+            scene?.players = players
+            
+            scene?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+            // Set the scale mode to scale to fit the window
+            scene?.scaleMode = .aspectFill
+            
+            // Present the scene
+            view.presentScene(scene)
+            
+            view.ignoresSiblingOrder = true
         }
     }
     
@@ -95,5 +141,11 @@ extension GameViewController: MenuDelegate {
     func menuScene(menuScene: MenuScene, didReleaseButton button: MenuButton) {
         self.siriRemoteDelegate = nil
         self.presentGameScene(withPlayers: menuScene.players)
+    }
+}
+
+extension GameViewController : GameDelegate {
+    func gameSceneDidFinishGame(gameScene: GameScene) {
+        self.presentScoreboardScene(withPlayers: gameScene.players)
     }
 }

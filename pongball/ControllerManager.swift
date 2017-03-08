@@ -15,6 +15,17 @@ enum ControllerCommand {
     case rightDown
     case rightUp
     case kick
+    case disconnect
+    case invalid
+    
+    static let stringToCommands: [String:ControllerCommand] = [
+        "kick": .kick, "leftDown": .leftDown, "leftUp": .leftUp,
+        "rightDown": .rightDown, "rightUp": .rightUp, "disconnect": .disconnect
+    ]
+    
+    static func fromString(_ string: String) -> ControllerCommand {
+        return stringToCommands[string] ?? .invalid
+    }
 }
 
 protocol ControllerDelegate {
@@ -29,17 +40,11 @@ class Controller {
     var id: String = ""
     var displayName: String = ""
     
-    var commands: [String:ControllerCommand] = [
-        "kick": .kick, "leftDown": .leftDown, "leftUp": .leftUp,
-        "rightDown": .rightDown, "rightUp": .rightUp
-    ]
-    
     lazy var delegate: ControllerDelegate? = nil
     
     func parseCommand(_ command: String) {
-        if let cmd = commands[command] {
-            self.delegate?.controller(self, didSendCommand: cmd)
-        }
+        let cmd = ControllerCommand.fromString(command)
+        self.delegate?.controller(self, didSendCommand: cmd)
     }
 }
 

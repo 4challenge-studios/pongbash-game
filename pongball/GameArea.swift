@@ -17,7 +17,7 @@ class GameAreaNode : SKCropNode {
     var paddles = [PaddleNode]()
     var balls = [BallNode]()
     var goals = [GoalNode]()
-    
+    var itemGenerator:Timer!
     init(withSize size: CGSize) {
         self.size = size
         super.init()
@@ -28,10 +28,7 @@ class GameAreaNode : SKCropNode {
         setupCorners()
         setupPaddles()
         setupBalls()
-//        let increaseItem = IncreaseSizeItemNode()
-//        addChild(increaseItem)
-        //let decreaseItem = DecreaseSizeItemNode()
-       // addChild(decreaseItem)
+        setupItemGenerator()
         let background = SKSpriteNode(color: .black, size: self.size)
         addChild(background)
         background.zPosition = -1
@@ -123,6 +120,33 @@ class GameAreaNode : SKCropNode {
         }
     }
     
+    func setupItemGenerator(){
+        self.itemGenerator = Timer.new(every:15.0.second) {
+            let limit = 400
+            let item = arc4random() % 2 == 1 ? IncreaseSizeItemNode() : DecreaseSizeItemNode()
+            var x = Int(arc4random()) % limit
+            var y = Int(arc4random()) % limit
+            while (x > limit || x < -limit) &&  (y > limit || y < -limit){
+                x = Int(arc4random()) % limit
+                y = Int(arc4random()) % limit
+                if x % 2 == 0 {
+                    x *= -1
+                }
+                if y % 2 == 1 {
+                    y *= -1
+                }
+            }
+            let position = CGPoint(x: Int(x), y: Int(y))
+            self.put(item:item, inPosition: position)
+        }
+        
+        self.itemGenerator.start()
+    }
+    
+    func put(item:ItemNode, inPosition position:CGPoint){
+        self.addChild(item)
+        item.position = position
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

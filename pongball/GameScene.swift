@@ -10,12 +10,18 @@ import SpriteKit
 import GameplayKit
 import GameController
 
+protocol GameDelegate: class {
+    func gameSceneDidFinishGame(gameScene: GameScene)
+}
+
 class GameScene: SKScene {
     
     var players = [Player(), Player(), Player(), Player()]
     var gameArea: GameAreaNode!
     var scoreLabels: [ScoreNode]! = [ScoreNode]()
-    var gameTimer = GameTimerNode(withTime: 30)
+    var gameTimer:GameTimerNode!
+    
+    weak var gameDelegate: GameDelegate?
     
     override func didMove(to view: SKView) {
         self.backgroundColor = UIColor(r: 38, g: 38, b: 38, alpha: 1.0)
@@ -38,6 +44,9 @@ class GameScene: SKScene {
     }
     
     func setupGameTimer(){
+        self.gameTimer = GameTimerNode(withTime: 120) {
+            self.finishGame()
+        }
         self.addChild(self.gameTimer)
         self.gameTimer.position = CGPoint(x: -0.4*(scene?.size.width)!, y:0.4*(scene?.size.height)!)
         gameTimer.start()
@@ -63,6 +72,10 @@ class GameScene: SKScene {
             scoreLabels.append(scoreLabel)
             addChild(scoreLabel)
         }
+    }
+    
+    func finishGame(){
+        self.gameDelegate?.gameSceneDidFinishGame(gameScene: self)
     }
     
     func touchDown(atPoint pos : CGPoint) {
@@ -129,14 +142,12 @@ extension GameScene: GoalDelegate {
         
         print("\(ball.owner?.name) fez gol em \(goal.owner?.name)")
         let sortedPlayers = players.sorted {$0.score > $1.score}
-        let playersWithSameScore = (sortedPlayers.filter {
-          $0.score == sortedPlayers.first?.score
-        }).count
+
         scoreLabels.forEach { (score) in
             if let owner = score.owner {
                 let string = String(format:"%02d",owner.score)
                 score.label.text = string
-                if score.owner === sortedPlayers.first && playersWithSameScore < 2{
+                if score.owner.score == sortedPlayers.first?.score {
                     score.isWinning = true
                 }else {
                     score.isWinning = false

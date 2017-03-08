@@ -31,6 +31,9 @@ class PaddleNode : TiledNode {
     let location: PaddleLocation
     let style: Style
     
+    
+    var kickSound = SKAction.playSoundFileNamed("kick", waitForCompletion: false)
+    
     init(withLocation location: PaddleLocation, andStyle style: Style) {
         
         self.location = location
@@ -125,7 +128,7 @@ class PaddleNode : TiledNode {
                 self.canKick = true
             }
 
-            
+            self.run(self.kickSound)
             kick!.run(
                 SKAction.sequence([kickAction, delayAction, canKick]))
         }
@@ -200,6 +203,8 @@ extension PaddleNode: ControllerDelegate {
             self.moveRight = false
         case .kick:
             self.performKick()
+            break
+        default:
             break
         }
     }

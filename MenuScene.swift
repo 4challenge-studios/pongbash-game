@@ -21,12 +21,12 @@ protocol MenuDelegate: class {
 class MenuScene: SKScene {
     
     var players = [Player(), Player(), Player(), Player()]
-    
-    var playButton:SKSpriteNode?
     weak var menuDelegate: MenuDelegate?
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
+        
+
     }
     
     
@@ -40,6 +40,12 @@ class MenuScene: SKScene {
     
     func touchUp(atPoint pos : CGPoint) {
         
+    }
+    
+    func setLabelText(_ text: String, atPlayerId playerId: Int) {
+        let player = self.childNode(withName: "player\(playerId)")
+        let label = player?.childNode(withName: "label") as? SKLabelNode
+        label?.text = text
     }
     
     
@@ -69,13 +75,23 @@ class MenuScene: SKScene {
 extension MenuScene: ControllerManagerDelegate, ControllerDelegate {
     
     func controllerManager(_ controllerManager: ControllerManager, controllerConnected controller: Controller) {
-        
-        //let player = Player(withController: controller)
+        for (i,p) in self.players.enumerated() {
+            
+            if let id = p.controller?.id, id == controller.id {
+                p.controller = controller
+                p.controller?.delegate = self
+                print("voltou")
+                self.setLabelText(controller.displayName, atPlayerId: i)
+                return
+            }
+        }
         
         for (i,p) in self.players.enumerated() {
             if p.controller == nil {
-                self.players[i].name = "player\(i)"
-                self.players[i].controller = controller
+                p.name = controller.displayName
+                p.controller = controller
+                p.controller?.delegate = self
+                self.setLabelText(controller.displayName, atPlayerId: i)
                 break
             }
         }
@@ -83,7 +99,22 @@ extension MenuScene: ControllerManagerDelegate, ControllerDelegate {
     
     func controllerManager(_ controllerManager: ControllerManager, controllerDisconnected controller: Controller) {
         
+        for (i,p) in self.players.enumerated() {
+            if p.controller === controller {
+                self.players[i].name = controller.displayName
+                self.players[i].controller = nil
+                self.setLabelText("WAIT...", atPlayerId: i)
+                break
+            }
+        }
+        
         print("\(controller.displayName) desconectou!")
+    }
+    
+    func controller(_ controller: Controller, didSendCommand command: ControllerCommand) {
+        if command == .disconnect {
+
+        }
     }
 }
 
