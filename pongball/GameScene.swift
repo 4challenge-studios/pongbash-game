@@ -44,7 +44,7 @@ class GameScene: SKScene {
     }
     
     func setupGameTimer(){
-        self.gameTimer = GameTimerNode(withTime: 120) {
+        self.gameTimer = GameTimerNode(withTime: 5) {
             self.finishGame()
         }
         self.addChild(self.gameTimer)

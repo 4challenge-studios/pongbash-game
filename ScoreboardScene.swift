@@ -9,7 +9,7 @@
 import SpriteKit
 import GameController
 class ScoreboardScene: SKScene {
-    var players:[Player]?//ordenado por score
+    var players:[Player]?
     var isDraw:Bool = false
     override func didMove(to view: SKView) {
         super.didMove(to: view)
@@ -41,7 +41,8 @@ class ScoreboardScene: SKScene {
             $0.score > $1.score
         }
         for i in 0..<scoreElements.count {
-            scoreElements[i].playerName.text = players?[i].name
+//            scoreElements[i].playerName.text = players?[i].name
+            scoreElements[i].updatePlayerName((players?[i].name)!)//workaround
             scoreElements[i].score.text = players?[i].score.description
             if scoreElements[i].score.text == (players?.first?.score.description)! {
                 scoreElements[i].crown.isHidden = false

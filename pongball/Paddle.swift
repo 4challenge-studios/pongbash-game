@@ -31,7 +31,6 @@ class PaddleNode : TiledNode {
     let location: PaddleLocation
     let style: Style
     
-    
     var kickSound = SKAction.playSoundFileNamed("kick", waitForCompletion: false)
     
     init(withLocation location: PaddleLocation, andStyle style: Style) {
@@ -136,16 +135,22 @@ class PaddleNode : TiledNode {
     
     
     func increaseSize() {
+        if self.tiles.count < 4 {
         
-        self.setupTiles(numberOfTiles:self.tiles.count+1)
-        self.setupKick(withRadius:(CGFloat((Double(self.tiles.count)))) * self.style.tileTexture.size().width/2.0)
-        self.tiles.last?.color = (self.tiles.first?.color)!
+            self.setupTiles(numberOfTiles:self.tiles.count+1)
+            self.setupKick(withRadius:(CGFloat((Double(self.tiles.count)))) * self.style.tileTexture.size().width/2.0)
+            self.tiles.last?.color = (self.tiles.first?.color)!
+        }
+        
     }
     
     func decreaseSize() {
-        
-        self.setupTiles(numberOfTiles:self.tiles.count-1)
-        self.setupKick(withRadius:(CGFloat((Double(self.tiles.count)))) * self.style.tileTexture.size().width/2)
+        if self.tiles.count > 2 {
+            self.setupTiles(numberOfTiles:self.tiles.count-1)
+            self.setupKick(withRadius:(CGFloat((Double(self.tiles.count)))) * self.style.tileTexture.size().width/2)
+            self.tiles.last?.color = (self.tiles.first?.color)!
+            
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

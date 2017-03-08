@@ -27,18 +27,14 @@ class MultipeerManager: NSObject {
     
     var peer = MCPeerID.init(displayName: UIDevice.current.name)
     
-    let serviceTypePadrao = "pong2"
+    let serviceTypePadrao = "pong"
     
     var browser: MCNearbyServiceBrowser
     
     var peers: [MCPeerID:String] = [:]
     
     override init() {
-        
-        
-        
         browser = MCNearbyServiceBrowser.init(peer: peer, serviceType: serviceTypePadrao)
-        
         
         super.init()
         
