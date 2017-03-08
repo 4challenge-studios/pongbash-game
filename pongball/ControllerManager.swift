@@ -39,12 +39,26 @@ extension ControllerDelegate {
 class Controller {
     var id: String = ""
     var displayName: String = ""
+    weak var peerID: MCPeerID?
+    weak var session: MCSession?
     
     lazy var delegate: ControllerDelegate? = nil
     
     func parseCommand(_ command: String) {
         let cmd = ControllerCommand.fromString(command)
         self.delegate?.controller(self, didSendCommand: cmd)
+    }
+    
+    func sendCommand(_ command: String) {
+        
+        guard let peerID = self.peerID else { return }
+        guard let data = command.data(using: .utf8, allowLossyConversion: false) else { return }
+        
+        do {
+            try session?.send(data, toPeers: [peerID], with: .reliable)
+        } catch {
+            
+        }
     }
 }
 
@@ -66,9 +80,13 @@ class ControllerManager: MultipeerDelegate {
     var delegate: ControllerManagerDelegate?
     
     
-    func peerConnected(peer: String, withDisplayName displayName: String) {
+    func peerConnected(withSession session: MCSession, withPeerID peerID: MCPeerID,
+                       withDeviceID deviceID: String, withDisplayName displayName: String) {
+        
         let controller = Controller()
-        controller.id = peer
+        
+        controller.peerID = peerID
+        controller.id = deviceID
         controller.displayName = displayName
         
         controllers.updateValue(controller, forKey: controller.id)
@@ -85,6 +103,7 @@ class ControllerManager: MultipeerDelegate {
     }
     
     func peerSentMessage(peer: String, message: String) {
+        
         controllers[peer]?.parseCommand(message)
     }
 }

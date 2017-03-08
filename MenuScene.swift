@@ -20,9 +20,9 @@ protocol MenuDelegate: class {
 
 class MenuScene: SKScene {
     
-    var players = [Player(withStyle: .red),
+    var players = [Player(withStyle: .blue),
                    Player(withStyle: .green),
-                   Player(withStyle: .blue),
+                   Player(withStyle: .orange),
                    Player(withStyle: .purple)]
     
     weak var menuDelegate: MenuDelegate?
@@ -84,7 +84,7 @@ extension MenuScene: ControllerManagerDelegate, ControllerDelegate {
             if let id = p.controller?.id, id == controller.id {
                 p.controller = controller
                 p.controller?.delegate = self
-                print("voltou")
+                p.controller?.sendCommand(p.style.rawValue)
                 self.setLabelText(controller.displayName, atPlayerId: i)
                 return
             }

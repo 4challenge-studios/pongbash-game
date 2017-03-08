@@ -10,7 +10,9 @@ import UIKit
 import MultipeerConnectivity
 
 protocol MultipeerDelegate {
-    func peerConnected(peer: String, withDisplayName displayName: String)
+    func peerConnected(withSession session: MCSession, withPeerID peerID: MCPeerID,
+                       withDeviceID deviceID: String, withDisplayName displayName: String)
+    
     func peerDisconnected(peer: String)
     func peerSentMessage(peer: String, message: String)
 }
@@ -92,10 +94,11 @@ extension MultipeerManager: MCSessionDelegate {
         case .connected:
             
             // PEER CONNECTED
-            delegate?.peerConnected(peer: peers[peerID]!, withDisplayName: peerID.displayName)
+            delegate?.peerConnected(withSession: session, withPeerID: peerID,
+                                    withDeviceID: peers[peerID]!,
+                                    withDisplayName: peerID.displayName)
             
             do {
-
                 try session.send("red".data(using: .utf8, allowLossyConversion: false)!, toPeers: [peerID], with: .reliable)
 
             } catch _ {
