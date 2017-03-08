@@ -16,7 +16,7 @@ protocol GameDelegate: class {
 
 class GameScene: SKScene {
     
-    var players = [Player(), Player(), Player(), Player()]
+    var players: [Player] = []
     var gameArea: GameAreaNode!
     var scoreLabels: [ScoreNode]! = [ScoreNode]()
     var gameTimer:GameTimerNode!
@@ -40,11 +40,18 @@ class GameScene: SKScene {
         self.physicsWorld.contactDelegate = gameArea
         self.setupScores()
         self.setupGameTimer()
-        
+        self.setupBackground()
+    }
+    
+    func setupBackground(){
+        let texture = SKTexture(image: #imageLiteral(resourceName: "backPongball.png"))
+        let sprite = SKSpriteNode(texture: texture)
+        self.addChild(sprite)
+        sprite.zPosition = -1
     }
     
     func setupGameTimer(){
-        self.gameTimer = GameTimerNode(withTime: 120) {
+        self.gameTimer = GameTimerNode(withTime:120) {
             self.finishGame()
         }
         self.addChild(self.gameTimer)
@@ -61,17 +68,23 @@ class GameScene: SKScene {
     }
     
     func setupScores(){
+        let label = SKLabelNode()
+        label.fontName = "silkscreen"
+        label.text = "Score"
+        label.fontSize = 80
         let height = self.size.height
         let width = self.size.width
         for i in 0..<self.players.count {
             let scoreLabel = ScoreNode(withOwner:players[i])
-            scoreLabel.position = CGPoint(x:width/3,y:(0.415 - CGFloat(i) * 0.1)*height)
+            scoreLabel.position = CGPoint(x:width/3,y:(0.300 - CGFloat(i) * 0.1)*height)
             
             let texture = self.gameArea.paddles[i].style.tileTexture
             scoreLabel.tileTexture = texture
             scoreLabels.append(scoreLabel)
             addChild(scoreLabel)
         }
+        addChild(label)
+        label.position = CGPoint(x: 0.39*width, y: 0.4 * height)
     }
     
     func finishGame(){

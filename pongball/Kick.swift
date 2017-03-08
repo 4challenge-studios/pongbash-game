@@ -56,10 +56,11 @@ class KickNode : SKNode {
     func animateKick(withSize size:Int) {
         var sprites = [SKTexture]()
         for i in 1...5 {
-            let sprite = SKTexture(imageNamed: "kick_\(size)_\(i)")
+            let string = "kick_\(size)_\(i)"
+            let sprite = SKTexture(imageNamed: string)
             sprites.append(sprite)
         }
-        let animation = SKAction.animate(with: sprites, timePerFrame: 0.1)
+        let animation = SKAction.animate(with: sprites, timePerFrame: 0.1,resize: true, restore: false)
         let appear = SKAction.fadeIn(withDuration: 0.05)
         let disappear = SKAction.fadeOut(withDuration: 0.05)
         self.sprite.run(SKAction.sequence([appear,animation,disappear]))

@@ -24,13 +24,13 @@ class IncreaseSizeItemNode: ItemNode {
     func increasePaddleSize(paddle:PaddleNode,timeInterval:TimeInterval){
         paddle.increaseSize()
         Timer.after(timeInterval) {
-                paddle.decreaseSize()
+            paddle.decreaseSize()
         }
     }
     
     private func setupSprite() {
         
-        let texture = SKTexture(image: #imageLiteral(resourceName: "tile_purple.png"))
+        let texture = SKTexture(image: #imageLiteral(resourceName: "tile_red.png"))
         self.sprite = SKSpriteNode(texture: texture)
         // add sprite as child
         self.addChild(self.sprite)
