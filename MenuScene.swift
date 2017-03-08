@@ -30,6 +30,7 @@ class MenuScene: SKScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         self.setupBalls()
+        self.setupLabelAnimation()
     }
     
     
@@ -48,7 +49,29 @@ class MenuScene: SKScene {
     func setLabelText(_ text: String, atPlayerId playerId: Int) {
         let player = self.childNode(withName: "player\(playerId)")
         let label = player?.childNode(withName: "label") as? SKLabelNode
+        player?.removeAllActions()
         label?.text = text
+    }
+    
+    func setupLabelAnimation(){
+        let iphones = self["player*"] as? [SKSpriteNode]
+        for iphone in iphones! {
+            let label = iphone.childNode(withName: "label") as! SKLabelNode
+            let action0 = SKAction.run{
+                label.text = "wait."
+            }
+            let action1  =  SKAction.run{
+                label.text = "wait.."
+            }
+
+            let action2 =  SKAction.run{
+                label.text = "wait..."
+            }
+            let waitAction = SKAction.wait(forDuration: 0.5)
+            let sequence = SKAction.sequence([action0,waitAction,action1,waitAction,action2,waitAction])
+            let repeatForever = SKAction.repeatForever(sequence)
+            iphone.run(repeatForever)
+        }
     }
     
     func setupBalls(){
