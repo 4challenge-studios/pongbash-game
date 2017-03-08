@@ -95,6 +95,8 @@ extension MenuScene: ControllerManagerDelegate, ControllerDelegate {
                 p.name = controller.displayName
                 p.controller = controller
                 p.controller?.delegate = self
+                p.controller?.sendCommand(p.style.rawValue)
+                print(p.controller)
                 self.setLabelText(controller.displayName, atPlayerId: i)
                 break
             }

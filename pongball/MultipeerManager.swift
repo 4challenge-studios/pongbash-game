@@ -99,12 +99,11 @@ extension MultipeerManager: MCSessionDelegate {
                                     withDisplayName: peerID.displayName)
             
             do {
-                try session.send("red".data(using: .utf8, allowLossyConversion: false)!, toPeers: [peerID], with: .reliable)
+                //try session.send("red".data(using: .utf8, allowLossyConversion: false)!, toPeers: [peerID], with: .reliable)
 
             } catch _ {
 
             }
-            
             
         case .connecting:
             // PEER IS CONNECTING

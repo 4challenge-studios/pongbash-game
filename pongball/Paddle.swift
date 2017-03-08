@@ -115,21 +115,13 @@ class PaddleNode : TiledNode {
             self.canKick = false
             kick.isHidden = false
             
-            let kickAction = SKAction.run {
-                self.kick.enabled = true
-                self.kick.animateKick(withSize: self.tiles.count)
-            }
+            self.kick.enabled = true
+            self.kick.animateKick(withSize: self.tiles.count)
             
-            let delayAction = SKAction.wait(forDuration: 0.250)
-            
-            let canKick = SKAction.run {
+            Timer.after(0.250) {
                 self.kick.enabled = false
                 self.canKick = true
-            }
-
-            self.run(self.kickSound)
-            kick!.run(
-                SKAction.sequence([kickAction, delayAction, canKick]))
+            }.start()
         }
     }
     

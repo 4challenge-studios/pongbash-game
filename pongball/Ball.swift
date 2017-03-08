@@ -183,8 +183,8 @@ extension BallNode: ContactDelegate {
             self.owner = nil
             self.style = .white
             
-            self.removeAction(forKey: "goalSound")
-            self.run(self.goalSound, withKey: "goalSound")
+            //self.removeAction(forKey: "goalSound")
+            //self.run(self.goalSound, withKey: "goalSound")
         } else {
             self.removeAction(forKey: "hitSound")
             self.run(self.hitSound, withKey: "hitSound")
