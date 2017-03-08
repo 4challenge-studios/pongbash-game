@@ -16,8 +16,9 @@ class BallNode : SKNode, Updatable {
     var sprite: SKSpriteNode?
     
     
-    var hitSound = SKAction.playSoundFileNamed("hit", waitForCompletion: false)
-    var goalSound = SKAction.playSoundFileNamed("goal", waitForCompletion: false)
+    var hitSound = SKAction.playSoundFileNamed("hit", waitForCompletion: true)
+    var canPlayHitSound = true
+    var goalSound = SKAction.playSoundFileNamed("goal", waitForCompletion: true)
     
     var radius: CGFloat = 30.0 {
         
@@ -185,9 +186,16 @@ extension BallNode: ContactDelegate {
             
             //self.removeAction(forKey: "goalSound")
             //self.run(self.goalSound, withKey: "goalSound")
-        } else {
-            self.removeAction(forKey: "hitSound")
-            self.run(self.hitSound, withKey: "hitSound")
+            
+        }
+        
+        if other as? KickNode == nil {
+            if canPlayHitSound {
+                canPlayHitSound = false
+                (self.scene as? GameScene)?.playSound("hit") {
+                    self.canPlayHitSound = true
+                }
+            }
         }
         
         self.updateRotation()

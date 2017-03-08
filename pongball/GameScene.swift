@@ -9,6 +9,7 @@
 import SpriteKit
 import GameplayKit
 import GameController
+import AVFoundation
 
 protocol GameDelegate: class {
     func gameSceneDidFinishGame(gameScene: GameScene)
@@ -22,6 +23,26 @@ class GameScene: SKScene {
     var gameTimer:GameTimerNode!
     
     weak var gameDelegate: GameDelegate?
+    
+    let audioPlayers: [String:AVAudioPlayer?] = [
+        "hit" : GameScene.loadAudioPlayer(withSound: "hit")
+    ]
+    
+    static func loadAudioPlayer(withSound sound: String) -> AVAudioPlayer? {
+        let URL: URL = Bundle.main.url(forResource: sound, withExtension: "wav")!
+        
+        do {
+            
+            let ap = try AVAudioPlayer(contentsOf: URL)
+            ap.prepareToPlay()
+            
+            return  ap
+            
+        } catch {
+            
+            return nil
+        }
+    }
     
     override func didMove(to view: SKView) {
         self.backgroundColor = UIColor(r: 38, g: 38, b: 38, alpha: 1.0)
@@ -140,6 +161,21 @@ class GameScene: SKScene {
         }
         
         previousTime = currentTime
+    }
+}
+
+extension GameScene {
+    func playSound(_ soundName: String, completion: @escaping () -> Void) {
+        if let ap_ = audioPlayers[soundName] {
+            
+            guard let ap = ap_ else { return }
+            
+            ap.play()
+            
+            Timer.after(ap.duration) {
+                completion()
+            }
+        }
     }
 }
 
