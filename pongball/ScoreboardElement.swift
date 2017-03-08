@@ -21,11 +21,6 @@ class ScoreboardElement {
     var tile:SKSpriteNode!
     var score:SKLabelNode!
     var playerName:SKLabelNode!
-    var style: Style = .white {
-        didSet {
-            //self.setupSprite()
-        }
-    }
     
     init(withNode node: SKNode) {
         self.crown = node.children[0].childNode(withName: "crown") as! SKSpriteNode

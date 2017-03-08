@@ -20,7 +20,11 @@ protocol MenuDelegate: class {
 
 class MenuScene: SKScene {
     
-    var players = [Player(), Player(), Player(), Player()]
+    var players = [Player(withStyle: .red),
+                   Player(withStyle: .green),
+                   Player(withStyle: .blue),
+                   Player(withStyle: .purple)]
+    
     weak var menuDelegate: MenuDelegate?
     
     override func didMove(to view: SKView) {

@@ -44,6 +44,8 @@ class ScoreboardScene: SKScene {
 //            scoreElements[i].playerName.text = players?[i].name
             scoreElements[i].updatePlayerName((players?[i].name)!)//workaround
             scoreElements[i].score.text = players?[i].score.description
+            scoreElements[i].tile.texture = players![i].style.tileTexture
+            
             if scoreElements[i].score.text == (players?.first?.score.description)! {
                 scoreElements[i].crown.isHidden = false
             }
