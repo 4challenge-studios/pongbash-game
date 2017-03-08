@@ -8,9 +8,13 @@
 
 import SpriteKit
 import GameController
+
 class ScoreboardScene: SKScene {
     var players:[Player]?
     var isDraw:Bool = false
+    
+    var onExit = {}
+    
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         self.setupScoreboard()
@@ -71,5 +75,21 @@ class ScoreboardScene: SKScene {
     private var previousTime: TimeInterval = 0.0
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+    }
+}
+
+extension ScoreboardScene: SiriRemoteDelegate {
+    
+    func didPress(button: SiriRemoteButton) {
+        switch(button) {
+        case .select:
+            self.onExit()
+        case .play:
+            self.onExit()
+        }
+    }
+    
+    func didRelease(button: SiriRemoteButton) {
+
     }
 }

@@ -10,6 +10,7 @@ import Foundation
 
 enum SiriRemoteButton {
     case select
+    case play
 }
 
 protocol SiriRemoteDelegate {

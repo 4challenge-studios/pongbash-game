@@ -100,9 +100,15 @@ class GameViewController: UIViewController {
             let scene = ScoreboardScene(fileNamed: "Scoreboard")
             scene?.players = players
             
+            scene?.onExit = {
+                self.presentMenuScene()
+            }
+            
             scene?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             // Set the scale mode to scale to fit the window
             scene?.scaleMode = .aspectFill
+            
+            siriRemoteDelegate = scene
             
             // Present the scene
             view.presentScene(scene)
@@ -116,13 +122,21 @@ class GameViewController: UIViewController {
             if item.type == .select {
                 self.siriRemoteDelegate?.didPress(button: .select)
             }
+            
+            if item.type == .playPause {
+                self.siriRemoteDelegate?.didPress(button: .play)
+            }
         }
     }
     
     override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         for item in presses {
-            if item.type == .playPause {
+            if item.type == .select {
                 self.siriRemoteDelegate?.didRelease(button: .select)
+            }
+            
+            if item.type == .playPause {
+                self.siriRemoteDelegate?.didRelease(button: .play)
             }
         }
     }
@@ -135,12 +149,13 @@ class GameViewController: UIViewController {
 
 extension GameViewController: MenuDelegate {
     func menuScene(menuScene: MenuScene, didPressButton button: MenuButton) {
-        
+        self.siriRemoteDelegate = nil
+        self.presentGameScene(withPlayers: menuScene.players)
     }
     
     func menuScene(menuScene: MenuScene, didReleaseButton button: MenuButton) {
-        self.siriRemoteDelegate = nil
-        self.presentGameScene(withPlayers: menuScene.players)
+        //self.siriRemoteDelegate = nil
+        //self.presentGameScene(withPlayers: menuScene.players)
     }
 }
 

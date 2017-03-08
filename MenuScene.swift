@@ -130,13 +130,12 @@ extension MenuScene: SiriRemoteDelegate {
         switch(button) {
         case .select:
             self.menuDelegate?.menuScene(menuScene: self, didPressButton: .play)
+        default:
+            break
         }
     }
     
     func didRelease(button: SiriRemoteButton) {
-        switch(button) {
-        case .select:
-            self.menuDelegate?.menuScene(menuScene: self, didReleaseButton: .play)
-        }
+
     }
 }
