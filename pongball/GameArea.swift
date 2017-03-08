@@ -122,7 +122,7 @@ class GameAreaNode : SKCropNode {
     
     func setupItemGenerator(){
         self.itemGenerator = Timer.new(every:15.0.second) {
-            let limit = 400
+            let limit = 300
             let item = arc4random() % 2 == 1 ? IncreaseSizeItemNode() : DecreaseSizeItemNode()
             var x = Int(arc4random()) % limit
             var y = Int(arc4random()) % limit
