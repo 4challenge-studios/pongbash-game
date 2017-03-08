@@ -29,8 +29,7 @@ class MenuScene: SKScene {
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
-        
-
+        self.setupBalls()
     }
     
     
@@ -52,6 +51,12 @@ class MenuScene: SKScene {
         label?.text = text
     }
     
+    func setupBalls(){
+        let balls = self["ball*"] as? [SKSpriteNode]
+        for ball in balls! {
+            ball.zPosition = -2
+        }
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
@@ -96,7 +101,7 @@ extension MenuScene: ControllerManagerDelegate, ControllerDelegate {
                 p.controller = controller
                 p.controller?.delegate = self
                 p.controller?.sendCommand(p.style.rawValue)
-                print(p.controller)
+                print(p.controller!)
                 self.setLabelText(controller.displayName, atPlayerId: i)
                 break
             }

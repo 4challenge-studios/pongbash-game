@@ -59,9 +59,6 @@ class BallNode : SKNode, Updatable {
             if isKicked {
                self.animateFast()
             } else {
-                /*self.sprite.removeAllActions()
-                self.sprite.removeFromParent()
-                self.setupSprite()*/
                 self.animateNormal()
                 let vel =  self.physicsBody?.velocity
                 self.physicsBody?.velocity = vel!/(vel?.length())!  * 400
@@ -106,21 +103,6 @@ class BallNode : SKNode, Updatable {
         self.physicsBody?.collisionBitMask = CategoryBitmasks.corner.rawValue | CategoryBitmasks.paddle.rawValue | CategoryBitmasks.goal.rawValue
         self.physicsBody?.contactTestBitMask = CategoryBitmasks.corner.rawValue | CategoryBitmasks.paddle.rawValue | CategoryBitmasks.goal.rawValue | CategoryBitmasks.ball.rawValue | CategoryBitmasks.kick.rawValue
     }
-    
-    /*internal func setupAnimation(){
-        var texturesDidKick:[SKTexture] = []
-        var texturesAfterKick:[SKTexture] = []
-        for i in 0..<numberAnimationSprite {
-            let texture = SKTexture(imageNamed: (self.owner?.color.rawValue)! + "\(i+1)")
-            texturesDidKick.append(texture)
-        }
-        texturesAfterKick.append(texturesDidKick.last!)
-        texturesAfterKick.append(texturesDidKick[texturesDidKick.count-2])
-        let animationDidKick = SKAction.animate(with: texturesDidKick, timePerFrame: 0.25, resize: true, restore: true)
-        let animationAfterKick = SKAction.animate(with: texturesAfterKick, timePerFrame: 0.25, resize: true, restore: true)
-        let forever = SKAction.repeatForever(animationAfterKick)
-        self.animation = SKAction.sequence([animationDidKick,forever])
-    }*/
     
     func updateRotation() {
 
