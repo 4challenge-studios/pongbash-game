@@ -30,7 +30,11 @@ class MenuScene: SKScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         self.setupBalls()
-        self.setupLabelAnimation()
+        let iphones = self["player*"] as? [SKSpriteNode]
+        for iphone in iphones! {
+            let label = iphone.childNode(withName: "label") as! SKLabelNode
+            self.setupAnimation(forLabel: label)
+        }
     }
     
     
@@ -49,14 +53,11 @@ class MenuScene: SKScene {
     func setLabelText(_ text: String, atPlayerId playerId: Int) {
         let player = self.childNode(withName: "player\(playerId)")
         let label = player?.childNode(withName: "label") as? SKLabelNode
-        player?.removeAllActions()
+        label?.removeAllActions()
         label?.text = text
     }
     
-    func setupLabelAnimation(){
-        let iphones = self["player*"] as? [SKSpriteNode]
-        for iphone in iphones! {
-            let label = iphone.childNode(withName: "label") as! SKLabelNode
+    func setupAnimation(forLabel label:SKLabelNode){
             let action0 = SKAction.run{
                 label.text = "wait."
             }
@@ -70,8 +71,7 @@ class MenuScene: SKScene {
             let waitAction = SKAction.wait(forDuration: 0.5)
             let sequence = SKAction.sequence([action0,waitAction,action1,waitAction,action2,waitAction])
             let repeatForever = SKAction.repeatForever(sequence)
-            iphone.run(repeatForever)
-        }
+            label.run(repeatForever)
     }
     
     func setupBalls(){
@@ -137,7 +137,9 @@ extension MenuScene: ControllerManagerDelegate, ControllerDelegate {
             if p.controller === controller {
                 self.players[i].name = controller.displayName
                 self.players[i].controller = nil
-                self.setLabelText("WAIT...", atPlayerId: i)
+                let playerNode = self["player\(i)"].first as! SKSpriteNode
+                let labelNode = playerNode.childNode(withName: "label") as! SKLabelNode
+                self.setupAnimation(forLabel: labelNode)
                 break
             }
         }
