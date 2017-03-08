@@ -122,6 +122,8 @@
 		D1C22DD21E67953500F65449 /* watch_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D1C22DCE1E67953500F65449 /* watch_2.png */; };
 		D1C22DD31E67953500F65449 /* watch_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D1C22DCF1E67953500F65449 /* watch_3.png */; };
 		D1C22DD41E67953500F65449 /* watch_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D1C22DD01E67953500F65449 /* watch_4.png */; };
+		D1DBCD131E6EFBBF0059A79A /* hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = D1DBCD121E6EFBBF0059A79A /* hit.wav */; };
+		D1DBCD151E6EFC480059A79A /* goal.wav in Resources */ = {isa = PBXBuildFile; fileRef = D1DBCD141E6EFC480059A79A /* goal.wav */; };
 		FBA3B3463588886C6473A21E /* Pods_pongball.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8E24F1664AD5174D4BABB5 /* Pods_pongball.framework */; };
 /* End PBXBuildFile section */
 
@@ -259,6 +261,8 @@
 		D1C22DCE1E67953500F65449 /* watch_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watch_2.png; sourceTree = "<group>"; };
 		D1C22DCF1E67953500F65449 /* watch_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watch_3.png; sourceTree = "<group>"; };
 		D1C22DD01E67953500F65449 /* watch_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watch_4.png; sourceTree = "<group>"; };
+		D1DBCD121E6EFBBF0059A79A /* hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hit.wav; sourceTree = "<group>"; };
+		D1DBCD141E6EFC480059A79A /* goal.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = goal.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -598,6 +602,8 @@
 				D15269051E6D8D6A00A5448D /* loop.mp3 */,
 				D15269061E6D8D6A00A5448D /* music.mp3 */,
 				D15269091E6DA7CC00A5448D /* kick.wav */,
+				D1DBCD121E6EFBBF0059A79A /* hit.wav */,
+				D1DBCD141E6EFC480059A79A /* goal.wav */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -819,6 +825,7 @@
 				10A67F411E5778DF00AEC5DB /* slkscr.ttf in Resources */,
 				10E6184D1E4FABDA00462512 /* ball_blue_3.png in Resources */,
 				10E3E85C1E68553B00668102 /* kick_4_3.png in Resources */,
+				D1DBCD131E6EFBBF0059A79A /* hit.wav in Resources */,
 				10E618551E4FAC2D00462512 /* ball_white_3.png in Resources */,
 				10908A8B1E6D823000266859 /* Scoreboard.sks in Resources */,
 				10E6185D1E4FAC4F00462512 /* ball_orange_3.png in Resources */,
@@ -835,6 +842,7 @@
 				10E6187F1E4FAD3900462512 /* ball_red_3.png in Resources */,
 				10E6184B1E4FABDA00462512 /* ball_blue_1.png in Resources */,
 				10E618631E4FAC8100462512 /* ball_pink_1.png in Resources */,
+				D1DBCD151E6EFC480059A79A /* goal.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

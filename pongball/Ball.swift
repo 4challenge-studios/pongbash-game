@@ -14,6 +14,11 @@ class BallNode : SKNode, Updatable {
     weak var owner: Player?
     
     var sprite: SKSpriteNode?
+    
+    
+    var hitSound = SKAction.playSoundFileNamed("hit", waitForCompletion: false)
+    var goalSound = SKAction.playSoundFileNamed("goal", waitForCompletion: false)
+    
     var radius: CGFloat = 30.0 {
         
         didSet {
@@ -177,6 +182,12 @@ extension BallNode: ContactDelegate {
             
             self.owner = nil
             self.style = .white
+            
+            self.removeAction(forKey: "goalSound")
+            self.run(self.goalSound, withKey: "goalSound")
+        } else {
+            self.removeAction(forKey: "hitSound")
+            self.run(self.hitSound, withKey: "hitSound")
         }
         
         self.updateRotation()
