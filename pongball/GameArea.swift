@@ -27,7 +27,6 @@ class GameAreaNode : SKCropNode {
         setupGoals()
         setupCorners()
         setupPaddles()
-        setupBalls()
         setupItemGenerator()
         let background = SKSpriteNode(color: .black, size: self.size)
         addChild(background)
@@ -35,7 +34,7 @@ class GameAreaNode : SKCropNode {
         self.maskNode = background
     }
     
-    private func setupBalls() {
+    func setupBalls() {
         
         self.balls = [BallNode(),BallNode(),BallNode()]
         
@@ -51,7 +50,7 @@ class GameAreaNode : SKCropNode {
         }
     }
     
-    private func setupGoals() {
+    func setupGoals() {
         
         
         let rect0 = CGRect(x: 0, y: 0, width: size.width, height: size.height/16)
@@ -76,7 +75,7 @@ class GameAreaNode : SKCropNode {
         self.goals.forEach { self.addChild($0) }
     }
     
-    private func setupCorners() {
+    func setupCorners() {
         let corners = [CornerNode(), CornerNode(),
                        CornerNode(), CornerNode()]
         
@@ -91,7 +90,7 @@ class GameAreaNode : SKCropNode {
         corners.forEach { self.addChild($0) }
     }
     
-    private func setupPaddles() {
+    func setupPaddles() {
         
         self.paddles = [PaddleNode(withLocation: .bottom, andStyle: .blue),
                         PaddleNode(withLocation: .top, andStyle: .green),
