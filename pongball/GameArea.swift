@@ -92,10 +92,12 @@ class GameAreaNode : SKCropNode {
     
     func setupPaddles() {
         
-        self.paddles = [PaddleNode(withLocation: .bottom, andStyle: .blue),
-                        PaddleNode(withLocation: .top, andStyle: .green),
-                        PaddleNode(withLocation: .left, andStyle: .orange),
-                        PaddleNode(withLocation: .right, andStyle: .purple)]
+        let players = (scene as! GameScene).players
+        
+        self.paddles = [PaddleNode(withLocation: .bottom, andStyle: players[0].style),
+                        PaddleNode(withLocation: .top, andStyle: players[1].style),
+                        PaddleNode(withLocation: .left, andStyle: players[2].style),
+                        PaddleNode(withLocation: .right, andStyle: players[3].style)]
         
         self.paddles.forEach { $0.name = $0.style.rawValue }
         

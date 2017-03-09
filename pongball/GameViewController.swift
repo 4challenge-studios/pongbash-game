@@ -25,7 +25,10 @@ class GameViewController: UIViewController {
 
         multipeerManager.delegate = controllerManager
 
-        presentMenuScene(withPlayers: [Player(),Player(),Player(),Player()])
+        presentMenuScene(withPlayers: [Player(withStyle: .blue),
+                                       Player(withStyle: .green),
+                                       Player(withStyle: .orange),
+                                       Player(withStyle: .purple)])
         //presentScoreboardScene(withPlayers: [Player(),Player(),Player(),Player()])
     }
     
@@ -52,6 +55,7 @@ class GameViewController: UIViewController {
             if let scene = SKScene(fileNamed: "Menu") as? MenuScene {
                 // Set the scale mode to scale to fit the window
                 controllerManager.delegate = scene
+                scene.players = players
                 
                 scene.scaleMode = .aspectFill
                 scene.backgroundColor = UIColor(r: 20, g: 20, b: 20, alpha: 1)
