@@ -93,10 +93,10 @@ class GameAreaNode : SKCropNode {
     
     private func setupPaddles() {
         
-        self.paddles = [PaddleNode(withLocation: .bottom, andStyle: .red),
+        self.paddles = [PaddleNode(withLocation: .bottom, andStyle: .blue),
                         PaddleNode(withLocation: .top, andStyle: .green),
-                        PaddleNode(withLocation: .left, andStyle: .blue),
-                        PaddleNode(withLocation: .right, andStyle: .pink)]
+                        PaddleNode(withLocation: .left, andStyle: .orange),
+                        PaddleNode(withLocation: .right, andStyle: .purple)]
         
         self.paddles.forEach { $0.name = $0.style.rawValue }
         
