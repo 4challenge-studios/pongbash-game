@@ -1,14 +1,12 @@
-//
-//  String+Extensions.swift
-//  pongball
-//
-//  Created by Matheus Martins on 3/9/17.
-//  Copyright © 2017 matheusmcardoso. All rights reserved.
-//
-
-import Foundation
-
 extension String {
+    func slice(from: String, to: String) -> String? {
+        return (range(of: from)?.upperBound).flatMap { substringFrom in
+            (range(of: to, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
+                substring(with: substringFrom..<substringTo)
+            }
+        }
+    }
+    
     var gadgetName: String {
         if (self.slice(from: "i", to: "de")) != nil {
             if "\(self.slice(from: "i", to: "de")!)" == "Phone " {

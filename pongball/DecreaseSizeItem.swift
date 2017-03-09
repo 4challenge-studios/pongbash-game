@@ -22,6 +22,9 @@ class DecreaseSizeItemNode: ItemNode {
         }
     }
     func decreasePaddleSize(paddle:PaddleNode,timeInterval:TimeInterval){
+        
+        if paddle.tiles.count <= 2 { return }
+        
         paddle.decreaseSize()
         Timer.after(timeInterval) {
             paddle.increaseSize()
@@ -32,6 +35,7 @@ class DecreaseSizeItemNode: ItemNode {
         
         let texture = SKTexture(imageNamed: "pickup_size_down")
         self.sprite = SKSpriteNode(texture: texture)
+        self.sprite.zPosition = -1
         // add sprite as child
         self.addChild(self.sprite)
     }

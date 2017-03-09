@@ -22,6 +22,9 @@ class IncreaseSizeItemNode: ItemNode {
         }
     }
     func increasePaddleSize(paddle:PaddleNode,timeInterval:TimeInterval){
+        
+        if paddle.tiles.count >= 4 { return }
+        
         paddle.increaseSize()
         Timer.after(timeInterval) {
             paddle.decreaseSize()
@@ -32,6 +35,7 @@ class IncreaseSizeItemNode: ItemNode {
         
         let texture = SKTexture(imageNamed: "pickup_size_up")
         self.sprite = SKSpriteNode(texture: texture)
+        self.sprite.zPosition = -1
         // add sprite as child
         self.addChild(self.sprite)
     }

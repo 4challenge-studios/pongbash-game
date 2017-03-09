@@ -25,10 +25,17 @@ class GameTimerNode: SKNode {
     }
     
     private func setupTimerLabel(){
+        let timerStringLabel = SKLabelNode(text: "TIMER")
+        timerStringLabel.fontSize = 80
+        timerStringLabel.fontName = "silkscreen"
+        self.addChild(timerStringLabel)
+        timerStringLabel.position = CGPoint(x: 0, y:80)
+        
         self.label = SKLabelNode(fontNamed: "silkscreen")
         let string = String(format: "%2.0f", self.timeInterval)
         self.label.text = string
-        self.label.fontSize = 80
+        self.label.fontSize = 90
+        self.label.position = CGPoint(x: 0, y: -40)
         addChild(self.label)
     }
     
@@ -56,7 +63,7 @@ class GameTimerNode: SKNode {
         let watchNode = watchScene?.childNode(withName: "Watch") as! SKSpriteNode
         watchNode.removeFromParent()
         self.addChild(watchNode)
-        watchNode.position = CGPoint(x: -110, y: 30)//numero mágico
+        watchNode.position = CGPoint(x: 170, y: 100)//numero mágico
     }
     
     
