@@ -29,7 +29,7 @@ class MultipeerManager: NSObject {
     
     var peer = MCPeerID.init(displayName: UIDevice.current.name)
     
-    let serviceTypePadrao = "pong3"
+    let serviceTypePadrao = "pong"
     
     var browser: MCNearbyServiceBrowser
     
@@ -96,7 +96,7 @@ extension MultipeerManager: MCSessionDelegate {
             // PEER CONNECTED
             delegate?.peerConnected(withSession: session, withPeerID: peerID,
                                     withDeviceID: peers[peerID]!,
-                                    withDisplayName: peerID.displayName)
+                                    withDisplayName: peerID.displayName.gadgetName)
             
             do {
                 //try session.send("red".data(using: .utf8, allowLossyConversion: false)!, toPeers: [peerID], with: .reliable)

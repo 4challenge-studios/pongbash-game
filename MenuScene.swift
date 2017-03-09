@@ -38,12 +38,14 @@ class MenuScene: SKScene {
         
         for (i,p) in self.players.enumerated() {
             
+            p.score = 0
+            
             if p.controller == nil { continue }
             
             p.name = p.controller!.displayName
             p.controller?.delegate = self
             p.controller?.sendCommand(p.style.rawValue)
-            self.setLabelText(p.controller!.displayName.gadgetName, atPlayerId: i)
+            self.setLabelText(p.controller!.displayName, atPlayerId: i)
         }
     }
     
