@@ -73,15 +73,15 @@ class GameScene: SKScene {
     }
     
     func setupGameTimer(){
-        self.gameTimer = GameTimerNode(withTime:3) {
+        self.gameTimer = GameTimerNode(withTime:120) {
             self.finishGame()
         }
         self.addChild(self.gameTimer)
-        self.gameTimer.position = CGPoint(x: -0.4*(scene?.size.width)!, y:0.4*(scene?.size.height)!)
+        self.gameTimer.position = CGPoint(x: -0.4*(scene?.size.width)!, y:0.4*((scene?.size.height)!-200))
         let label = SKLabelNode(text: "3")
         label.fontName = "silkscreen"
         label.fontSize = 200
-        label.position = gameArea.position
+        label.position = CGPoint(x:gameArea.position.x,y:gameArea.position.y-50)
         label.zPosition = 3
         self.addChild(label)
         var strings = ["BASH!","1","2","3"]
