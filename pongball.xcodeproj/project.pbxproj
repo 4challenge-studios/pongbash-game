@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1002B5711E71FB0F00F55E37 /* backgroundPongBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 1002B5701E71FB0F00F55E37 /* backgroundPongBall.png */; };
 		1005D2D51E561E5300953EE8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1005D2D41E561E5300953EE8 /* Player.swift */; };
 		1005D2D71E56224A00953EE8 /* GoalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1005D2D61E56224A00953EE8 /* GoalDelegate.swift */; };
 		1010BBA01E717D0E0002F800 /* iphone_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 1010BB9B1E717D0E0002F800 /* iphone_white.png */; };
@@ -60,7 +61,6 @@
 		10D5DF1D1E5F8A4400FFB6A2 /* tile_purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D5DF171E5F8A4400FFB6A2 /* tile_purple.png */; };
 		10D5DF1E1E5F8A4400FFB6A2 /* tile_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D5DF181E5F8A4400FFB6A2 /* tile_red.png */; };
 		10D674921E71A45900364E94 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D674911E71A45900364E94 /* String+Extensions.swift */; };
-		10E1B4571E7026E600A38D58 /* backPongball.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E1B4561E7026E600A38D58 /* backPongball.png */; };
 		10E1B4591E7028CF00A38D58 /* corner_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E1B4581E7028CF00A38D58 /* corner_tile.png */; };
 		10E3E8531E6846C000668102 /* crown.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E3E8521E6846C000668102 /* crown.png */; };
 		10E3E85A1E68553B00668102 /* kick_4_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E3E8551E68553B00668102 /* kick_4_1.png */; };
@@ -149,6 +149,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1002B5701E71FB0F00F55E37 /* backgroundPongBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundPongBall.png; sourceTree = "<group>"; };
 		1005D2D41E561E5300953EE8 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Player.swift; path = ../Player.swift; sourceTree = "<group>"; };
 		1005D2D61E56224A00953EE8 /* GoalDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalDelegate.swift; sourceTree = "<group>"; };
 		1010BB9B1E717D0E0002F800 /* iphone_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_white.png; sourceTree = "<group>"; };
@@ -198,7 +199,6 @@
 		10D5DF171E5F8A4400FFB6A2 /* tile_purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_purple.png; sourceTree = "<group>"; };
 		10D5DF181E5F8A4400FFB6A2 /* tile_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_red.png; sourceTree = "<group>"; };
 		10D674911E71A45900364E94 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		10E1B4561E7026E600A38D58 /* backPongball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backPongball.png; sourceTree = "<group>"; };
 		10E1B4581E7028CF00A38D58 /* corner_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corner_tile.png; sourceTree = "<group>"; };
 		10E3E8521E6846C000668102 /* crown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crown.png; sourceTree = "<group>"; };
 		10E3E8551E68553B00668102 /* kick_4_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kick_4_1.png; sourceTree = "<group>"; };
@@ -443,8 +443,8 @@
 		10E1B4551E7026D300A38D58 /* Background */ = {
 			isa = PBXGroup;
 			children = (
+				1002B5701E71FB0F00F55E37 /* backgroundPongBall.png */,
 				10273A201E71A9CF00F1A8A8 /* backgroundGame.png */,
-				10E1B4561E7026E600A38D58 /* backPongball.png */,
 			);
 			name = Background;
 			sourceTree = "<group>";
@@ -785,6 +785,7 @@
 				10908A891E6D820F00266859 /* ScoreboardElement.sks in Resources */,
 				1031E7A81E5F2F7000E7CB9C /* kick_2_1.png in Resources */,
 				10E6185A1E4FAC4F00462512 /* ball_orange_0.png in Resources */,
+				1002B5711E71FB0F00F55E37 /* backgroundPongBall.png in Resources */,
 				10E618621E4FAC8100462512 /* ball_pink_0.png in Resources */,
 				1031E79E1E5F2CE400E7CB9C /* kick_3_1.png in Resources */,
 				10D5DF191E5F8A4400FFB6A2 /* tile_blue.png in Resources */,
@@ -803,7 +804,6 @@
 				1031E79F1E5F2CE400E7CB9C /* kick_3_2.png in Resources */,
 				10CCA6F01E5C7D9C00891623 /* tile_white.png in Resources */,
 				10E618651E4FAC8100462512 /* ball_pink_3.png in Resources */,
-				10E1B4571E7026E600A38D58 /* backPongball.png in Resources */,
 				D152690A1E6DA7CC00A5448D /* kick.wav in Resources */,
 				10D5DF1E1E5F8A4400FFB6A2 /* tile_red.png in Resources */,
 				10E6186A1E4FACC100462512 /* ball_green_0.png in Resources */,
