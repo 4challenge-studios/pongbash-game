@@ -34,6 +34,7 @@ class MultipeerManager: NSObject {
     var browser: MCNearbyServiceBrowser
     
     var peers: [MCPeerID:String] = [:]
+    var sessions: [String:MCSession] = [:]
     
     override init() {
         browser = MCNearbyServiceBrowser.init(peer: peer, serviceType: serviceTypePadrao)
@@ -46,11 +47,11 @@ class MultipeerManager: NSObject {
 
     }
     
-    lazy var session: MCSession = {
-        let sessao = MCSession.init(peer: self.peer)
-        sessao.delegate = self
-        return sessao
-    }()
+    //lazy var session: MCSession = {
+    //    let sessao = MCSession.init(peer: self.peer)
+    //    sessao.delegate = self
+    //    return sessao
+    //}()
     
 }
 
@@ -58,9 +59,13 @@ extension MultipeerManager: MCNearbyServiceBrowserDelegate {
     
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         
-        if let nome = info?["key"] {
-            peers.updateValue(nome, forKey: peerID)
-        }
+        guard let deviceId = info?["key"] else { return }
+        peers.updateValue(deviceId, forKey: peerID)
+        
+        
+        let session = MCSession(peer: self.peer)
+        session.delegate = self
+        self.sessions[deviceId] = session
         
         self.browser.invitePeer(peerID, to: session, withContext: nil, timeout: 30)
     }
@@ -92,7 +97,6 @@ extension MultipeerManager: MCSessionDelegate {
         
         switch state {
         case .connected:
-            
             // PEER CONNECTED
             delegate?.peerConnected(withSession: session, withPeerID: peerID,
                                     withDeviceID: peers[peerID]!,
@@ -114,6 +118,10 @@ extension MultipeerManager: MCSessionDelegate {
             
             delegate?.peerDisconnected(peer: peers[peerID]!)
             peers.removeValue(forKey: peerID)
+            
+            if let deviceId = peers[peerID] {
+                sessions.removeValue(forKey: deviceId)
+            }
         }
     }
     

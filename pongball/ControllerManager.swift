@@ -89,7 +89,6 @@ class ControllerManager: MultipeerDelegate {
         controller.id = deviceID
         controller.displayName = displayName
         controller.session = session
-        
         controllers.updateValue(controller, forKey: controller.id)
         
         delegate?.controllerManager(self, controllerConnected: controller)
