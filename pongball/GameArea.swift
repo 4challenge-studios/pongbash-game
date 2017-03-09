@@ -123,20 +123,11 @@ class GameAreaNode : SKCropNode {
     
     func setupItemGenerator(){
         self.itemGenerator = Timer.new(every:15.0.second) {
-            let limit = 300
+            let limit = 600
             let item = arc4random() % 2 == 1 ? IncreaseSizeItemNode() : DecreaseSizeItemNode()
-            var x = Int(arc4random()) % limit
-            var y = Int(arc4random()) % limit
-            while (x > limit || x < -limit) &&  (y > limit || y < -limit){
-                x = Int(arc4random()) % limit
-                y = Int(arc4random()) % limit
-                if x % 2 == 0 {
-                    x *= -1
-                }
-                if y % 2 == 1 {
-                    y *= -1
-                }
-            }
+            let x = (Int(arc4random()) % limit) - 300
+            let y = (Int(arc4random()) % limit) - 300
+
             let position = CGPoint(x: Int(x), y: Int(y))
             self.put(item:item, inPosition: position)
         }
