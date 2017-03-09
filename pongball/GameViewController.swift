@@ -108,7 +108,7 @@ class GameViewController: UIViewController {
             scene?.players = players
             
             scene?.onExit = {
-                self.presentMenuScene(withPlayers: scene!.players!)
+                self.presentMenuScene(withPlayers: scene!.players)
             }
             
             scene?.anchorPoint = CGPoint(x: 0.5, y: 0.5)

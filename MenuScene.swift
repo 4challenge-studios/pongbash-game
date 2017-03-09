@@ -38,8 +38,9 @@ class MenuScene: SKScene {
         
         for (i,p) in self.players.enumerated() {
             
-            guard p.controller != nil else { continue }
+            if p.controller == nil { continue }
             
+            p.name = p.controller!.displayName
             p.controller?.delegate = self
             p.controller?.sendCommand(p.style.rawValue)
             self.setLabelText(p.controller!.displayName, atPlayerId: i)
@@ -119,6 +120,7 @@ extension MenuScene: ControllerManagerDelegate, ControllerDelegate {
         for (i,p) in self.players.enumerated() {
             
             if let id = p.controller?.id, id == controller.id {
+                p.name = controller.displayName
                 p.controller = controller
                 p.controller?.delegate = self
                 p.controller?.sendCommand(p.style.rawValue)

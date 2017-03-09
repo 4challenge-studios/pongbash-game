@@ -10,13 +10,23 @@ import SpriteKit
 import GameController
 
 class ScoreboardScene: SKScene {
-    var players:[Player]?
+    var players:[Player] = []
     var isDraw:Bool = false
     
     var onExit = {}
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
+        
+        for (i,p) in self.players.enumerated() {
+            
+            if p.controller == nil { continue }
+            
+            p.name = p.controller!.displayName
+            p.controller?.delegate = self
+            p.controller?.sendCommand(p.style.rawValue)
+        }
+        
         self.setupScoreboard()
     }
     
@@ -41,16 +51,16 @@ class ScoreboardScene: SKScene {
         scoreElements.forEach {
             $0.crown.isHidden = true
         }
-        self.players?.sort{
+        let playersInOrder = self.players.sorted {
             $0.score > $1.score
         }
         for i in 0..<scoreElements.count {
 //            scoreElements[i].playerName.text = players?[i].name
-            scoreElements[i].updatePlayerName((players?[i].name)!)//workaround
-            scoreElements[i].score.text = players?[i].score.description
-            scoreElements[i].tile.texture = players![i].style.tileTexture
+            scoreElements[i].updatePlayerName((playersInOrder[i].name))//workaround
+            scoreElements[i].score.text = playersInOrder[i].score.description
+            scoreElements[i].tile.texture = playersInOrder[i].style.tileTexture
             
-            if scoreElements[i].score.text == (players?.first?.score.description)! {
+            if scoreElements[i].score.text == (playersInOrder.first!.score.description) {
                 scoreElements[i].crown.isHidden = false
             }
         }
@@ -91,5 +101,50 @@ extension ScoreboardScene: SiriRemoteDelegate {
     
     func didRelease(button: SiriRemoteButton) {
 
+    }
+}
+
+extension ScoreboardScene: ControllerManagerDelegate, ControllerDelegate {
+    
+    func controllerManager(_ controllerManager: ControllerManager, controllerConnected controller: Controller) {
+        for (i,p) in self.players.enumerated() {
+            
+            if let id = p.controller?.id, id == controller.id {
+                p.name = controller.displayName
+                p.controller = controller
+                p.controller?.delegate = self
+                p.controller?.sendCommand(p.style.rawValue)
+                return
+            }
+        }
+        
+        for (i,p) in self.players.enumerated() {
+            if p.controller == nil {
+                p.name = controller.displayName
+                p.controller = controller
+                p.controller?.delegate = self
+                p.controller?.sendCommand(p.style.rawValue)
+                break
+            }
+        }
+    }
+    
+    func controllerManager(_ controllerManager: ControllerManager, controllerDisconnected controller: Controller) {
+        
+        for (i,p) in self.players.enumerated() {
+            if p.controller === controller {
+                self.players[i].name = controller.displayName
+                self.players[i].controller = nil
+                break
+            }
+        }
+        
+        print("\(controller.displayName) desconectou!")
+    }
+    
+    func controller(_ controller: Controller, didSendCommand command: ControllerCommand) {
+        if command == .disconnect {
+            
+        }
     }
 }

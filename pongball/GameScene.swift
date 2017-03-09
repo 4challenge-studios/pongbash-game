@@ -235,6 +235,7 @@ extension GameScene: ControllerManagerDelegate, ControllerDelegate {
         for (i,p) in self.players.enumerated() {
             
             if let id = p.controller?.id, id == controller.id {
+                p.name = controller.displayName
                 p.controller = controller
                 p.controller?.delegate = self.gameArea.paddles[i]
                 p.controller?.sendCommand(p.style.rawValue)
@@ -246,10 +247,8 @@ extension GameScene: ControllerManagerDelegate, ControllerDelegate {
             if p.controller == nil {
                 p.name = controller.displayName
                 p.controller = controller
-                p.controller?.delegate = self
                 p.controller?.delegate = self.gameArea.paddles[i]
                 p.controller?.sendCommand(p.style.rawValue)
-                print(p.controller!)
                 break
             }
         }
