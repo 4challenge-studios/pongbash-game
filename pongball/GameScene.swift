@@ -66,7 +66,7 @@ class GameScene: SKScene {
     }
     
     func setupBackground(){
-        let texture = SKTexture(image: #imageLiteral(resourceName: "backPongball.png"))
+        let texture = SKTexture(image: #imageLiteral(resourceName: "backgroundGame.png"))
         let sprite = SKSpriteNode(texture: texture)
         self.addChild(sprite)
         sprite.zPosition = -1
@@ -77,7 +77,7 @@ class GameScene: SKScene {
             self.finishGame()
         }
         self.addChild(self.gameTimer)
-        self.gameTimer.position = CGPoint(x: -0.4*(scene?.size.width)!, y:0.4*((scene?.size.height)!-200))
+        self.gameTimer.position = CGPoint(x: -0.386*(((scene?.size.width)!)), y:0.4*((scene?.size.height)!-200))
         let label = SKLabelNode(text: "3")
         label.fontName = "silkscreen"
         label.fontSize = 200
@@ -120,7 +120,7 @@ class GameScene: SKScene {
         let width = self.size.width
         for i in 0..<self.players.count {
             let scoreLabel = ScoreNode(withOwner:players[i])
-            scoreLabel.position = CGPoint(x:width/3,y:(0.300 - CGFloat(i) * 0.1)*height)
+            scoreLabel.position = CGPoint(x:width/3,y:(0.340 - CGFloat(i) * 0.1)*height)
             
             let texture = self.gameArea.paddles[i].style.tileTexture
             scoreLabel.tileTexture = texture
