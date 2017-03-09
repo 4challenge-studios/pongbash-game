@@ -252,7 +252,7 @@
 		D16045321E4DE8DC0007B4B7 /* ControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerManager.swift; sourceTree = "<group>"; };
 		D16045371E4DF0610007B4B7 /* Updatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
 		D16045391E4DF5B70007B4B7 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
-		D16BB1F61E43917700A2BE0B /* pongball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pongball.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D16BB1F61E43917700A2BE0B /* Pong Bash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pong Bash.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16BB1F91E43917700A2BE0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D16BB1FF1E43917700A2BE0B /* Game.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Game.xcassets; sourceTree = "<group>"; };
 		D16BB2011E43917700A2BE0B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = pongball/GameScene.swift; sourceTree = "<group>"; };
@@ -643,7 +643,7 @@
 		D16BB1F71E43917700A2BE0B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D16BB1F61E43917700A2BE0B /* pongball.app */,
+				D16BB1F61E43917700A2BE0B /* Pong Bash.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -739,7 +739,7 @@
 			);
 			name = pongball;
 			productName = pongball;
-			productReference = D16BB1F61E43917700A2BE0B /* pongball.app */;
+			productReference = D16BB1F61E43917700A2BE0B /* Pong Bash.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -754,7 +754,7 @@
 				TargetAttributes = {
 					D16BB1F51E43917600A2BE0B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = FWD9V5VYJ2;
+						DevelopmentTeam = 93ZH5ZQA23;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1074,11 +1074,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = FWD9V5VYJ2;
+				DEVELOPMENT_TEAM = 93ZH5ZQA23;
 				INFOPLIST_FILE = pongball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.4challenge.pongbash-game";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmcardoso.pongball;
+				PRODUCT_NAME = "Pong Bash";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1090,11 +1090,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = FWD9V5VYJ2;
+				DEVELOPMENT_TEAM = 93ZH5ZQA23;
 				INFOPLIST_FILE = pongball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.4challenge.pongbash-game";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmcardoso.pongball;
+				PRODUCT_NAME = "Pong Bash";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

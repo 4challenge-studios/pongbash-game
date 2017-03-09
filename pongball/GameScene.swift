@@ -85,7 +85,7 @@ class GameScene: SKScene {
         label.zPosition = 3
         self.addChild(label)
         var strings = ["BASH!","1","2","3"]
-        self.startTimer = Timer.after(5.0.seconds) {
+        self.startTimer = Timer.after(4.0.seconds) {
             //label com 3,2,1,BASH!
             label.removeFromParent()
             
