@@ -15,9 +15,9 @@ extension String {
                 var componentes = self.components(separatedBy: " de ")
                 return componentes[1]
             }
-        } else if (self.slice(from: "’", to: "ne")) != nil {
-            if "\(self.slice(from: "’", to: "ne")!)" == "s iPho" {
-                var componentes = self.components(separatedBy: "’s ")
+        } else if (self.slice(from: "'", to: "ne")) != nil {
+            if "\(self.slice(from: "'", to: "ne")!)" == "s iPho" {
+                var componentes = self.components(separatedBy: "'s ")
                 return componentes[0]
             }
         }
