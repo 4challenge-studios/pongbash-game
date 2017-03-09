@@ -43,7 +43,7 @@ class MenuScene: SKScene {
             p.name = p.controller!.displayName
             p.controller?.delegate = self
             p.controller?.sendCommand(p.style.rawValue)
-            self.setLabelText(p.controller!.displayName, atPlayerId: i)
+            self.setLabelText(p.controller!.displayName.gadgetName, atPlayerId: i)
         }
     }
     
