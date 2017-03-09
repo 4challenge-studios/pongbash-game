@@ -205,3 +205,65 @@ extension GameScene: GoalDelegate {
         }
     }
 }
+
+extension GameScene: ControllerManagerDelegate, ControllerDelegate {
+    
+    func controllerManager(_ controllerManager: ControllerManager, controllerConnected controller: Controller) {
+        for (i,p) in self.players.enumerated() {
+            
+            if let id = p.controller?.id, id == controller.id {
+                p.controller = controller
+                p.controller?.delegate = self.gameArea.paddles[i]
+                p.controller?.sendCommand(p.style.rawValue)
+                return
+            }
+        }
+        
+        for (i,p) in self.players.enumerated() {
+            if p.controller == nil {
+                p.name = controller.displayName
+                p.controller = controller
+                p.controller?.delegate = self
+                p.controller?.delegate = self.gameArea.paddles[i]
+                p.controller?.sendCommand(p.style.rawValue)
+                print(p.controller!)
+                break
+            }
+        }
+    }
+    
+    func controllerManager(_ controllerManager: ControllerManager, controllerDisconnected controller: Controller) {
+        
+        for (i,p) in self.players.enumerated() {
+            if p.controller === controller {
+                self.players[i].name = controller.displayName
+                self.players[i].controller = nil
+                break
+            }
+        }
+        
+        print("\(controller.displayName) desconectou!")
+    }
+    
+    func controller(_ controller: Controller, didSendCommand command: ControllerCommand) {
+        if command == .disconnect {
+            
+        }
+    }
+}
+
+extension GameScene: SiriRemoteDelegate {
+    
+    func didPress(button: SiriRemoteButton) {
+        switch(button) {
+        //case .select:
+            //self.menuDelegate?.menuScene(menuScene: self, didPressButton: .play)
+        default:
+            break
+        }
+    }
+    
+    func didRelease(button: SiriRemoteButton) {
+        
+    }
+}

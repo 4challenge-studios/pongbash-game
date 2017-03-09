@@ -75,6 +75,9 @@ class GameViewController: UIViewController {
             let scene = GameScene(size: CGSize(width: 1920, height: 1080))
             scene.players = players
             
+            controllerManager.delegate = scene
+            siriRemoteDelegate = scene
+            
             scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
