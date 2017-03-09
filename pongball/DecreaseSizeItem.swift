@@ -30,7 +30,7 @@ class DecreaseSizeItemNode: ItemNode {
     
     private func setupSprite() {
         
-        let texture = SKTexture(imageNamed: "tile_purple")
+        let texture = SKTexture(imageNamed: "pickup_size_down")
         self.sprite = SKSpriteNode(texture: texture)
         // add sprite as child
         self.addChild(self.sprite)
