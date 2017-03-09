@@ -79,6 +79,34 @@ class PaddleNode : TiledNode {
         }
     }
     
+    func sendToLeft() {
+        let size = CGFloat(self.tiles.count) * self.tileSize.width
+        switch(self.location) {
+        case .bottom:
+            self.position.x = -358
+        case .top:
+            self.position.x = -358 + size
+        case .left:
+            self.position.y = 358
+        case .right:
+            self.position.y = -358
+        }
+    }
+    
+    func sendToRight() {
+        let size = CGFloat(self.tiles.count) * self.tileSize.width
+        switch(self.location) {
+        case .bottom:
+            self.position.x = 358 - size
+        case .top:
+            self.position.x = 358
+        case .left:
+            self.position.y = -358 + size
+        case .right:
+            self.position.y = 358 - size
+        }
+    }
+    
     private func setupKick(withRadius radius:CGFloat) {
         if self.kick?.parent != nil {
             self.kick.removeFromParent()
@@ -170,7 +198,7 @@ extension PaddleNode: Updatable {
             }
         }
         
-        // end intelijumencia artificial
+        // move paddle
         
         if self.moveLeft && self.canMoveLeft() {
             var dx =  -(CGFloat)(deltaTime)*speed*400
@@ -181,6 +209,16 @@ extension PaddleNode: Updatable {
             var dx =  (CGFloat)(deltaTime)*speed*400
             if(self.location == .top) { dx = -dx }
             self.position = self.position.offset(dx: dx*cos(self.zRotation), dy: dx*sin(self.zRotation))
+        }
+        
+        // send paddle back if out of bounds
+        
+        if !self.canMoveLeft() {
+            sendToLeft()
+        }
+        
+        if !self.canMoveRight() {
+            sendToRight()
         }
     }
 }
