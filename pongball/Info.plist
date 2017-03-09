@@ -20,6 +20,13 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>slkscr.ttf</string>
+		<string>slkscrb.ttf</string>
+		<string>slkscre.ttf</string>
+		<string>slkscreb.ttf</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -28,12 +35,5 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Automatic</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>slkscr.ttf</string>
-		<string>slkscrb.ttf</string>
-		<string>slkscre.ttf</string>
-		<string>slkscreb.ttf</string>
-	</array>
 </dict>
 </plist>
