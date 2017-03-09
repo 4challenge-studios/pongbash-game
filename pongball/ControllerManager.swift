@@ -19,8 +19,8 @@ enum ControllerCommand {
     case invalid
     
     static let stringToCommands: [String:ControllerCommand] = [
-        "kick": .kick, "leftDown": .leftDown, "leftUp": .leftUp,
-        "rightDown": .rightDown, "rightUp": .rightUp, "disconnect": .disconnect
+        "kick": .kick, "left_down": .leftDown, "left_up": .leftUp,
+        "right_down": .rightDown, "right_up": .rightUp, "disconnect": .disconnect
     ]
     
     static func fromString(_ string: String) -> ControllerCommand {
