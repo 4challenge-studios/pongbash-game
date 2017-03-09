@@ -25,7 +25,7 @@ class GameViewController: UIViewController {
 
         multipeerManager.delegate = controllerManager
 
-        presentMenuScene()
+        presentMenuScene(withPlayers: [Player(),Player(),Player(),Player()])
         //presentScoreboardScene(withPlayers: [Player(),Player(),Player(),Player()])
     }
     
@@ -43,7 +43,7 @@ class GameViewController: UIViewController {
         }
     }
     
-    func presentMenuScene() {
+    func presentMenuScene(withPlayers players: [Player]) {
         
         playMusic(named: "loop")
         
@@ -104,7 +104,7 @@ class GameViewController: UIViewController {
             scene?.players = players
             
             scene?.onExit = {
-                self.presentMenuScene()
+                self.presentMenuScene(withPlayers: scene!.players!)
             }
             
             scene?.anchorPoint = CGPoint(x: 0.5, y: 0.5)

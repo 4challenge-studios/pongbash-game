@@ -35,6 +35,15 @@ class MenuScene: SKScene {
             let label = iphone.childNode(withName: "label") as! SKLabelNode
             self.setupAnimation(forLabel: label)
         }
+        
+        for (i,p) in self.players.enumerated() {
+            
+            guard p.controller != nil else { continue }
+            
+            p.controller?.delegate = self
+            p.controller?.sendCommand(p.style.rawValue)
+            self.setLabelText(p.controller!.displayName, atPlayerId: i)
+        }
     }
     
     

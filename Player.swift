@@ -17,10 +17,9 @@ class Player {
     
     let style: Style
     
-    init(withController controller:Controller? = nil, withStyle style: Style) {
+    init(withController controller:Controller? = nil, withStyle style: Style = .white) {
         self.controller = controller
         self.name = controller?.displayName ?? "Bot"
         self.style = style
     }
-
 }
