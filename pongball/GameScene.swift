@@ -21,9 +21,10 @@ class GameScene: SKScene {
     var gameArea: GameAreaNode!
     var scoreLabels: [ScoreNode]! = [ScoreNode]()
     var gameTimer:GameTimerNode!
-    
+    var startTime = 3
     weak var gameDelegate: GameDelegate?
-    
+    var startTimer:Timer!
+    var prepareTimer:Timer!
     let audioPlayers: [String:AVAudioPlayer?] = [
         "hit" : GameScene.loadAudioPlayer(withSound: "hit")
     ]
@@ -77,7 +78,29 @@ class GameScene: SKScene {
         }
         self.addChild(self.gameTimer)
         self.gameTimer.position = CGPoint(x: -0.4*(scene?.size.width)!, y:0.4*(scene?.size.height)!)
-        gameTimer.start()
+        let label = SKLabelNode(text: "3")
+        label.fontName = "silkscreen"
+        label.fontSize = 200
+        label.position = gameArea.position
+        label.zPosition = 3
+        self.addChild(label)
+        var strings = ["BASH!","1","2","3"]
+        self.startTimer = Timer.after(5.0.seconds) {
+            //label com 3,2,1,BASH!
+            label.removeFromParent()
+            
+            self.gameTimer.start()
+            self.gameArea.setupBalls()
+        }
+        self.prepareTimer = Timer.every(1.0.seconds) {
+            label.text = strings.popLast()
+            if self.startTime == 0 {
+                self.prepareTimer.invalidate()
+            }
+            self.startTime -= 1
+        }
+        prepareTimer.start()
+        startTimer.start()
     }
     
     func setupGameArea() {
