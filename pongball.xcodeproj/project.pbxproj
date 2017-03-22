@@ -36,7 +36,6 @@
 		10908A8B1E6D823000266859 /* Scoreboard.sks in Resources */ = {isa = PBXBuildFile; fileRef = 10908A8A1E6D823000266859 /* Scoreboard.sks */; };
 		10908A8D1E6D867C00266859 /* ScoreboardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10908A8C1E6D867C00266859 /* ScoreboardElement.swift */; };
 		10A67F381E57670D00AEC5DB /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A67F371E57670D00AEC5DB /* Score.swift */; };
-		10A67F401E5778DF00AEC5DB /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 10A67F3B1E5778DF00AEC5DB /* readme.txt */; };
 		10A67F411E5778DF00AEC5DB /* slkscr.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10A67F3C1E5778DF00AEC5DB /* slkscr.ttf */; };
 		10A67F421E5778DF00AEC5DB /* slkscrb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10A67F3D1E5778DF00AEC5DB /* slkscrb.ttf */; };
 		10A67F431E5778DF00AEC5DB /* slkscre.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10A67F3E1E5778DF00AEC5DB /* slkscre.ttf */; };
@@ -135,7 +134,7 @@
 		10A67F451E57798700AEC5DB /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 8;
-			dstPath = Resources/Fonts;
+			dstPath = Fonts;
 			dstSubfolderSpec = 7;
 			files = (
 				10A67F461E577A9900AEC5DB /* slkscr.ttf in Copy Files */,
@@ -178,7 +177,6 @@
 		10908A8A1E6D823000266859 /* Scoreboard.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scoreboard.sks; sourceTree = "<group>"; };
 		10908A8C1E6D867C00266859 /* ScoreboardElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardElement.swift; sourceTree = "<group>"; };
 		10A67F371E57670D00AEC5DB /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
-		10A67F3B1E5778DF00AEC5DB /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		10A67F3C1E5778DF00AEC5DB /* slkscr.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = slkscr.ttf; sourceTree = "<group>"; };
 		10A67F3D1E5778DF00AEC5DB /* slkscrb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = slkscrb.ttf; sourceTree = "<group>"; };
 		10A67F3E1E5778DF00AEC5DB /* slkscre.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = slkscre.ttf; sourceTree = "<group>"; };
@@ -350,7 +348,6 @@
 		10A67F391E57789600AEC5DB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				10A67F3B1E5778DF00AEC5DB /* readme.txt */,
 				10A67F3C1E5778DF00AEC5DB /* slkscr.ttf */,
 				10A67F3D1E5778DF00AEC5DB /* slkscrb.ttf */,
 				10A67F3E1E5778DF00AEC5DB /* slkscre.ttf */,
@@ -831,7 +828,6 @@
 				10E6187C1E4FAD3900462512 /* ball_red_0.png in Resources */,
 				10D5DF1B1E5F8A4400FFB6A2 /* tile_orange.png in Resources */,
 				10E618761E4FAD0000462512 /* ball_purple_2.png in Resources */,
-				10A67F401E5778DF00AEC5DB /* readme.txt in Resources */,
 				D1DBCD1A1E7177390059A79A /* pickup_size_down.png in Resources */,
 				D1C22DD41E67953500F65449 /* watch_4.png in Resources */,
 				10E3E85A1E68553B00668102 /* kick_4_1.png in Resources */,
